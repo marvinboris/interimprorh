@@ -46,7 +46,7 @@ export function InputImage({
         <div className="flex flex-col gap-2">
           <Button
             onClick={onClear}
-            color="outline-accent"
+            color="outline-red"
             className="w-20 md:w-[111px] flex-none h-8 md:h-[38px] text-sm md:text-base font-semibold leading-normal"
           >
             Remove
