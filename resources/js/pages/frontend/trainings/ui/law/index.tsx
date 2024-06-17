@@ -32,7 +32,7 @@ export default function Law() {
         </div>
 
         <div>
-          <Frame src="/images/6fa015d31903931d9f9e8c057c569413.png" />
+          <Frame src="/images/6fa015d31903931d9f9e8c057c569413.webp" />
         </div>
       </div>
     </Section>

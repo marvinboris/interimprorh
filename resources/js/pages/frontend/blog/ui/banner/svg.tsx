@@ -79,7 +79,7 @@ export default function Svg() {
           id="image0_0_1"
           width="1280"
           height="500"
-          xlinkHref="/images/b97559634d9578f235b2d2a7975cc3cc.png"
+          xlinkHref="/images/b97559634d9578f235b2d2a7975cc3cc.webp"
         />
       </defs>
     </svg>

@@ -8,7 +8,7 @@ export const getTeam = async () => {
       name: "Anna Kovalenkova",
       job: `Head of Phuket office 
                 International Investment Department`,
-      photo: "/images/5c9816c6fee8642c601631facc73367b.png",
+      photo: "/images/5c9816c6fee8642c601631facc73367b.webp",
     },
     {
       id: uuidv4(),
@@ -16,14 +16,14 @@ export const getTeam = async () => {
       job: `Senior Consultant 
                 International Investment Department 
                 `,
-      photo: "/images/0f5593a781376b29fa5563177301c78a.png",
+      photo: "/images/0f5593a781376b29fa5563177301c78a.webp",
     },
     {
       id: uuidv4(),
       name: "Zheneveva Borovskaia",
       job: `Senior consultant 
                 International Investment Department`,
-      photo: "/images/cbf9218a7f99e6bdeb2e99476246ff81.png",
+      photo: "/images/cbf9218a7f99e6bdeb2e99476246ff81.webp",
     },
   ];
 

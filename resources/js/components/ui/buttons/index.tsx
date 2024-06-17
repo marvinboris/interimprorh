@@ -55,7 +55,7 @@ export function Button({
   }
 
   return (
-    <button {...props} type={type} className={className}>
+    <button role="button" {...props} type={type} className={className}>
       {child}
     </button>
   );

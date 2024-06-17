@@ -8,7 +8,7 @@ export default function Accounting() {
     <Section>
       <div className="grid grid-cols-2">
         <div>
-          <Frame src="/images/518fe64bd599e9cf9f44f3562c3ca322.png" />
+          <Frame src="/images/518fe64bd599e9cf9f44f3562c3ca322.webp" />
         </div>
 
         <div>

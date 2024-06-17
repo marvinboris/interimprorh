@@ -1,6 +1,6 @@
 export function Polygon1({
-  mainSrc = "/images/83af4014eb54c12bdec949bf4ce6e34a.png",
-  subSrc = "/images/b1bfa46b7b9306ff22619f057e0dd5ac.png",
+  mainSrc = "/images/83af4014eb54c12bdec949bf4ce6e34a.webp",
+  subSrc = "/images/b1bfa46b7b9306ff22619f057e0dd5ac.webp",
   ...props
 }: React.ComponentProps<"svg"> & {
   mainSrc?: string;

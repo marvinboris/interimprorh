@@ -10,7 +10,13 @@ class NewsController extends Controller
 {
     public function index()
     {
-        return News::all();
+        $count = request()->count;
+
+        $data = News::latest();
+
+        if ($count) $data = $data->limit($count);
+
+        return $data->get();
     }
 
     public function show($id)

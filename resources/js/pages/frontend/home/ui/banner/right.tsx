@@ -1,6 +1,6 @@
 export default function Right() {
   return (
-    <div className="w-2/5 max-h-[480px] overflow-clip flex-none">
+    <div className="w-2/5 max-h-[480px] flex-none">
       <svg
         width="635"
         height="755"
@@ -202,7 +202,7 @@ export default function Right() {
             id="image0_0_1"
             width="4096"
             height="2731"
-            xlinkHref="/images/32bb2015ba7e26cf240e2d39e161a98e.png"
+            xlinkHref="/images/32bb2015ba7e26cf240e2d39e161a98e.webp"
           />
         </defs>
       </svg>

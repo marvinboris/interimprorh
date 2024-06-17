@@ -157,6 +157,7 @@ export function useJobs() {
 export function useLatestNews() {
     return useFetch<News[]>({
         resource: "news",
+        params: { count: 3 },
     });
 }
 

@@ -120,7 +120,7 @@ export default function Polygon() {
           id="image0_85_2682"
           width="4096"
           height="2731"
-          xlinkHref="/images/501003e1ece89d75805632293d2f030e.png"
+          xlinkHref="/images/501003e1ece89d75805632293d2f030e.webp"
         />
       </defs>
     </svg>

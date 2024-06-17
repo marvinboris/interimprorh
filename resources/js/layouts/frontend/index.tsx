@@ -10,7 +10,7 @@ export function LayoutFrontend() {
       <header className="flex items-center h-[90px] sticky top-0 bg-white/90 backdrop-blur z-50">
         <div className="container mx-auto flex items-center">
           <div className="mr-auto">
-            <Link to="/">
+            <Link to="/" aria-label="Logo Interim Pro RH">
               <Logo />
             </Link>
           </div>

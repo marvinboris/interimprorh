@@ -14,7 +14,7 @@ export function Header({
       {...props}
     >
       <img
-        src="/images/0f33892c78cf195324cdcb3b5592aabe.png"
+        src="/images/0f33892c78cf195324cdcb3b5592aabe.webp"
         alt="page header"
         className="size-full absolute inset-0 -z-20 object-cover"
       />

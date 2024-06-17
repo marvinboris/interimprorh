@@ -34,7 +34,7 @@ class Admin extends Authenticatable
 
     public function getPhotoAttribute($value)
     {
-        return $value ? public_path($this->directory . $value) : 'https://dummyimage.com/100.png/09f/fff';
+        return $value ? public_path($this->directory . $value) : 'https://dummyimage.com/100.webp/09f/fff';
     }
 
     public function language()

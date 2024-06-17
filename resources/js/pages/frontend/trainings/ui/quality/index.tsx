@@ -8,7 +8,7 @@ export default function Quality() {
     <Section>
       <div className="grid grid-cols-2">
         <div>
-          <Frame src="/images/7692093c7321875bfd1d4708872c72bd.png" />
+          <Frame src="/images/7692093c7321875bfd1d4708872c72bd.webp" />
         </div>
 
         <div>

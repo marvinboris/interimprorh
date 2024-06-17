@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             TeamMemberSeeder::class,
             TestimonySeeder::class,
+            NewsSeeder::class,
         ]);
     }
 }

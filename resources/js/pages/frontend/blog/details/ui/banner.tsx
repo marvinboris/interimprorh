@@ -4,7 +4,7 @@ export default function Banner() {
   return (
     <div className="rounded-[20px] h-80 relative overflow-clip z-0 after:absolute after:inset-0 after:-z-10 after:bg-gradient-to-t after:from-black/70 after:to-transparent p-11 text-white flex items-end">
       <img
-        src="/images/56b64671b604c88829d2fc814ee73dfb.png"
+        src="/images/56b64671b604c88829d2fc814ee73dfb.webp"
         alt="post banner"
         className="absolute inset-0 size-full object-cover -z-20"
       />

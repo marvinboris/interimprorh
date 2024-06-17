@@ -8,7 +8,7 @@ export default function Communication() {
     <Section>
       <div className="grid grid-cols-2">
         <div>
-          <Frame src="/images/35483ef05bd9a822e47f67c32b1bbb08.png" />
+          <Frame src="/images/35483ef05bd9a822e47f67c32b1bbb08.webp" />
         </div>
 
         <div>

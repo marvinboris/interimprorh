@@ -34,7 +34,7 @@ export default function Career() {
           </div>
         </div>
 
-        <div className="overflow-clip max-h-[432px]">
+        <div className="max-h-[432px]">
           <Svg className="-mt-52 -ml-28" />
         </div>
       </div>
