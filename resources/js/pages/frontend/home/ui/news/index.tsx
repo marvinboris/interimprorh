@@ -22,12 +22,12 @@ export default function News() {
 
             <Section>
                 <div>
-                    <div className="flex items-center">
-                        <SectionTitle big>
+                    <div className="lg:flex items-center">
+                        <SectionTitle big className="text-center lg:text-left">
                             Nos <span>Annonces</span>
                         </SectionTitle>
 
-                        <div className="ml-auto flex gap-6">
+                        <div className="ml-auto hidden lg:flex gap-6">
                             <button
                                 role="button"
                                 aria-label="Previous"
@@ -45,18 +45,18 @@ export default function News() {
                         </div>
                     </div>
 
-                    <div className="font-medium text-2xl">
+                    <div className="font-medium text-center lg:text-left text-xl lg:text-2xl">
                         Restez a la fleur de l’information
                     </div>
                 </div>
 
-                <div className="mt-14 grid grid-cols-3 gap-7">
+                <div className="lg:mt-14 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-7">
                     {news?.map((news) => (
                         <ServiceBlock key={"news-block-" + news.id} {...news} />
                     ))}
                 </div>
 
-                <div className="mt-16 text-center">
+                <div className="mt-8 lg:mt-16 text-center">
                     <Link to="/blog">
                         <Button size="xl" color="light" div>
                             <span>Voir plus</span>

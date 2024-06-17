@@ -7,7 +7,7 @@ export default function Cards() {
 
     if (loading) return <Loading />;
     return (
-        <Section className="flex flex-wrap justify-center *:min-h-80 *:w-[calc((100%/3)-16px)] gap-4 pb-20">
+        <Section className="flex flex-wrap flex-col lg:flex-row justify-center lg:*:min-h-80 lg:*:w-[calc((100%/3)-16px)] gap-4 pb-20">
             {skills?.map((skill, index) => (
                 <Block key={"skill-" + skill.id + "-" + index} {...skill} />
             ))}

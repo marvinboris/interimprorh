@@ -9,7 +9,7 @@ export function LayoutUser() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="flex items-center h-[90px] sticky top-0 bg-white/90 backdrop-blur z-50">
-        <div className="container mx-auto flex items-center">
+        <div className="container-auto flex items-center">
           <div className="mr-auto">
             <Link to="/">
               <Logo />

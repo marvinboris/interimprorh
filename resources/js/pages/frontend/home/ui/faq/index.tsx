@@ -22,13 +22,13 @@ export default function Faq() {
             </TransparentTitle>
 
             <Section>
-                <SectionTitle big>
+                <SectionTitle big className="text-center lg:text-left">
                     Frequently
                     <br />
                     <span>asked questions</span>
                 </SectionTitle>
 
-                <div className="mt-14 gap-x-14 grid grid-cols-2">
+                <div className="mt-4 lg:mt-14 gap-x-4 lg:gap-x-14 grid grid-cols-1 lg:grid-cols-2">
                     <div>
                         {faq?.map((faq, index) => (
                             <Card
@@ -44,7 +44,7 @@ export default function Faq() {
                         ))}
                     </div>
 
-                    <div className="rounded-lg bg-primary/5 pt-10 px-12 pb-3 relative">
+                    <div className="hidden lg:block rounded-lg bg-primary/5 pt-4 lg:pt-10 px-4 lg:px-12 pb-6 relative">
                         <div className="absolute bottom-4 right-4 text-base font-bold">
                             {currentIndex + 1}/{faq?.length}
                         </div>
@@ -53,14 +53,14 @@ export default function Faq() {
                             {selected?.question}
                         </div>
 
-                        <div className="h-px mt-9 mb-6 bg-neutral-200" />
+                        <div className="h-px mt-4 lg:mt-9 mb-4 lg:mb-6 bg-neutral-200" />
 
-                        <div className="font-medium text-lg">
+                        <div className="font-medium lg:text-lg">
                             {selected?.answer}
                         </div>
                     </div>
 
-                    <div className="mt-8 flex gap-6">
+                    <div className="mt-8 flex gap-6 justify-center lg:justify-start">
                         <button
                             role="button"
                             aria-label="Previous"

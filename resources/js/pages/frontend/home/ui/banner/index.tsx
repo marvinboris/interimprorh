@@ -6,20 +6,20 @@ import { Link } from "react-router-dom";
 
 export default function Banner() {
     return (
-        <div className="pt-32 pb-4 container mx-auto flex relative">
-            <div>
-                <h1 className="font-bold text-6xl/tight">
+        <div className="pt-8 lg:pt-32 pb-24 lg:pb-4 container-auto flex flex-col lg:flex-row relative overflow-clip lg:overflow-visible">
+            <div className="order-2 lg:order-1">
+                <h1 className="font-bold text-3xl/tight lg:text-6xl/tight text-center lg:text-left">
                     Unlock your next{" "}
                     <span className="text-primary">career opportunity</span>{" "}
                     today
                 </h1>
 
-                <p className="w-3/5 mt-5 text-xl">
+                <p className="lg:w-3/5 mt-5 text-lg lg:text-xl text-center lg:text-left">
                     Find your dream job today. At Interim Pro RH discover
                     opportunities that match your skills and ambitions.
                 </p>
 
-                <div className="flex gap-6 mt-10">
+                <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 mt-10 *:*:w-full">
                     <Link to="/search">
                         <Button size="xl" div>
                             <SearchNormal1 className="size-6" />
@@ -35,7 +35,7 @@ export default function Banner() {
                     </Link>
                 </div>
 
-                <div className="mt-14 flex items-center gap-7">
+                <div className="mt-10 lg:mt-14 flex items-center gap-14 lg:gap-0">
                     <div className="flex ml-7 *:-ml-7">
                         <Avatar
                             alt="Avatar 1"
@@ -56,7 +56,7 @@ export default function Banner() {
                         <button
                             role="button"
                             aria-label="More users"
-                            className="size-14 rounded-full flex items-center justify-center bg-primary text-white"
+                            className="size-14 flex-none rounded-full flex items-center justify-center bg-primary text-white"
                         >
                             <Add className="size-7" />
                         </button>
@@ -74,13 +74,13 @@ export default function Banner() {
             <Right />
 
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-                <button
-                    role="button"
+                <a
+                    href="#about"
                     aria-label="Scroll to next section"
                     className="bg-primary text-white w-8 h-14 rounded-full flex items-center flex-col justify-end p-2 border border-white/40"
                 >
                     <ArrowDown2 className="size-3.5" />
-                </button>
+                </a>
             </div>
         </div>
     );

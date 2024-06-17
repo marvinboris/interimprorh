@@ -2,6 +2,8 @@ import { API_URL } from "@/config";
 import {
     Applicant,
     Company,
+    CompanyActivity,
+    CompanyType,
     Contact,
     Diploma,
     FAQ,
@@ -19,6 +21,8 @@ type ToData<T> = T | T[];
 type ResUnit =
     | Applicant
     | Company
+    | CompanyActivity
+    | CompanyType
     | Contact
     | Diploma
     | FAQ
@@ -35,6 +39,8 @@ export type FromData<T extends RequestData> = T extends Array<infer U> ? U : T;
 export type Resource =
     | "applicants"
     | "companies"
+    | "company_activities"
+    | "company_types"
     | "contacts"
     | "diplomas"
     | "faqs"
@@ -62,7 +68,7 @@ export async function fetch<T extends RequestData>({
         const res = await window.fetch(
             `${
                 "/api/" +
-                resource +
+                resource.split("_").join("-") +
                 ((method === "PUT" || method === "DELETE") && body?.id
                     ? `${body?.id}/`
                     : "")

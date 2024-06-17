@@ -1,6 +1,7 @@
 import { getCompanyTypes, getLanguages } from "@/data";
 import {
     Applicant,
+    CompanyActivity,
     CompanyType,
     Diploma,
     FAQ,
@@ -37,30 +38,29 @@ export function useCompanies() {
 }
 
 export function useCompanyTypes() {
-    const [loading, setLoading] = React.useState(false);
-    const [companyTypes, setCompanyTypes] = React.useState<CompanyType[]>();
-
-    React.useEffect(() => {
-        const handle = async () => {
-            setLoading(true);
-
-            try {
-                const companyTypes = await getCompanyTypes();
-                setCompanyTypes(companyTypes);
-                setLoading(false);
-            } catch (error) {
-                console.log(error);
-                setLoading(false);
-            }
-        };
-
-        handle();
-    }, []);
+    const { loading, data: companyTypes } = useFetch<CompanyType[]>({
+        resource: "company_types",
+    });
 
     return {
         loading,
         companyTypes,
         options: companyTypes?.map((company) => ({
+            value: company.id,
+            label: company.name,
+        })),
+    };
+}
+
+export function useCompanyActivities() {
+    const { loading, data: companyActivities } = useFetch<CompanyActivity[]>({
+        resource: "company_activities",
+    });
+
+    return {
+        loading,
+        companyActivities,
+        options: companyActivities?.map((company) => ({
             value: company.id,
             label: company.name,
         })),

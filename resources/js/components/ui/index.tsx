@@ -1,3 +1,4 @@
+export * from "./alert";
 export * from "./buttons";
 export * from "./flag";
 export * from "./form";

@@ -1,13 +1,18 @@
 export type Company = {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  createdIn: string;
-  contactPerson: string;
+    id: string;
+    name: string;
+    email: string;
+    phone: string;
+    createdIn: string;
+    contactPerson: string;
 };
 
 export type CompanyType = {
-  id: string;
-  name: string;
+    id: string;
+    name: string;
+};
+
+export type CompanyActivity = {
+    id: string;
+    name: string;
 };

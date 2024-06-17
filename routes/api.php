@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CompanyActivityController;
 use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContractController;
@@ -17,11 +18,15 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\TestimonyController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index']);
 
+Route::post('/register', [AuthController::class, 'register']);
+
 Route::apiResource('applicants', ApplicantController::class);
 Route::apiResource('companies', CompanyController::class);
+Route::apiResource('company-activities', CompanyActivityController::class);
 Route::apiResource('company-types', CompanyTypeController::class);
 Route::apiResource('contacts', ContactController::class);
 Route::apiResource('contracts', ContractController::class);
@@ -35,4 +40,3 @@ Route::apiResource('skills-hr', SkillHRController::class);
 Route::apiResource('subscribers', SubscriberController::class);
 Route::apiResource('team-members', TeamMemberController::class);
 Route::apiResource('testimonies', TestimonyController::class);
-

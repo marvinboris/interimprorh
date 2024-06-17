@@ -28,6 +28,6 @@ class SkillHRSeeder extends Seeder
             ],
         ];
 
-        DB::table('skillhrs')->insert($skills);
+        DB::table('skill_h_r_s')->insert($skills);
     }
 }

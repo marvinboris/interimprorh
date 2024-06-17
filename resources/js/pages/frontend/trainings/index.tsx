@@ -10,7 +10,7 @@ export function PageTrainings() {
   return (
     <>
       <Header>Nos formations</Header>
-      <div className="*:pt-20 pb-20">
+      <div className="pt-12 *:pb-24">
         <HR />
         <Accounting />
         <Logistics />

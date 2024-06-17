@@ -15,12 +15,12 @@ export default function Testimonies() {
                 Ils parlent <span>de nous</span>
             </SectionTitle>
 
-            <h3 className="font-medium text-2xl mt-2">
+            <h3 className="font-medium text-xl lg:text-2xl mt-2">
                 Témoignages de plusieurs utilisateurs
             </h3>
 
-            <div className="overflow-auto pb-4 mt-14">
-                <div className="container mx-auto flex gap-4">
+            <div className="overflow-auto lg:pb-4 mt-4 lg:mt-14">
+                <div className="container-auto flex flex-col lg:flex-row gap-4">
                     {testimonies?.map((testimony, index) => (
                         <Block
                             key={
@@ -32,7 +32,7 @@ export default function Testimonies() {
                 </div>
             </div>
 
-            <div className="mt-12 flex gap-6 justify-center">
+            <div className="mt-12 hidden lg:flex gap-6 justify-center">
                 <button
                     role="button"
                     aria-label="Previous"
