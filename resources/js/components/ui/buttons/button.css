@@ -101,7 +101,7 @@
   }
 
   &.btn-light {
-    @apply bg-gray-200 text-gray-500 disabled:bg-gray-200 hover:bg-gray-100 active:bg-gray-200 focus-visible:outline-gray-200 !important;
+    @apply bg-stone-200 text-stone-500 disabled:bg-stone-200 hover:bg-stone-100 active:bg-stone-200 focus-visible:outline-stone-200 !important;
   }
 
   &.btn-slate {

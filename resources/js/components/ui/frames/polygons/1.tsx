@@ -7,15 +7,13 @@ export function Polygon1({
     subSrc?: string;
 }) {
     return (
-        <div className="relative lg:static h-[320px] lg:h-auto">
+        <div className="flex justify-center items-center h-[320px] lg:h-auto lg:max-h-[480px]">
             <svg
-                width="811"
-                height="913"
                 viewBox="0 0 811 913"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
-                className="w-full lg:-mt-28 absolute lg:static -translate-y-52 lg:translate-y-0 scale-125 lg:scale-100"
+                className="size-full scale-[1.85] lg:scale-150 xl:scale-125 mt-[65%] sm:mt-[40%] lg:mt-[70%] xl:mt-[60%]"
                 {...props}
             >
                 <path

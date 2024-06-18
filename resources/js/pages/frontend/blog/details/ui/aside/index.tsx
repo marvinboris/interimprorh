@@ -12,7 +12,7 @@ export default function Aside() {
 
   if (loading) return <Loading />;
   return (
-    <aside className="space-y-10 w-96">
+    <aside className="space-y-10 w-96 mx-auto">
       <div className="rounded-2xl bg-primary/5 p-5">
         <div className="text-2xl font-bold">Follow us on :</div>
         <p className="text-sm text-neutral-500">
@@ -42,7 +42,7 @@ export default function Aside() {
           <div className="text-2xl font-bold">Recent post</div>
 
           <div className="flex gap-2 ml-auto *:size-8 *:flex *:items-center *:justify-center *:rounded-full">
-            <button className="bg-stone-50">
+            <button className="bg-stone-100">
               <ArrowLeft className="size-3.5" />
             </button>
 

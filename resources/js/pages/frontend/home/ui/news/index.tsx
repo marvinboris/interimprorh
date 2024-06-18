@@ -50,7 +50,7 @@ export default function News() {
                     </div>
                 </div>
 
-                <div className="lg:mt-14 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-7">
+                <div className="mt-8 lg:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-7">
                     {news?.map((news) => (
                         <ServiceBlock key={"news-block-" + news.id} {...news} />
                     ))}

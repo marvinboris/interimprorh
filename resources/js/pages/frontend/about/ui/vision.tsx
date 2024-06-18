@@ -8,7 +8,7 @@ export default function Vision() {
             <Section>
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-24">
                     <div>
-                        <SectionTitle className="text-center lg:text-left">
+                        <SectionTitle>
                             Notre <span>vision</span>
                         </SectionTitle>
 

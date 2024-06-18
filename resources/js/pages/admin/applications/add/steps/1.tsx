@@ -29,13 +29,13 @@ export function Step1() {
         options={diplomaOptions}
       />
       <Input
-        name="salaryHigh"
+        name="salary_high"
         type="number"
         label="Salary"
         placeholder="High"
         addon={
           <input
-            name="salaryLow"
+            name="salary_low"
             type="number"
             placeholder="Low"
             className="flex-1 !outline-none !border-0 !ring-0 mx-3"

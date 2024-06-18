@@ -1,14 +1,12 @@
 export default function Right() {
     return (
-        <div className="w-full lg:w-2/5 order-1 lg:order-2 h-[400px] lg:h-[480px] flex-none relative lg:static">
+        <div className="w-full lg:w-2/5 order-1 lg:order-2 h-[400px] lg:max-h-[480px] flex-none relative lg:static">
             <svg
-                width="635"
-                height="755"
                 viewBox="0 0 635 755"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
-                className="-mt-16 absolute inset-0 lg:static -translate-x-28 lg:translate-x-0 -translate-y-20 lg:translate-y-0 scale-[.78] lg:scale-100"
+                className="size-full mt-16 ml-8 lg:ml-0 scale-[1.5] lg:scale-[2]"
             >
                 <g filter="url(#filter0_d_0_1)">
                     <path

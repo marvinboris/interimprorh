@@ -31,7 +31,7 @@ export default function Block({
                 alt={name}
                 className={cn(
                     "border-8 border-stone-100 rounded-full object-cover",
-                    index !== 1 ? "size-32" : "size-44"
+                    active ? "size-44" : "size-32"
                 )}
             />
 

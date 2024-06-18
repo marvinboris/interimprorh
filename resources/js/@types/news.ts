@@ -5,6 +5,6 @@ export type News = {
   photo: string;
   link: string;
   slug: string;
-  date: string;
+  created_at: string;
   comments: number;
 };

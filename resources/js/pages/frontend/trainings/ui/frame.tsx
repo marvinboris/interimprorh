@@ -6,13 +6,11 @@ export default function Frame({
     return (
         <div className="relative lg:static h-[320px] lg:h-auto">
             <svg
-                width="537"
-                height="434"
                 viewBox="0 0 537 434"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
-                className="absolute lg:static scale-[.67] lg:scale-100 -translate-x-28 lg:translate-x-0"
+                className="size-full absolute lg:static top-1/2 left-1/2 -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:translate-y-0"
                 {...props}
             >
                 <g style={{ mixBlendMode: "multiply" }} opacity="0.4">

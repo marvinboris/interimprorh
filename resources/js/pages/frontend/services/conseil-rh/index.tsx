@@ -6,7 +6,7 @@ import Cards from "./ui/cards";
 
 export function PageServiceHR() {
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-100">
       <Header>Conseil RH</Header>
       <Recruitment />
       <Training />

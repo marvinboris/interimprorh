@@ -11,7 +11,7 @@ export default function HR() {
                 <br /> <span>ressources humaines</span>
             </SectionTitle>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 mt-4 lg:mt-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4 lg:mt-12">
                 <div className="lg:text-lg text-justify">
                     <p>
                         La formation en Gestion des Ressources Humaines (GRH)

@@ -34,7 +34,7 @@
             @apply flex relative min-h-full z-10 p-3 md:p-8 items-center justify-center;
 
             .App-overlay {
-                @apply absolute inset-0 -z-10 backdrop-blur-[7px] bg-stone-50/25;
+                @apply absolute inset-0 -z-10 backdrop-blur-[7px] bg-stone-100/25;
             }
         }
     }

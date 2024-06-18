@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Logistics() {
     return (
         <Section>
-            <div className="grid lg:grid-cols-2">
+            <div className="grid lg:grid-cols-2 gap-8">
                 <div>
                     <SectionTitle>
                         Logistique <span>&</span>

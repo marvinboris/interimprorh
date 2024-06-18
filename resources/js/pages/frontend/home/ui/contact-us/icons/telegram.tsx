@@ -8,7 +8,7 @@ export default function Telegram(props: React.ComponentProps<"svg">) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g clip-path="url(#clip0_71_2224)">
+      <g clipPath="url(#clip0_71_2224)">
         <path
           d="M15 10.6255L11 14.6255L17 20.6255L21 4.62549L3 11.6255L7 13.6255L9 19.6255L12 15.6255"
           stroke="#0093E3"

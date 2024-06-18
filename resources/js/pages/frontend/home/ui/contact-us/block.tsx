@@ -17,7 +17,7 @@ export default function Block({
   }[type];
 
   return (
-    <div className="w-52 h-48 flex-none py-8 px-4 flex flex-col bg-stone-50 hover:bg-white border-2 border-neutral-200 hover:shadow-lg rounded-3xl transition-all duration-100">
+    <div className="w-52 h-48 flex-none py-8 px-4 flex flex-col bg-stone-100 hover:bg-white border-2 border-neutral-200 hover:shadow-lg rounded-3xl transition-all duration-100">
       <div className="flex gap-2.5">
         <div
           className={cn(

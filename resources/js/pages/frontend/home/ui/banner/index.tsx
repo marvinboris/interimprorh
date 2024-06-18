@@ -19,7 +19,7 @@ export default function Banner() {
                     opportunities that match your skills and ambitions.
                 </p>
 
-                <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 mt-10 *:*:w-full">
+                <div className="flex flex-col justify-center lg:justify-start sm:flex-row gap-3 lg:gap-6 mt-10 *:*:w-full">
                     <Link to="/search">
                         <Button size="xl" div>
                             <SearchNormal1 className="size-6" />
@@ -35,7 +35,7 @@ export default function Banner() {
                     </Link>
                 </div>
 
-                <div className="mt-10 lg:mt-14 flex items-center gap-14 lg:gap-0">
+                <div className="mt-10 lg:mt-14 flex items-center justify-center lg:justify-start gap-4 lg:gap-0">
                     <div className="flex ml-7 *:-ml-7">
                         <Avatar
                             alt="Avatar 1"
@@ -62,7 +62,7 @@ export default function Banner() {
                         </button>
                     </div>
 
-                    <p className="text-body">
+                    <p className="text-body flex-1 sm:flex-none lg:flex-1">
                         More than{" "}
                         <span className="font-bold">12,000 thousand</span> users
                         <br />

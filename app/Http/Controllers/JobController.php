@@ -11,7 +11,9 @@ class JobController extends Controller
 {
     public function index()
     {
-        return Job::all();
+        return Job::all()->map(function ($job) {
+            return array_merge($job->toArray(), ['company' => $job->company->name, 'contract' => $job->contract->name]);
+        });
     }
 
     public function show($id)

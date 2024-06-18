@@ -46,7 +46,7 @@ export default function Footer() {
 
     return (
         <footer className="bg-zinc-800 text-white divide-y divide-neutral-200">
-            <div className="container-auto flex flex-col lg:flex-row gap-10 pt-9 pb-14">
+            <div className="container-auto flex flex-col sm:flex-row flex-wrap lg:flex-nowrap gap-10 pt-9 pb-14">
                 <div className="flex-1">
                     <Logo white />
 

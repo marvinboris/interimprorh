@@ -49,12 +49,12 @@ export default function Header() {
 
   if (loading) return <Loading />;
   return (
-    <header className="pt-8 pb-11 bg-stone-50/50">
-      <Section className="space-y-6">
+    <header className="pt-4 lg:pt-8 pb-11 bg-stone-100/50">
+      <Section className="space-y-4 lg:space-y-6">
         <h1 className="text-2xl font-bold">Job search</h1>
 
-        <div className="border border-neutral-200 bg-white rounded-xl p-3 gap-3 flex">
-          <div className="grid grid-cols-3 gap-3 w-3/5 divide-x-4 divide-neutral-200 *:*:*:*:*:!border-0 *:pl-3">
+        <div className="border border-neutral-200 bg-white rounded-xl p-3 gap-3 flex flex-col lg:flex-row">
+          <div className="grid lg:grid-cols-3 gap-3 lg:w-3/5 lg:divide-x-4 divide-neutral-200 *:*:*:*:*:!border-0 lg:*:pl-3">
             <div>
               <CustomSelect
                 options={[]}
@@ -89,7 +89,7 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="ml-auto flex gap-3">
+          <div className="lg:ml-auto flex flex-col lg:flex-row gap-3">
             <Button
               color="link"
               onClick={onClearFilter}
@@ -103,7 +103,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex gap-3">
+        <div className="grid grid-cols-2 lg:flex gap-3">
           {allFilters.map((filter) => (
             <div
               key={"filter-" + filter}
@@ -111,7 +111,7 @@ export default function Header() {
                 "border h-11 min-w-32 flex items-center px-4 rounded-lg text-sm cursor-pointer",
                 activeFilter === filter
                   ? "border-primary/20 text-primary bg-primary/5 font-semibold"
-                  : "border-neutral-200 bg-stone-50 font-medium"
+                  : "border-neutral-200 bg-stone-100 font-medium"
               )}
               onClick={() =>
                 setActiveFilter(activeFilter === filter ? undefined : filter)
@@ -121,7 +121,7 @@ export default function Header() {
             </div>
           ))}
 
-          <div className="ml-auto text-lg">
+          <div className="lg:ml-auto lg:text-lg col-span-2">
             Search results :{" "}
             <span className="text-primary font-medium underline">
               {data.length} jobs found

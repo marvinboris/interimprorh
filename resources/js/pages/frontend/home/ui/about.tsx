@@ -16,12 +16,12 @@ export default function About() {
             </TransparentTitle>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 mt-24">
-                <div className="order-1 lg:order-2 relative lg:static h-[300px] lg:h-auto">
+                <div className="order-1 lg:order-2">
                     <Polygon1 />
                 </div>
 
                 <div className="order-2 lg:order-1">
-                    <SectionTitle className="text-center lg:text-left">
+                    <SectionTitle>
                         A propos <span>de nous</span>
                     </SectionTitle>
 

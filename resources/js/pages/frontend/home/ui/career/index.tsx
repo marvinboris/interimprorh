@@ -10,7 +10,7 @@ export default function Career() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 mt-24 lg:mt-0">
                 <div className="lg:pt-12">
-                    <SectionTitle className="text-center lg:text-left">
+                    <SectionTitle>
                         Votre <span>Carrière</span>
                     </SectionTitle>
 
@@ -37,7 +37,7 @@ export default function Career() {
                 </div>
 
                 <div className="h-[320px] lg:h-[432px] relative lg:static">
-                    <Svg className="lg:-mt-52 lg:-ml-28 absolute lg:static -translate-y-[288px] lg:translate-y-0 -translate-x-[288px] lg:translate-x-0 scale-[.65] lg:scale-100" />
+                    <Svg className="h-full lg:h-auto mt-4 lg:-mt-52 -ml-6 lg:-ml-60 xl:-ml-40 absolute lg:static top-1/2 left-1/2 -translate-y-1/2 lg:translate-y-0 -translate-x-1/2 lg:translate-x-0 scale-[2] lg:scale-100" />
                 </div>
             </div>
         </Section>

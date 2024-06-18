@@ -18,7 +18,7 @@ export default function Who() {
 
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-8 lg:pt-24">
                     <div>
-                        <SectionTitle className="text-center lg:text-left">
+                        <SectionTitle>
                             Qui <span>sommes-nous ?</span>
                         </SectionTitle>
 
@@ -73,9 +73,7 @@ export default function Who() {
                         </div>
                     </div>
 
-                    <div className="relative lg:static h-[320px] lg:h-auto">
-                        <Polygon1 />
-                    </div>
+                    <Polygon1 />
                 </div>
             </Section>
         </div>

@@ -12,12 +12,12 @@ export default function Accompaniement() {
                 </TransparentTitle>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-14 lg:mt-14">
-                    <div className="order-2 lg:order-1 relative lg:static">
-                        <Polygon className="scale-[.8] lg:scale-100 -translate-x-24 lg:translate-x-0 -translate-y-12 lg:translate-y-0" />
+                    <div className="order-2 lg:order-1 relative lg:static h-[320px] lg:h-auto">
+                        <Polygon className="h-full absolute lg:static scale-125 lg:scale-100 mt-6 lg:mt-0 top-1/2 left-1/2 -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:translate-y-0" />
                     </div>
 
                     <div className="order-1 lg:order-2 lg:pt-12">
-                        <SectionTitle className="text-center lg:text-left">
+                        <SectionTitle>
                             Nous vous <br />
                             <span>accompagnons</span>
                         </SectionTitle>

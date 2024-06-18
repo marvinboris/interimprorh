@@ -62,11 +62,11 @@ export function PageContact() {
     return (
         <>
             <Header>Cliquez ici</Header>
-            <div className="bg-stone-50">
-                <Section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pb-20">
+            <div className="bg-stone-100">
+                <Section className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16 pb-20">
                     <div>
                         <div className="bg-primary text-white p-8 lg:p-16">
-                            <div className="*:opacity-50 text-4xl lg:text-6xl font-bold">
+                            <div className="*:opacity-50 text-3xl lg:text-6xl font-bold">
                                 Nous <span>joindre</span>
                             </div>
 
@@ -138,12 +138,12 @@ export function PageContact() {
                             ci-dessous.
                         </div>
 
-                        <div className="relative mt-8 lg:mt-16">
+                        <div className="relative mt-8 xl:mt-16">
                             <Transition show={loading}>
                                 <Loading />
                             </Transition>
 
-                            <div className="p-4 bg-white border border-neutral-200 grid lg:grid-cols-2 gap-4 rounded-2xl">
+                            <div className="p-4 bg-white border border-neutral-200 grid sm:grid-cols-2 gap-4 rounded-2xl">
                                 <Input label={"Votre nom"} name="name" />
                                 <Input
                                     label={"Votre e-mail"}
@@ -169,11 +169,11 @@ export function PageContact() {
                                 <TextArea
                                     label={"Votre message"}
                                     name="message"
-                                    className="lg:col-span-2"
+                                    className="sm:col-span-2"
                                 />
                             </div>
 
-                            <div className="mt-8 lg:mt-11 text-center lg:text-left">
+                            <div className="mt-8 xl:mt-11 text-center lg:text-left">
                                 <Button size="xl">
                                     <span>Envoyer votre message</span>
                                     <Send size={20} />

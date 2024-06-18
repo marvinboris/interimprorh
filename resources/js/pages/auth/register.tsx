@@ -90,7 +90,7 @@ export function PageAuthRegister() {
                 <form
                     ref={formRef}
                     onSubmit={onSubmit}
-                    className="flex-1 w-full lg:w-auto grid lg:grid-cols-2 gap-x-4 gap-y-4 lg:gap-y-8 relative"
+                    className="flex-1 sm:w-[415px] lg:w-auto grid lg:grid-cols-2 gap-x-4 gap-y-4 lg:gap-y-8 relative"
                 >
                     <Transition show={loading}>
                         <div className="absolute z-10 inset-0 bg-white/50 backdrop-blur-sm">

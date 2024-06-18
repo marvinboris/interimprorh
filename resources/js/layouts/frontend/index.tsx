@@ -7,9 +7,9 @@ import { Link, Outlet } from "react-router-dom";
 
 export function LayoutFrontend() {
     return (
-        <div className="min-h-screen flex flex-col overflow-x-hidden">
+        <div className="min-h-screen flex flex-col">
             <header className="flex items-center h-[90px] sticky top-0 bg-white/90 backdrop-blur z-50">
-                <div className="container-auto px-4 lg:px-auto flex items-center">
+                <div className="container-auto flex items-center">
                     <div className="mr-auto">
                         <Link to="/" aria-label="Logo Interim Pro RH">
                             <Logo />
@@ -41,7 +41,7 @@ export function LayoutFrontend() {
                 </div>
             </header>
 
-            <main className="flex-1 flex flex-col">
+            <main className="flex-1 flex flex-col overflow-x-hidden">
                 <Outlet />
             </main>
 

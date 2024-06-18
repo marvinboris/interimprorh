@@ -67,7 +67,7 @@ export default function ContactUs() {
                         <Loading />
                     </Transition>
 
-                    <div className="border border-neutral-200 rounded-2xl bg-stone-50 p-4 grid grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-6">
+                    <div className="border border-neutral-200 rounded-2xl bg-stone-100 p-4 grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
                         <Input label={"Votre nom"} name="name" />
                         <Input
                             label={"Votre e-mail"}
@@ -90,7 +90,7 @@ export default function ContactUs() {
                         <TextArea
                             label={"Votre message"}
                             name="message"
-                            className="lg:col-span-2"
+                            className="md:col-span-2"
                         />
                     </div>
 
@@ -103,7 +103,7 @@ export default function ContactUs() {
                 </form>
 
                 <div className="flex">
-                    <div className="mx-auto lg:w-[500px] flex flex-wrap flex-col lg:flex-row gap-4 lg:gap-8">
+                    <div className="mx-auto sm:w-[500px] flex flex-wrap flex-col sm:flex-row justify-center gap-4 lg:gap-8">
                         <Block type="whatsapp" />
                         <Block type="office" />
                         <Block type="telegram" />

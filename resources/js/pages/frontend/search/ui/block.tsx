@@ -6,8 +6,8 @@ export default function Block({
   id,
   company,
   name,
-  salaryHigh,
-  salaryLow,
+  salary_high,
+  salary_low,
   location,
   contract,
   responsibilities,
@@ -28,16 +28,16 @@ export default function Block({
           <div className="text-sm text-neutral-400">{company}</div>
         </div>
 
-        <div className="size-10 ml-auto bg-stone-50 border border-neutral-100 rounded flex items-center justify-center">
+        <div className="size-10 ml-auto bg-stone-100 border border-neutral-100 rounded flex items-center justify-center">
           <Bookmark className="size-5" />
         </div>
       </div>
 
-      <div className="mt-6 flex gap-2 *:bg-stone-50 *:h-8 text-xs font-bold *:flex *:items-center *:rounded-md *:gap-2.5 *:px-2.5">
+      <div className="mt-6 flex flex-wrap gap-2 *:bg-stone-100 *:h-8 text-xs font-bold *:flex *:items-center *:rounded-md *:gap-2.5 *:px-2.5">
         <div className="text-primary !bg-primary/5">
           <Moneys className="size-3.5" />
           <span>
-            {salaryLow} - {salaryHigh} XAF
+            {salary_low} - {salary_high} XAF
           </span>
         </div>
         <div>

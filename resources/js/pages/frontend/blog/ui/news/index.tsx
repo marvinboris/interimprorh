@@ -18,13 +18,13 @@ export default function News() {
         Nos <span>Annonces</span>
       </SectionTitle>
 
-      <div className="mt-14 grid grid-cols-3 gap-7">
+      <div className="mt-8 lg:mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-7">
         {news?.map((news) => (
           <ServiceBlock key={"news-block-" + news.id} {...news} />
         ))}
       </div>
 
-      <div className="mt-16 text-center">
+      <div className="mt-8 lg:mt-16 text-center">
         <Button size="xl" color="light">
           <span>Load more</span>
           <ArrowRight className="size-6" />

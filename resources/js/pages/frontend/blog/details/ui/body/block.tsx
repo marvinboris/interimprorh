@@ -7,9 +7,9 @@ export default function Block({ body, title, link }: News) {
   return (
     <Link to={link} className="block">
       <div className="flex items-center border-b border-neutral-200 pb-3">
-        <div className="font-bold text-[30px]">{title}</div>
+        <div className="font-bold text-xl md:text-[30px]">{title}</div>
 
-        <div className="flex gap-5 items-center">
+        <div className="hidden lg:flex gap-5 items-center">
           <Button color="like">
             <Like1 className="size-5" />
             Like
@@ -22,7 +22,7 @@ export default function Block({ body, title, link }: News) {
         </div>
       </div>
 
-      <div className="font-light text-lg mt-5">{body}</div>
+      <div className="font-light lg:text-lg mt-3 md:mt-5">{body}</div>
     </Link>
   );
 }

@@ -1,8 +1,6 @@
 export default function Svg() {
   return (
     <svg
-      width="595"
-      height="518"
       viewBox="0 0 595 518"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

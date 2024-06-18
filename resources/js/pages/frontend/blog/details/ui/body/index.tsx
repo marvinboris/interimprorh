@@ -8,9 +8,9 @@ export default function Body() {
 
   if (loading) return <Loading />;
   return (
-    <div className="flex gap-14 mt-14">
+    <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 mt-8 lg:mt-14">
       <div className="flex-1">
-        <p className="border-l-4 border-primary pl-6 text-lg">
+        <p className="border-l-4 border-primary pl-3 md:pl-6 lg:text-lg">
           Nestled in the heart of Central Africa lies a country rich in cultural
           heritage and diversity - Cameroon. From the verdant hills of the
           Grassfields to the bustling streets of Douala, Cameroon is a tapestry
@@ -20,7 +20,7 @@ export default function Body() {
           Cameroonian traditions.
         </p>
 
-        <div className="mt-12 space-y-28">
+        <div className="mt-12 space-y-14 md:space-y-28">
           {news
             ?.filter((_, index) => index < 3)
             .map((news, index) => (

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Communication() {
     return (
         <Section>
-            <div className="grid lg:grid-cols-2">
+            <div className="grid lg:grid-cols-2 gap-8">
                 <div className="order-2 lg:order-1">
                     <Frame src="/images/35483ef05bd9a822e47f67c32b1bbb08.webp" />
                 </div>

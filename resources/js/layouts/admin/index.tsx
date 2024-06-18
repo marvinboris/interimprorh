@@ -13,7 +13,7 @@ export function LayoutAdmin() {
         <div className="border-l flex-1 border-neutral-200 flex flex-col h-screen overflow-clip">
           <Header />
 
-          <main className="flex-1 bg-stone-50 p-12 flex flex-col overflow-auto relative">
+          <main className="flex-1 bg-stone-100 p-12 flex flex-col overflow-auto relative">
             <Outlet />
           </main>
 

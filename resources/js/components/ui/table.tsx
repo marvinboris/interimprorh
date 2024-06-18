@@ -41,7 +41,7 @@ export function Table({
           <div className="text-[25px] font-bold">{title}</div>
         </div>
 
-        <div className="mx-auto inline-flex items-center p-3.5 bg-stone-50 border border-neutral-200 rounded-[10px]">
+        <div className="mx-auto inline-flex items-center p-3.5 bg-stone-100 border border-neutral-200 rounded-[10px]">
           <div className="text-opacity-70 font-medium text-sm">Afficher</div>
 
           <div className="ml-2.5">
@@ -63,7 +63,7 @@ export function Table({
         </div>
 
         <div className="flex items-center gap-2 md:gap-5 pt-2 md:pt-0">
-          <div className="ml-auto bg-stone-50 border border-neutral-200 rounded-[10px] inline-flex items-center gap-2 px-3.5 h-11">
+          <div className="ml-auto bg-stone-100 border border-neutral-200 rounded-[10px] inline-flex items-center gap-2 px-3.5 h-11">
             <div className="w-3.5">
               <SearchNormal1 className="w-full" />
             </div>

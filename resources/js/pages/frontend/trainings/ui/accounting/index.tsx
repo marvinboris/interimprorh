@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Accounting() {
     return (
         <Section>
-            <div className="grid lg:grid-cols-2">
+            <div className="grid lg:grid-cols-2 gap-8">
                 <div className="order-2 lg:order-1">
                     <Frame src="/images/518fe64bd599e9cf9f44f3562c3ca322.webp" />
                 </div>

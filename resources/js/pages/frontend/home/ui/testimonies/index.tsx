@@ -8,10 +8,10 @@ export default function Testimonies() {
 
     if (loading) return <Loading />;
     return (
-        <section className="overflow-clip text-center">
+        <section className="overflow-clip text-center mt-24">
             <TransparentTitle>Témoignages</TransparentTitle>
 
-            <SectionTitle big>
+            <SectionTitle big className="!text-center">
                 Ils parlent <span>de nous</span>
             </SectionTitle>
 
@@ -20,7 +20,7 @@ export default function Testimonies() {
             </h3>
 
             <div className="overflow-auto lg:pb-4 mt-4 lg:mt-14">
-                <div className="container-auto flex flex-col lg:flex-row gap-4">
+                <div className="container-auto grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row gap-4">
                     {testimonies?.map((testimony, index) => (
                         <Block
                             key={

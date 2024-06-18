@@ -1,4 +1,4 @@
-import { getCompanyTypes, getLanguages } from "@/data";
+import { getLanguages } from "@/data";
 import {
     Applicant,
     CompanyActivity,

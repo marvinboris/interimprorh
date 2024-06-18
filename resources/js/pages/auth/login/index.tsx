@@ -18,7 +18,7 @@ export function PageAuthLogin() {
                     user account.
                 </SectionTitle>
 
-                <div className="w-full lg:w-[415px] flex-none relative">
+                <div className="w-full sm:w-[415px] flex-none relative">
                     <div className="absolute bottom-0 right-0 translate-x-14">
                         <Polygon2 />
                     </div>

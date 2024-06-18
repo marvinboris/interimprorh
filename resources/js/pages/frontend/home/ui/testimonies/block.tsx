@@ -15,7 +15,7 @@ export default function Block({ body, name, photo, rate }: Testimony) {
         </div>
       </div>
 
-      <div className="mt-8 border border-neutral-200 bg-stone-50 group-hover:bg-white group-hover:shadow-lg rounded-[20px] px-7 pt-4 pb-6 transition-all duration-100">
+      <div className="mt-8 border border-neutral-200 bg-stone-100 group-hover:bg-white group-hover:shadow-lg rounded-[20px] px-7 pt-4 pb-6 transition-all duration-100">
         <div className="space-y-2">
           <div className="font-bold">{name}</div>
           <div>

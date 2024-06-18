@@ -11,11 +11,11 @@ export default function Services() {
     <Section className="mt-24 lg:mt-0">
       <TransparentTitle className="text-center">Nos services</TransparentTitle>
 
-      <SectionTitle className="text-center">
+      <SectionTitle className="!text-center">
         Nos <span>services</span>
       </SectionTitle>
 
-      <div className="mt-4 lg:mt-16 grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-3 lg:gap-y-9">
+      <div className="mt-4 lg:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3 lg:gap-y-9">
         {services?.map((service, index) => (
           <Block
             key={"service-block-" + service.id + "-" + index}

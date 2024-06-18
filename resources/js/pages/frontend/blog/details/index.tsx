@@ -7,7 +7,7 @@ export function PageBlogDetails() {
   const { slug } = useParams<{ slug: string }>();
 
   return (
-    <div className="bg-stone-50 pb-20">
+    <div className="bg-stone-100 pb-20">
       <Section>
         <Banner />
         <Body />

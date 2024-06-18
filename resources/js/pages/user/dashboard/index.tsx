@@ -37,7 +37,7 @@ export function PageUserDashboard() {
               </div>
             </div>
 
-            <div className="mt-3.5 flex gap-2 *:flex *:items-center *:p-2.5 *:gap-2.5 *:bg-stone-50 *:rounded-md *:border *:border-neutral-200 text-sm/none">
+            <div className="mt-3.5 flex gap-2 *:flex *:items-center *:p-2.5 *:gap-2.5 *:bg-stone-100 *:rounded-md *:border *:border-neutral-200 text-sm/none">
               <div>Depuis 4 ans</div>
               <div>
                 <Location className="size-3.5" />

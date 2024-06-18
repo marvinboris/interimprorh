@@ -3,11 +3,11 @@ export type Job = {
   name: string;
   description: string;
   company: string;
-  salaryLow: number;
-  salaryHigh: number;
+  salary_low: number;
+  salary_high: number;
   location: string;
   contract: string;
-  created: string;
+  created_at: string;
   languages: string[];
   responsibilities: string[];
   qualifications: string[];

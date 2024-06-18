@@ -12,7 +12,7 @@ export default function Mission() {
                     </div>
 
                     <div className="order-1 lg:order-2">
-                        <SectionTitle className="text-center lg:text-left">
+                        <SectionTitle>
                             Notre <span>mission</span>
                         </SectionTitle>
 
