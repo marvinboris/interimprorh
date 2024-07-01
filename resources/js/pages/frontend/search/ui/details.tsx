@@ -211,14 +211,14 @@ const Li = ({
                     cy="11"
                     r="11"
                     fill="currentColor"
-                    fill-opacity="0.2"
+                    fillOpacity="0.2"
                 />
                 <path
                     d="M14.5 8.59375L9.6875 13.4062L7.5 11.2188"
                     stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                 />
             </svg>
 

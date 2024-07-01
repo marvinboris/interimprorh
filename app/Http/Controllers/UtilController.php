@@ -6,7 +6,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Admin;
 use App\Models\Customer;
 use App\Models\Language;
-use App\Models\User;
+use App\Models\Applicant;
 use Illuminate\Http\Request;
 
 class UtilController extends Controller
@@ -15,8 +15,8 @@ class UtilController extends Controller
     {
         $account = request()->user();
         switch ($account->token()->name) {
-            case User::personalAccessToken():
-                $account = User::find($account->id);
+            case Applicant::personalAccessToken():
+                $account = Applicant::find($account->id);
                 break;
             case Admin::personalAccessToken():
                 $account = Admin::find($account->id);
@@ -33,12 +33,12 @@ class UtilController extends Controller
         ];
     }
 
-    public static function get($request)
+    public static function get()
     {
-        $account = $request->user();
+        $account = request()->user();
         switch ($account->token()->name) {
-            case User::personalAccessToken():
-                return User::find($account->id);
+            case Applicant::personalAccessToken():
+                return Applicant::find($account->id);
             case Admin::personalAccessToken():
                 return Admin::find($account->id);
         }
@@ -64,78 +64,10 @@ class UtilController extends Controller
         return $rules;
     }
 
-    public static function resize($file, $folder)
-    {
-        $name = $file->getClientOriginalName();
-        $path = $file->getRealPath();
-        $dimensions = getimagesize($path);
-
-        $destinationPath = public_path('/images/' . $folder);
-        if (!is_dir($destinationPath)) mkdir($destinationPath);
-        $destination = time() . '_' . $name;
-
-        $maxHeight = 1280;
-        $maxWidth = 1280;
-
-        $actualHeight = $dimensions[1];
-        $actualWidth = $dimensions[0];
-
-        $imgRatio = $actualWidth / $actualHeight;
-        $maxRatio = $maxWidth / $maxHeight;
-        $compressionQuality  = 0.6;
-
-        if ($actualHeight > $maxHeight || $actualWidth > $maxWidth) {
-            if ($imgRatio < $maxRatio) {
-                //adjust width according to maxHeight
-                $imgRatio = $maxHeight / $actualHeight;
-                $actualWidth = $imgRatio * $actualWidth;
-                $actualHeight = $maxHeight;
-            } else if ($imgRatio > $maxRatio) {
-                //adjust height according to maxWidth
-                $imgRatio = $maxWidth / $actualWidth;
-                $actualHeight = $imgRatio * $actualHeight;
-                $actualWidth = $maxWidth;
-            } else {
-                $actualHeight = $maxHeight;
-                $actualWidth = $maxWidth;
-                $compressionQuality = 1;
-            }
-        }
-
-        $img = Image::make($path);
-        $img
-            ->resize($actualWidth, $actualHeight)
-            ->save($destinationPath . '/' . $destination, $compressionQuality * 100);
-
-        return $destination;
-    }
-
     public static function isJson($string)
     {
         json_decode($string);
         return json_last_error() === JSON_ERROR_NONE;
-    }
-
-    public static function translatable($value)
-    {
-        $data = null;
-        if (!self::isJson($value)) {
-            $data = [];
-            foreach (Language::all() as $language) {
-                $data[$language->abbr] = $value;
-            }
-            return $data;
-        }
-
-        $value = json_decode($value, true);
-
-        foreach (Language::all() as $language) {
-            if (!array_key_exists($language->abbr, $value))
-                $value[$language->abbr] =
-                    $value[env('VITE_DEFAULT_LANG', 'fr')];
-        }
-
-        return $value;
     }
 
 
@@ -160,26 +92,6 @@ class UtilController extends Controller
             'notifications' => $account->notifications()->latest()->limit(5)->get(),
             // 'language' => $account->language->abbr
         ]);
-
-        if ($type === User::type()) {
-            $role = $account->role;
-
-            $role_features = [];
-            foreach ($role->features as $feature) {
-                $role_features[] = [
-                    'id' => $feature->id,
-                    'prefix' => $feature->prefix,
-                    'permissions' => $feature->pivot->access,
-                ];
-            }
-
-            $role = $role->toArray();
-            $role['features'] = $role_features;
-
-            $data = $data + [
-                'role' => $role
-            ];
-        } else if ($type === Admin::type()) $data = array_merge($data, []);
 
         return response()->json(['data' => $data, 'role' => $type,]);
     }
@@ -213,9 +125,9 @@ class UtilController extends Controller
 
         $data = array_merge($account->toArray(), [
             'notifications' => $account->notifications()->latest()->limit(5)->get(),
-            // 'language' => $account->language->abbr
+            'language' => $account->language->abbr
         ]);
-        if ($type === User::type()) {
+        if ($type === Applicant::type()) {
             $role = $account->role;
 
             $role_features = [];

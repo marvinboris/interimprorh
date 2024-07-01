@@ -8,8 +8,8 @@ export default function ProfilePic() {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <circle cx="29" cy="29" r="29" fill="#0050C7" fill-opacity="0.05" />
-      <circle cx="29" cy="29" r="28.5" stroke="#0050C7" stroke-opacity="0.05" />
+      <circle cx="29" cy="29" r="29" fill="#0050C7" fillOpacity="0.05" />
+      <circle cx="29" cy="29" r="28.5" stroke="#0050C7" strokeOpacity="0.05" />
       <circle cx="29" cy="29" r="23" fill="url(#pattern0_0_1)" />
       <defs>
         <pattern

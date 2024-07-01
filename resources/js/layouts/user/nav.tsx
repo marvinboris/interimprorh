@@ -5,8 +5,8 @@ import { NavLink, useLocation } from "react-router-dom";
 
 export default function UserNav() {
   return (
-    <header className="bg-white pt-12 border-b border-neutral-200">
-      <Section className="flex items-end gap-16">
+    <header className="bg-white pt-4 md:pt-8 xl:pt-12 border-b border-neutral-200">
+      <Section className="flex items-end gap-4 md:gap-8 xl:gap-16">
         <NavItem link="/user">Dashboard</NavItem>
         <NavItem link="/user/requests">Mes demandes</NavItem>
         <NavItem link="/user/profile">Mon profil</NavItem>

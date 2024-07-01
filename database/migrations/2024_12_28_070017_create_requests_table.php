@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created');
             $table->foreignId('company_id')->constrained();
+            $table->foreignId('applicant_id')->constrained();
             $table->string('location');
             $table->foreignId('contract_id')->constrained();
             $table->integer('status');

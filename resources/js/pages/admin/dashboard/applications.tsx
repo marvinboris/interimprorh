@@ -101,49 +101,49 @@ function Chart(props: React.ComponentProps<"svg">) {
         opacity="0.154835"
         d="M84.314 84.2435C84.314 76.2354 90.8058 69.7435 98.814 69.7435C106.822 69.7435 113.314 76.2354 113.314 84.2435V149.744H84.314V84.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M0.313965 95.2435C0.313965 87.2354 6.80584 80.7435 14.814 80.7435C22.8221 80.7435 29.314 87.2354 29.314 95.2435V149.744H0.313965V95.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M169.314 43.2435C169.314 35.2354 175.806 28.7435 183.814 28.7435C191.822 28.7435 198.314 35.2354 198.314 43.2435V149.744H169.314V43.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M253.314 65.2435C253.314 57.2354 259.806 50.7435 267.814 50.7435C275.822 50.7435 282.314 57.2354 282.314 65.2435V149.744H253.314V65.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M337.314 48.7435C337.314 40.4593 344.03 33.7435 352.314 33.7435C360.598 33.7435 367.314 40.4593 367.314 48.7435V149.744H337.314V48.7435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M422.314 78.2435C422.314 70.2354 428.806 63.7435 436.814 63.7435C444.822 63.7435 451.314 70.2354 451.314 78.2435V149.744H422.314V78.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M126.314 95.7435C126.314 87.4593 133.03 80.7435 141.314 80.7435C149.598 80.7435 156.314 87.4593 156.314 95.7435V149.744H126.314V95.7435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M42.314 43.2435C42.314 35.2354 48.8058 28.7435 56.814 28.7435C64.8221 28.7435 71.314 35.2354 71.314 43.2435V149.744H42.314V43.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         d="M211.314 14.5C211.314 6.49186 217.806 0 225.814 0C233.822 0 240.314 6.49187 240.314 14.5V149.744H211.314V14.5Z"
@@ -153,19 +153,19 @@ function Chart(props: React.ComponentProps<"svg">) {
         opacity="0.154835"
         d="M295.314 95.2435C295.314 87.2354 301.806 80.7435 309.814 80.7435C317.822 80.7435 324.314 87.2354 324.314 95.2435V149.744H295.314V95.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M380.314 28.2435C380.314 20.2354 386.806 13.7435 394.814 13.7435C402.822 13.7435 409.314 20.2354 409.314 28.2435V149.744H380.314V28.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
       <path
         opacity="0.154835"
         d="M464.314 95.2435C464.314 87.2354 470.806 80.7435 478.814 80.7435C486.822 80.7435 493.314 87.2354 493.314 95.2435V149.744H464.314V95.2435Z"
         fill="black"
-        fill-opacity="0.25"
+        fillOpacity="0.25"
       />
     </svg>
   );
@@ -182,31 +182,31 @@ function Icon() {
     >
       <g opacity="0.1">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M8.62553 23.2246H18.2096V38.5603H8.62553C7.56622 38.5603 6.70834 37.7005 6.70834 36.643V25.1419C6.70834 24.0825 7.56622 23.2246 8.62553 23.2246Z"
           stroke="#00890E"
-          stroke-width="2.875"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2.875"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M39.2905 15.5598H29.7064V38.5605H39.2905C40.3498 38.5605 41.2077 37.7026 41.2077 36.6451V17.477C41.2077 16.4177 40.3498 15.5598 39.2905 15.5598Z"
           stroke="#00890E"
-          stroke-width="2.875"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2.875"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M27.7924 7.89314H20.1256C19.0662 7.89314 18.2083 8.75104 18.2083 9.81032V38.5624H29.7095V9.81032C29.7095 8.75104 28.8516 7.89314 27.7924 7.89314Z"
           stroke="#00890E"
-          stroke-width="2.875"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2.875"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
     </svg>

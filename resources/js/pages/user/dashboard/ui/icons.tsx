@@ -8,14 +8,14 @@ export function DocumentVerified() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M16.4734 7.5C12.9973 7.5 10.1797 10.3176 10.1797 13.7937V32.2632C10.1797 35.7392 12.9973 38.5568 16.4734 38.5568H21.3774C22.2058 38.5568 22.8774 39.2284 22.8774 40.0568C22.8774 40.8854 22.2058 41.5568 21.3774 41.5568H16.4734C11.3404 41.5568 7.17969 37.3962 7.17969 32.2632V13.7937C7.17969 8.66074 11.3404 4.5 16.4734 4.5H29.9008C35.0338 4.5 39.1944 8.66074 39.1944 13.7937V20.161C39.1944 20.9894 38.523 21.661 37.6944 21.661C36.866 21.661 36.1944 20.9894 36.1944 20.161V13.7937C36.1944 10.3176 33.3768 7.5 29.9008 7.5H16.4734Z"
         fill="currentColor"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M15.2207 17.3125C15.2207 16.4841 15.8922 15.8125 16.7206 15.8125H24.489C25.3174 15.8125 25.989 16.4841 25.989 17.3125C25.989 18.1409 25.3174 18.8125 24.489 18.8125H16.7206C15.8922 18.8125 15.2207 18.1409 15.2207 17.3125ZM15.2188 25.7066C15.2188 24.878 15.8903 24.2066 16.7188 24.2066H19.8907C20.7192 24.2066 21.3908 24.878 21.3908 25.7066C21.3908 26.535 20.7192 27.2066 19.8907 27.2066H16.7188C15.8903 27.2066 15.2188 26.535 15.2188 25.7066Z"
         fill="currentColor"
       />
@@ -38,43 +38,43 @@ export function UserInformation() {
       <path
         d="M27.9228 10.7891H33.3112C38.4232 10.7891 41.5952 14.3988 41.5952 19.5108V33.296C41.5952 38.3924 38.4232 42.0022 33.2938 42.0022H15.3073C10.1953 42.0022 7.00781 38.3924 7.00781 33.296V19.5108C7.00781 14.3988 10.2128 10.7891 15.3073 10.7891H20.6742"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M19.3531 31.1016C16.154 31.1016 13.4258 31.5862 13.4258 33.5224C13.4258 35.4586 16.1384 35.9586 19.3531 35.9586C22.5504 35.9586 25.2806 35.4742 25.2806 33.5378C25.2806 31.6036 22.5678 31.1016 19.3531 31.1016Z"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M23.1188 23.5448C23.1188 25.623 21.4336 27.3082 19.3553 27.3082C17.277 27.3082 15.5938 25.623 15.5938 23.5448C15.5938 21.4664 17.277 19.7812 19.3553 19.7812C21.4336 19.7812 23.1188 21.4664 23.1188 23.5448Z"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M28.9414 21.289H35.1742M28.9414 27.7816L35.1742 27.8672M30.933 34.449H35.1752"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M25.8872 15.2472H22.7114C21.6042 15.2472 20.707 14.3501 20.707 13.2428V8.00432C20.707 6.89708 21.6042 6 22.7114 6H25.8872C26.9944 6 27.8914 6.89708 27.8914 8.00432V13.2428C27.8914 14.3501 26.9944 15.2472 25.8872 15.2472Z"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

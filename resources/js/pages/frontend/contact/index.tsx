@@ -86,8 +86,8 @@ export function PageContact() {
                                     <div>
                                         <div className="flex items-center gap-2.5">
                                             <Message className="size-5" />
-                                            <a href="mailto:contact@interimprorh.com">
-                                                contact@interimprorh.com
+                                            <a href="mailto:contact@interimprorh.net">
+                                                contact@interimprorh.net
                                             </a>
                                         </div>
                                         <div className="flex gap-2.5 mt-3.5">
@@ -107,15 +107,21 @@ export function PageContact() {
                                     <div className="h-px rounded-full bg-white/30 my-6" />
 
                                     <div className="mt-10 flex gap-3.5 *:size-11 *:*:size-6 *:bg-white *:rounded-full *:flex *:items-center *:justify-center">
-                                        <div>
+                                        <a
+                                            target="_blank"
+                                            href="https://www.facebook.com/profile.php?id=61556592575634&mibextid=rS40aB7S9Ucbxw6v"
+                                        >
                                             <Facebook />
-                                        </div>
+                                        </a>
                                         <div>
                                             <Instagram />
                                         </div>
-                                        <div>
+                                        <a
+                                            target="_blank"
+                                            href="https://wa.me/+237657878787"
+                                        >
                                             <WhatsApp />
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -140,7 +146,9 @@ export function PageContact() {
 
                         <div className="relative mt-8 xl:mt-16">
                             <Transition show={loading}>
-                                <Loading />
+                                <div className="absolute inset-0 z-10">
+                                    <Loading />
+                                </div>
                             </Transition>
 
                             <div className="p-4 bg-white border border-neutral-200 grid sm:grid-cols-2 gap-4 rounded-2xl">

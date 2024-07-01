@@ -24,21 +24,21 @@ export function Polygon1({
                     <path
                         d="M421.75 40.8875C439.231 30.7947 460.769 30.7947 478.25 40.8875L616.972 120.979C634.453 131.071 645.222 149.723 645.222 169.909V330.091C645.222 350.277 634.453 368.929 616.972 379.021L478.25 459.112C460.769 469.205 439.231 469.205 421.75 459.113L283.028 379.021C265.547 368.929 254.778 350.277 254.778 330.091V169.909C254.778 149.723 265.547 131.071 283.028 120.979L421.75 40.8875Z"
                         stroke="url(#paint0_linear_245_3)"
-                        shape-rendering="crispEdges"
+                        shapeRendering="crispEdges"
                     />
                 </g>
                 <g filter="url(#filter1_d_245_3)">
                     <path
                         d="M421.5 52.4545C439.136 42.2724 460.864 42.2724 478.5 52.4545L606.829 126.546C624.465 136.728 635.329 155.545 635.329 175.909V324.091C635.329 344.455 624.465 363.272 606.829 373.454L478.5 447.546C460.864 457.728 439.136 457.728 421.5 447.546L293.171 373.454C275.535 363.272 264.671 344.455 264.671 324.091V175.909C264.671 155.545 275.535 136.728 293.171 126.546L421.5 52.4545Z"
                         fill="url(#pattern0_245_3)"
-                        shape-rendering="crispEdges"
+                        shapeRendering="crispEdges"
                     />
                 </g>
                 <g filter="url(#filter2_d_245_3)">
                     <path
                         d="M249.48 244.494C259.703 238.592 272.297 238.592 282.52 244.494L356.906 287.44C367.128 293.342 373.425 304.249 373.425 316.053V401.947C373.425 413.751 367.128 424.658 356.906 430.56L282.52 473.507C272.297 479.409 259.703 479.409 249.48 473.507L175.094 430.56C164.872 424.658 158.575 413.751 158.575 401.947V316.053C158.575 304.249 164.872 293.342 175.094 287.44L249.48 244.494Z"
                         fill="url(#pattern1_245_3)"
-                        shape-rendering="crispEdges"
+                        shapeRendering="crispEdges"
                     />
                 </g>
                 <g filter="url(#filter3_d_245_3)">
@@ -61,7 +61,7 @@ export function Polygon1({
                         height="484.433"
                         transform="rotate(-3.683 80 245.181)"
                         fill="#0050C7"
-                        fill-opacity="0.55"
+                        fillOpacity="0.55"
                     />
                 </g>
                 <defs>
@@ -72,10 +72,10 @@ export function Polygon1({
                         width="519.443"
                         height="562.364"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                     >
                         <feFlood
-                            flood-opacity="0"
+                            floodOpacity="0"
                             result="BackgroundImageFix"
                         />
                         <feColorMatrix
@@ -110,10 +110,10 @@ export function Polygon1({
                         width="498.659"
                         height="538.364"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                     >
                         <feFlood
-                            flood-opacity="0"
+                            floodOpacity="0"
                             result="BackgroundImageFix"
                         />
                         <feColorMatrix
@@ -159,10 +159,10 @@ export function Polygon1({
                         width="289.046"
                         height="312.061"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                     >
                         <feFlood
-                            flood-opacity="0"
+                            floodOpacity="0"
                             result="BackgroundImageFix"
                         />
                         <feColorMatrix
@@ -208,10 +208,10 @@ export function Polygon1({
                         width="150.8"
                         height="150.8"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                     >
                         <feFlood
-                            flood-opacity="0"
+                            floodOpacity="0"
                             result="BackgroundImageFix"
                         />
                         <feColorMatrix
@@ -246,10 +246,10 @@ export function Polygon1({
                         width="913.59"
                         height="883.607"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                     >
                         <feFlood
-                            flood-opacity="0"
+                            floodOpacity="0"
                             result="BackgroundImageFix"
                         />
                         <feBlend
@@ -271,11 +271,11 @@ export function Polygon1({
                         y2="404"
                         gradientUnits="userSpaceOnUse"
                     >
-                        <stop stop-color="#0050C7" />
+                        <stop stopColor="#0050C7" />
                         <stop
                             offset="1"
-                            stop-color="#0050C7"
-                            stop-opacity="0"
+                            stopColor="#0050C7"
+                            stopOpacity="0"
                         />
                     </linearGradient>
                     <image

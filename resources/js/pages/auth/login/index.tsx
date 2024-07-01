@@ -1,11 +1,56 @@
 import { Polygon1, Polygon2 } from "../ui/polygons";
 import Polygon from "./polygon";
-import { Button, Input, Section, SectionTitle } from "@/components";
-import { Link } from "react-router-dom";
+import {
+    Alert,
+    Button,
+    Input,
+    Loading,
+    Section,
+    SectionTitle,
+    Transition,
+} from "@/components";
+import { Status } from "@/enums";
+import { selectAuth, userLogin } from "@/features";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import React, { FormEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export function PageAuthLogin() {
+    const navigate = useNavigate();
+
+    const dispatch = useAppDispatch();
+    const { token, status, message } = useAppSelector(selectAuth);
+
+    const loading = status === Status.LOADING;
+
+    const formRef = React.useRef<HTMLFormElement>(null);
+
+    const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const form = formRef.current;
+        if (!form) return;
+
+        const formData = new FormData(form);
+
+        const email = formData.get("email") as string | null;
+        const password = formData.get("password") as string | null;
+
+        if (!loading && email && password)
+            dispatch(
+                userLogin({
+                    email,
+                    password,
+                })
+            );
+    };
+
+    React.useEffect(() => {
+        if (token) navigate("/user/dashboard");
+    }, [navigate, token]);
+
     return (
-        <div className="bg-stone-100 py-16 lg:py-32 relative overflow-clip lg:overflow-visible">
+        <div className="bg-stone-100 py-16 lg:py-32 relative overflow-clip lg:overflow-visible flex-1 flex items-center">
             <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-3/5">
                 <Polygon1 />
             </div>
@@ -31,7 +76,25 @@ export function PageAuthLogin() {
                         </div>
 
                         <div className="font-bold text-2xl">Sign in</div>
-                        <form className="mt-6">
+                        <form
+                            ref={formRef}
+                            onSubmit={onSubmit}
+                            className="mt-6 relative"
+                        >
+                            <Transition show={loading}>
+                                <div className="absolute z-10 inset-0 bg-white/50 backdrop-blur-sm">
+                                    <Loading />
+                                </div>
+                            </Transition>
+
+                            <Alert
+                                color={message?.type}
+                                closable={false}
+                                className="lg:col-span-2 mb-3"
+                            >
+                                {message?.content}
+                            </Alert>
+
                             <Input
                                 required
                                 name="email"

@@ -13,7 +13,7 @@ export default function Svg() {
         height="144"
         rx="30"
         fill="#0050C7"
-        fill-opacity="0.2"
+        fillOpacity="0.2"
       />
       <g filter="url(#filter0_d_0_1)">
         <rect
@@ -23,7 +23,7 @@ export default function Svg() {
           height="390"
           rx="26"
           fill="url(#pattern0_0_1)"
-          shape-rendering="crispEdges"
+          shapeRendering="crispEdges"
         />
       </g>
       <defs>
@@ -34,9 +34,9 @@ export default function Svg() {
           width="595"
           height="518"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

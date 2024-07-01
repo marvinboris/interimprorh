@@ -14,7 +14,7 @@ import { Message } from "@types";
 import { ArrowRight } from "iconsax-react";
 import React, { FormEvent } from "react";
 
-export function PageAuthRegister() {
+export function PageAuthEmployer() {
     const { options } = useCompanyActivities();
 
     const formRef = React.useRef<HTMLFormElement>(null);
@@ -76,7 +76,7 @@ export function PageAuthRegister() {
     };
 
     return (
-        <div className="py-16 lg:py-32 relative">
+        <div className="py-16 lg:py-32 relative flex-1 flex items-center">
             <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-3/5">
                 <Polygon1 />
             </div>

@@ -1,8 +1,17 @@
 export type Applicant = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  city: string;
-  degree: string;
-  experience: number;
+    id: string;
+    first_name: string;
+    last_name: string;
+    job: string;
+    city: string;
+    country: string;
+    degree: string;
+    experience: number;
+    email: string;
+    photo?: string;
+    password?: string;
+    password_confirmation?: string;
+    phone: string;
+    biography: string;
+    availability: number;
 };

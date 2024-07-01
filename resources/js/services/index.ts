@@ -16,6 +16,7 @@ import {
     TeamMember,
     Testimony,
 } from "@types";
+import axios from "axios";
 
 type ToData<T> = T | T[];
 type ResUnit =
@@ -65,7 +66,7 @@ export async function fetch<T extends RequestData>({
     params?: Record<string, string | number | boolean>;
 }) {
     try {
-        const res = await window.fetch(
+        const res = await axios.get<T>(
             `${
                 "/api/" +
                 resource.split("_").join("-") +
@@ -81,11 +82,14 @@ export async function fetch<T extends RequestData>({
             }`,
             {
                 method,
-                body: JSON.stringify(body),
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                data: body,
             }
         );
-        const result = await res.json();
-        return result as T | undefined;
+        return res.data as T | undefined;
     } catch (error) {
         console.log(error);
         return undefined;

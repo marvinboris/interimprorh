@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applicant;
 use App\Models\Company;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,20 +16,18 @@ class AuthController extends Controller
         $data = request()->all();
 
         $message = [
-            'message' => [
-                'content' => 'Incorrect credentials',
-                'type' => 'danger'
-            ]
+            'content' => 'Incorrect credentials',
+            'type' => 'danger'
         ];
 
-        $company = Company::where('email', $data['email']);
-        if (!$company) return response()->json($message, 403);
+        $applicant = Applicant::where('email', $data['email'])->first();
+        if (!$applicant) return response()->json($message, 403);
 
-        $check = Hash::check($data['password'], $company->password);
+        $check = Hash::check($data['password'], $applicant->password);
         if (!$check) return response()->json($message, 403);
 
 
-        $tokenResult = $company->createToken(Company::personalAccessToken());
+        $tokenResult = $applicant->createToken(Applicant::personalAccessToken());
         $token = $tokenResult->token;
 
         $token->expires_at = Carbon::now()->addWeeks(1);
@@ -39,11 +38,11 @@ class AuthController extends Controller
             'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
             )->toDateTimeString(),
-            'data' => $data,
+            'data' => $applicant,
         ]);
     }
 
-    public function register()
+    public function employer()
     {
         $data = request()->validate([
             'name' => 'unique:companies|required',
@@ -58,6 +57,23 @@ class AuthController extends Controller
             'email' => $data['email'],
             'phone' => $data['phone'],
             'company_activity_id' => $data['activity'],
+            'password' => Hash::make($data['password']),
+        ]);
+
+        return response()->json([
+            'email' => $data['email'],
+        ], 201);
+    }
+
+    public function register()
+    {
+        $data = request()->validate([
+            'email' => 'required|email|unique:applicants',
+            'password' => 'required|confirmed'
+        ]);
+
+        Applicant::create([
+            'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 

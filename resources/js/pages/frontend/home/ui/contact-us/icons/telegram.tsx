@@ -12,8 +12,8 @@ export default function Telegram(props: React.ComponentProps<"svg">) {
         <path
           d="M15 10.6255L11 14.6255L17 20.6255L21 4.62549L3 11.6255L7 13.6255L9 19.6255L12 15.6255"
           stroke="#0093E3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>

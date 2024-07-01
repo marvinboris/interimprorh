@@ -4,8 +4,14 @@ import Nav from "../ui/nav";
 import Footer from "./footer";
 import { ProfileCircle } from "iconsax-react";
 import { Link, Outlet } from "react-router-dom";
+import { useAppSelector } from "@/hooks";
+import { selectAuth } from "@/features";
+import { isApplicant } from "@/utils";
+import ProfilePic from "./profile-pic";
 
 export function LayoutFrontend() {
+    const { data } = useAppSelector(selectAuth);
+
     return (
         <div className="min-h-screen flex flex-col">
             <header className="flex items-center h-[90px] sticky top-0 bg-white/90 backdrop-blur z-50">
@@ -24,18 +30,39 @@ export function LayoutFrontend() {
                         <LanguageSelector />
                     </div>
 
-                    <Link
-                        className="hidden lg:flex items-center text-primary gap-6 ml-auto"
-                        to="/login"
-                    >
-                        <div className="font-semibold font-display underline text-sm">
-                            SIGN IN
-                        </div>
+                    {isApplicant(data) ? (
+                        <Link
+                            to="/user"
+                            className="ml-auto flex items-center gap-3.5"
+                        >
+                            <ProfilePic />
 
-                        <div className="size-14 flex items-center justify-center rounded-full bg-primary/10">
-                            <ProfileCircle className="size-6" />
-                        </div>
-                    </Link>
+                            <div className="font-semibold hidden md:block">
+                                {[
+                                    "Hello",
+                                    [data.first_name, data.last_name]
+                                        .filter(Boolean)
+                                        .join(" ") || data.email,
+                                ]
+                                    .filter(Boolean)
+                                    .join(", ")}{" "}
+                                !
+                            </div>
+                        </Link>
+                    ) : (
+                        <Link
+                            className="hidden lg:flex items-center text-primary gap-6 ml-auto"
+                            to="/login"
+                        >
+                            <div className="font-semibold font-display underline text-sm">
+                                SIGN IN
+                            </div>
+
+                            <div className="size-14 flex items-center justify-center rounded-full bg-primary/10">
+                                <ProfileCircle className="size-6" />
+                            </div>
+                        </Link>
+                    )}
 
                     <MobileNav />
                 </div>

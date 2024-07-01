@@ -10,7 +10,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        return Service::all();
+        return Service::orderBy('id', 'desc')->get();
     }
 
     public function show($id)

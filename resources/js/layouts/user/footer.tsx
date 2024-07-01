@@ -1,6 +1,6 @@
 import { Section } from "@/components";
 
-export default function Footer() {
+export default function UserFooter() {
   return (
     <footer className="pt-5 pb-8 border-t border-neutral-200">
       <Section className="font-medium *:font-semibold">

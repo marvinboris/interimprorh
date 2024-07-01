@@ -1,4 +1,3 @@
-export * from "./applicants";
 export * from "./countries";
 export * from "./faq";
 export * from "./hr";

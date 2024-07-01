@@ -17,14 +17,14 @@ export default function Polygon(props: React.ComponentProps<"svg">) {
                 <path
                     d="M231.75 40.8875C249.231 30.7947 270.769 30.7947 288.25 40.8875L426.972 120.979C444.453 131.071 455.222 149.723 455.222 169.909V330.091C455.222 350.277 444.453 368.929 426.972 379.021L288.25 459.112C270.769 469.205 249.231 469.205 231.75 459.113L93.0283 379.021C75.5471 368.929 64.7783 350.277 64.7783 330.091V169.909C64.7783 149.723 75.5471 131.071 93.0283 120.979L231.75 40.8875Z"
                     stroke="url(#paint0_linear_0_1)"
-                    shape-rendering="crispEdges"
+                    shapeRendering="crispEdges"
                 />
             </g>
             <g filter="url(#filter1_d_0_1)">
                 <path
                     d="M231.5 52.4545C249.136 42.2724 270.864 42.2724 288.5 52.4545L416.829 126.546C434.465 136.728 445.329 155.545 445.329 175.909V324.091C445.329 344.455 434.465 363.272 416.829 373.454L288.5 447.546C270.864 457.728 249.136 457.728 231.5 447.546L103.171 373.454C85.5347 363.272 74.6706 344.455 74.6706 324.091V175.909C74.6706 155.545 85.5347 136.728 103.171 126.546L231.5 52.4545Z"
                     fill="url(#pattern0_0_1)"
-                    shape-rendering="crispEdges"
+                    shapeRendering="crispEdges"
                 />
             </g>
             <defs>
@@ -35,9 +35,9 @@ export default function Polygon(props: React.ComponentProps<"svg">) {
                     width="519.443"
                     height="562.364"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
                         in="SourceAlpha"
                         type="matrix"
@@ -70,9 +70,9 @@ export default function Polygon(props: React.ComponentProps<"svg">) {
                     width="498.659"
                     height="538.364"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
                         in="SourceAlpha"
                         type="matrix"
@@ -117,8 +117,8 @@ export default function Polygon(props: React.ComponentProps<"svg">) {
                     y2="404"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#B5764B" />
-                    <stop offset="1" stop-color="#C9955E" stop-opacity="0" />
+                    <stop stopColor="#B5764B" />
+                    <stop offset="1" stopColor="#C9955E" stopOpacity="0" />
                 </linearGradient>
                 <image
                     id="image0_0_1"

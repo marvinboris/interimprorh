@@ -1,18 +1,20 @@
-import { Button, Logo } from "@/components";
-import { fetch } from "@/services";
-import { Subscriber } from "@types";
 import Facebook from "./icons/facebook";
 import Instagram from "./icons/instagram";
 import Whatsapp from "./icons/whatsapp";
+import { Button, Logo } from "@/components";
+import UserFooter from "@/layouts/user/footer";
+import { fetch } from "@/services";
+import { Subscriber } from "@types";
 import FooterTitle from "./title";
 import { Call, Location, Message } from "iconsax-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Send } from "react-iconly";
 import React, { FormEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export default function Footer() {
     const [loading, setLoading] = React.useState(false);
+    const location = useLocation();
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -44,6 +46,7 @@ export default function Footer() {
         handle();
     };
 
+    if (location.pathname.startsWith("/user")) return <UserFooter />;
     return (
         <footer className="bg-zinc-800 text-white divide-y divide-neutral-200">
             <div className="container-auto flex flex-col sm:flex-row flex-wrap lg:flex-nowrap gap-10 pt-9 pb-14">
@@ -80,8 +83,8 @@ export default function Footer() {
                         <div className="mt-7">
                             <div className="flex items-center gap-2.5">
                                 <Message className="size-5" />
-                                <a href="mailto:contact@interimprorh.com">
-                                    contact@interimprorh.com
+                                <a href="mailto:contact@interimprorh.net">
+                                    contact@interimprorh.net
                                 </a>
                             </div>
                             <div className="flex gap-2.5 mt-3.5">
@@ -119,7 +122,9 @@ export default function Footer() {
                                     <div className="size-6 animate-spin rounded-full border-2 border-white border-t-transparent" />
                                 ) : (
                                     <>
-                                        <span className="hidden lg:inline-block">Subscribe</span>
+                                        <span className="hidden lg:inline-block">
+                                            Subscribe
+                                        </span>
                                         <Send size={24} />
                                     </>
                                 )}

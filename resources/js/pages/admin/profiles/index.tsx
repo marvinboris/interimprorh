@@ -43,8 +43,8 @@ export function PageAdminProfiles() {
       fields={[
         { key: "_", label: "" },
         { key: "id", label: "ID" },
-        { key: "firstName", label: "First name" },
-        { key: "lastName", label: "Last name" },
+        { key: "first_name", label: "First name" },
+        { key: "last_name", label: "Last name" },
         { key: "city", label: "City" },
         { key: "degree", label: "Highest degree" },
         { key: "strength", label: "Profile strength" },
