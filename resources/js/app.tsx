@@ -2,6 +2,7 @@ import { ScrollToTop } from "./components";
 import "./index.css";
 import { LayoutApp } from "./layouts";
 import AppRoutes from "./routes";
+import "./services/i18n";
 import store from "./store";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

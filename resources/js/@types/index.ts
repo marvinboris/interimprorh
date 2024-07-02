@@ -5,6 +5,7 @@ export * from "./contact";
 export * from "./country";
 export * from "./diploma";
 export * from "./faq";
+export * from "./i18n-key";
 export * from "./job";
 export * from "./language";
 export * from "./message";

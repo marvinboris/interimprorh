@@ -1,6 +1,7 @@
 import { cn } from "@/utils";
 import { ExportCurve, Icon, SearchNormal1 } from "iconsax-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 type TableProps = {
     title: string;
@@ -32,9 +33,13 @@ export function Table({
     search,
     setShow,
 }: TableProps) {
+    const { t } = useTranslation();
+
     const showElt = (
         <div className="inline-flex items-center p-3.5 bg-stone-100 border border-neutral-200 rounded-[10px]">
-            <div className="text-opacity-70 font-medium text-sm">Afficher</div>
+            <div className="text-opacity-70 font-medium text-sm">
+                {t("Show")}
+            </div>
 
             <div className="ml-2.5">
                 <div className="h-4 w-0.5 bg-slate-600 rounded-full" />
@@ -62,6 +67,8 @@ export function Table({
                     {Icon ? <Icon /> : null}
 
                     <div className="text-[25px] font-bold">{title}</div>
+
+                    <div className="ml-auto md:hidden">{action}</div>
                 </div>
 
                 <div className="mx-auto hidden md:block">{showElt}</div>
@@ -80,7 +87,7 @@ export function Table({
                             id="search"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            placeholder="Search"
+                            placeholder={t("Search")}
                             className="bg-transparent outline-none border-0 flex-1 text-sm placeholder:text-opacity-40"
                         />
                     </div>
@@ -91,13 +98,13 @@ export function Table({
                             className="h-11 bg-amber-600 px-5 inline-flex items-center gap-2 text-white rounded-[10px]"
                         >
                             <span className="text-sm font-bold">
-                                Export table
+                                {t("Export table")}
                             </span>
                             <ExportCurve className="w-5 h-5 opacity-50" />
                         </button>
                     ) : null}
 
-                    {action}
+                    <div className="hidden md:block">{action}</div>
                 </div>
             </header>
 
@@ -113,7 +120,7 @@ export function Table({
                                         field.centered
                                             ? "text-center"
                                             : "text-left",
-                                        "px-8 py-3"
+                                        "px-4 md:px-6 xl:px-8 py-3"
                                     )}
                                 >
                                     <div className="inline-flex items-center gap-2">
@@ -134,7 +141,7 @@ export function Table({
                                             field.centered
                                                 ? "text-center"
                                                 : "text-left",
-                                            "px-8 py-2"
+                                            "px-4 md:px-6 xl:px-8 py-2"
                                         )}
                                         style={
                                             field.maxWidth

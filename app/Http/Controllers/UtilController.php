@@ -90,7 +90,6 @@ class UtilController extends Controller
 
         $data = array_merge($account->toArray(), [
             'notifications' => $account->notifications()->latest()->limit(5)->get(),
-            // 'language' => $account->language->abbr
         ]);
 
         return response()->json(['data' => $data, 'role' => $type,]);
@@ -125,7 +124,6 @@ class UtilController extends Controller
 
         $data = array_merge($account->toArray(), [
             'notifications' => $account->notifications()->latest()->limit(5)->get(),
-            'language' => $account->language->abbr
         ]);
         if ($type === Applicant::type()) {
             $role = $account->role;

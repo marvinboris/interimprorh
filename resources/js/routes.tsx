@@ -10,6 +10,7 @@ import {
     PageAbout,
     PageAdminApplications,
     PageAdminApplicationsAdd,
+    PageAdminAuthLogin,
     PageAdminCompanies,
     PageAdminCompaniesAdd,
     PageAdminDashboard,
@@ -68,7 +69,9 @@ export default function AppRoutes() {
                     />
                     <Route path="/admin" element={<PageAdminDashboard />} />
                 </Route>
-            ) : null}
+            ) : (
+                <Route path="/admin" element={<PageAdminAuthLogin />} />
+            )}
 
             <Route path="" element={<LayoutFrontend />}>
                 {token ? (

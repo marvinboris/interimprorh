@@ -1,4 +1,4 @@
-import { getCheck, patchUser, postUserLogin } from "./authAPI";
+import { getCheck, patchUser, postAdminLogin, postUserLogin } from "./authAPI";
 import { Status } from "@/enums";
 import { AppState } from "@/store";
 import { message, setAuthToken } from "@/utils";
@@ -41,6 +41,12 @@ const checkAuthTimeout = createAsyncThunk(
     (expirationTime: number) => {
         setTimeout(() => logout(), expirationTime);
     }
+);
+
+export const adminLogin = createAsyncThunk(
+    "auth/admin/login",
+    async (data: { email: string; password: string }) =>
+        await postAdminLogin(data)
 );
 
 const dataLoading = (state: AuthState) => {
@@ -146,6 +152,36 @@ export const authSlice = createSlice({
                 }
                 state.token = null;
                 state.data = null;
+                state.status = Status.FAILED;
+            })
+
+            .addCase(adminLogin.pending, dataLoading)
+            .addCase(adminLogin.fulfilled, (state, action) => {
+                if ("content" in action.payload.data)
+                    state.message = action.payload.data;
+                else {
+                    localStorage.setItem("token", action.payload.token);
+                    localStorage.setItem(
+                        "expirationDate",
+                        new Date(action.payload.expires_at).toString()
+                    );
+
+                    delete action.payload.data.password;
+                    state.token = action.payload.token;
+                    state.data = action.payload.data;
+                    state.role = "admin";
+                    state.status = Status.IDLE;
+
+                    checkAuthTimeout(
+                        action.payload.expires_at - new Date().getTime()
+                    );
+                }
+            })
+            .addCase(adminLogin.rejected, (state, action) => {
+                state.token = null;
+                state.data = null;
+                if (action.error.message)
+                    state.message = message(action.error.message, "danger");
                 state.status = Status.FAILED;
             });
     },

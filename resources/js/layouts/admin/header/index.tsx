@@ -1,53 +1,66 @@
 import { LanguageSelector } from "@/components";
 import { useLayoutAdminContext } from "../context";
-import { Setting } from "iconsax-react";
+import { Menu, Setting } from "iconsax-react";
 import Messages from "./messages";
 import Notifications from "./notifications";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
 export default function Header() {
-  const { menus } = useLayoutAdminContext();
+    const { menus, setOpen } = useLayoutAdminContext();
 
-  const location = useLocation();
+    const { t } = useTranslation();
 
-  const [title, setTitle] = React.useState<string>();
-  const [subtitle, setSubtitle] = React.useState<string>();
+    const location = useLocation();
 
-  React.useEffect(() => {
-    const [title, subtitle] = menus[location.pathname];
-    setTitle(title);
-    setSubtitle(subtitle);
-  }, [location.pathname]);
+    const [title, setTitle] = React.useState<string>();
+    const [subtitle, setSubtitle] = React.useState<string>();
 
-  return (
-    <header className="bg-white border-b border-neutral-200 h-28 px-12 flex items-center">
-      <div>
-        <h1 className="font-bold text-2xl">{title}</h1>
+    React.useEffect(() => {
+        const [title, subtitle] = menus[location.pathname];
+        setTitle(title);
+        setSubtitle(subtitle);
+    }, [location.pathname]);
 
-        <h2 className="font-medium">{subtitle}</h2>
-      </div>
+    return (
+        <header className="bg-white border-b border-neutral-200 h-20 md:h-24 xl:h-28 px-4 md:px-8 xl:px-12 flex items-center">
+            <div className="md:hidden mr-2">
+                <Menu
+                    variant="Bulk"
+                    onClick={() => setOpen(true)}
+                    className="size-8 text-primary cursor-pointer"
+                />
+            </div>
 
-      <div className="ml-auto">
-        <LanguageSelector />
-      </div>
+            <div>
+                <h1 className="font-bold text-xl md:text-2xl">{title}</h1>
 
-      <div className="ml-12 flex items-center gap-5">
-        <Messages />
+                <h2 className="font-medium text-sm md:text-base">{subtitle}</h2>
+            </div>
 
-        <Notifications />
-      </div>
+            <div className="ml-auto hidden md:block">
+                <LanguageSelector />
+            </div>
 
-      <div className="mr-5 ml-8 w-1 h-12 rounded-full bg-neutral-200" />
+            <div className="ml-auto md:ml-8 xl:ml-12 flex items-center gap-5">
+                <Messages />
 
-      <div>
-        <div className="font-bold text-lg">My account</div>
-        <div className="font-semibold text-neutral-500">Admin</div>
-      </div>
+                <Notifications />
+            </div>
 
-      <button className="ml-4 size-14 rounded-xl bg-primary text-white flex justify-center items-center">
-        <Setting className="size-6" />
-      </button>
-    </header>
-  );
+            <div className="hidden md:block md:mr-4 xl:mr-5 md:ml-7 xl:ml-8 w-1 h-12 rounded-full bg-neutral-200" />
+
+            <div className="hidden md:block">
+                <div className="font-bold text-lg">{t("My account")}</div>
+                <div className="font-semibold text-neutral-500">
+                    {t("Admin")}
+                </div>
+            </div>
+
+            <button className="ml-6 md:ml-4 size-10 md:size-14 rounded-xl bg-primary text-white flex justify-center items-center">
+                <Setting className="size-5 md:size-6" />
+            </button>
+        </header>
+    );
 }

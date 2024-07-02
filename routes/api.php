@@ -24,7 +24,6 @@ use App\Http\Controllers\UtilController;
 use App\Models\Request;
 use Illuminate\Support\Facades\Hash;
 
-Route::get('/admin/dashboard', [AdminDashboardController::class, 'admin.dashboard']);
 
 Route::post('/employer', [AuthController::class, 'employer']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -47,6 +46,13 @@ Route::apiResource('subscribers', SubscriberController::class);
 Route::apiResource('team-members', TeamMemberController::class);
 Route::apiResource('testimonies', TestimonyController::class);
 
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::post('/login', [AuthController::class, 'adminLogin'])->name('login');
+
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    });
+});
 
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Route::middleware('auth:api')->group(function () {

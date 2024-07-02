@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 class Admin extends Authenticatable
 {
@@ -15,7 +15,7 @@ class Admin extends Authenticatable
     protected $directory = '/images/admins/';
 
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'photo', 'language_id',
+        'name', 'email', 'password', 'phone', 'photo', 'language',
     ];
 
     protected $hidden = [
@@ -35,10 +35,5 @@ class Admin extends Authenticatable
     public function getPhotoAttribute($value)
     {
         return $value ? public_path($this->directory . $value) : 'https://dummyimage.com/100.webp/09f/fff';
-    }
-
-    public function language()
-    {
-        return $this->belongsTo(Language::class);
     }
 }

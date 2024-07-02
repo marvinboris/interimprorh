@@ -1,13 +1,14 @@
 import { Work } from "react-iconly";
 import { cn } from "@/utils";
 import { useAdminDashboard } from "./context";
+import { useTranslation } from "react-i18next";
 
 export default function Cards() {
     const { total_applicants, total_companies, total_jobs } =
         useAdminDashboard();
 
     return (
-        <div className="grid grid-cols-3 gap-3.5">
+        <div className="grid md:grid-cols-3 gap-3.5">
             <Card type="companies" value={total_companies} />
             <Card type="applicants" value={total_applicants} />
             <Card type="jobs" value={total_jobs} />
@@ -22,6 +23,8 @@ function Card({
     type: "companies" | "applicants" | "jobs";
     value: string | number;
 }) {
+    const { t } = useTranslation();
+
     const Icon =
         type === "applicants"
             ? CalendarTime
@@ -32,7 +35,7 @@ function Card({
     return (
         <div
             className={cn(
-                "rounded-xl text-white bg-gradient-to-r p-5 pb-6 relative",
+                "rounded-xl text-white bg-gradient-to-r p-4 md:p-5 pb-4 md:pb-6 relative",
                 {
                     companies: "from-[#50AA46] to-[#8AC340]",
                     applicants: "from-[#406DC3] to-[#024BA0]",
@@ -48,18 +51,20 @@ function Card({
                 <div>
                     {
                         {
-                            companies: "Total companies",
-                            applicants: "Total applicants",
-                            jobs: "Total jobs",
+                            companies: t("Total companies"),
+                            applicants: t("Total applicants"),
+                            jobs: t("Total jobs"),
                         }[type]
                     }
                     .
                 </div>
 
-                <div className="w-9 h-1 mt-4 bg-white/20 rounded-full" />
+                <div className="w-9 h-1 mt-2 md:mt-4 bg-white/20 rounded-full" />
             </header>
 
-            <div className="text-3xl font-bold mt-5">{value}</div>
+            <div className="text-xl md:text-2xl xl:text-3xl font-bold mt-3 md:mt-4 xl:mt-5">
+                {value}
+            </div>
         </div>
     );
 }

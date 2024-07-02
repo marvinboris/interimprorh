@@ -8,6 +8,7 @@ import { selectAuth, check } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setAuthToken } from "@/utils";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export function LayoutApp({ children }: { children?: React.ReactNode }) {
     const [countries, setCountries] = React.useState<Country[]>([]);
@@ -20,18 +21,22 @@ export function LayoutApp({ children }: { children?: React.ReactNode }) {
     const dispatch = useAppDispatch();
     const { token, status } = useAppSelector(selectAuth);
 
+    const { i18n } = useTranslation();
+
     React.useEffect(() => {
         if (languages) {
             setLanguage(languages[0]);
         }
     }, [languages]);
 
-    const setLanguage = React.useCallback((language: Language | undefined) => {
+    const setLanguage = (language: Language | undefined) => {
         setJustLanguage(language);
 
-        if (language) localStorage.setItem("frontend_lang", language.abbr);
-        else localStorage.removeItem("frontend_lang");
-    }, []);
+        if (language) {
+            i18n.changeLanguage(language.abbr);
+            localStorage.setItem("lang", language.abbr);
+        } else localStorage.removeItem("lang");
+    };
 
     React.useEffect(() => {
         if (status === Status.IDLE) {

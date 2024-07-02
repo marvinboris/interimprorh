@@ -22,6 +22,18 @@ export const postUserLogin = async (data: {
     return res.data;
 };
 
+export const postAdminLogin = async (data: {
+    email: string;
+    password: string;
+}) => {
+    const res = await axios.post<{
+        token: string;
+        expires_at: number;
+        data: Admin | Message;
+    }>("/api/admin/login", data);
+    return res.data;
+};
+
 // Edit user
 export const patchUser = async (data: Applicant) => {
     const res = await axios.patch<Applicant>("/api/user", data);
