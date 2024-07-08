@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('salary_high', 8, 2);
             $table->string('location');
             $table->foreignId('contract_id')->constrained();
+            $table->foreignId('diploma_id')->constrained();
             $table->json('languages');
             $table->json('responsibilities');
             $table->json('qualifications');

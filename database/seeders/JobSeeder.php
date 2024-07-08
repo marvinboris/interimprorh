@@ -37,6 +37,7 @@ class JobSeeder extends Seeder
                 ],
                 'salary_high' => 120000,
                 'salary_low' => 80000,
+                'diploma_id' => 1,
                 'description' => "En tant qu'administrateur réseau, vous serez responsable de la gestion et de la maintenance de notre infrastructure réseau afin de garantir un fonctionnement fluide et sécurisé. Vous travaillerez en étroite collaboration avec notre équipe informatique pour assurer la connectivité réseau, la sécurité et la disponibilité des services pour l'ensemble de l'organisation. Voici un aperçu des responsabilités clés",
             ],
             [
@@ -62,6 +63,7 @@ class JobSeeder extends Seeder
                 ],
                 'salary_high' => 220000,
                 'salary_low' => 90000,
+                'diploma_id' => 1,
                 'description' => "En tant qu'administrateur réseau, vous serez responsable de la gestion et de la maintenance de notre infrastructure réseau afin de garantir un fonctionnement fluide et sécurisé. Vous travaillerez en étroite collaboration avec notre équipe informatique pour assurer la connectivité réseau, la sécurité et la disponibilité des services pour l'ensemble de l'organisation. Voici un aperçu des responsabilités clés",
             ],
             [
@@ -87,6 +89,7 @@ class JobSeeder extends Seeder
                 ],
                 'salary_high' => 220000,
                 'salary_low' => 90000,
+                'diploma_id' => 1,
                 'description' => "En tant qu'administrateur réseau, vous serez responsable de la gestion et de la maintenance de notre infrastructure réseau afin de garantir un fonctionnement fluide et sécurisé. Vous travaillerez en étroite collaboration avec notre équipe informatique pour assurer la connectivité réseau, la sécurité et la disponibilité des services pour l'ensemble de l'organisation. Voici un aperçu des responsabilités clés",
             ],
             [
@@ -112,6 +115,7 @@ class JobSeeder extends Seeder
                 ],
                 'salary_high' => 220000,
                 'salary_low' => 90000,
+                'diploma_id' => 1,
                 'description' => "En tant qu'administrateur réseau, vous serez responsable de la gestion et de la maintenance de notre infrastructure réseau afin de garantir un fonctionnement fluide et sécurisé. Vous travaillerez en étroite collaboration avec notre équipe informatique pour assurer la connectivité réseau, la sécurité et la disponibilité des services pour l'ensemble de l'organisation. Voici un aperçu des responsabilités clés",
             ],
             [
@@ -137,6 +141,7 @@ class JobSeeder extends Seeder
                 ],
                 'salary_high' => 220000,
                 'salary_low' => 90000,
+                'diploma_id' => 1,
                 'description' => "En tant qu'administrateur réseau, vous serez responsable de la gestion et de la maintenance de notre infrastructure réseau afin de garantir un fonctionnement fluide et sécurisé. Vous travaillerez en étroite collaboration avec notre équipe informatique pour assurer la connectivité réseau, la sécurité et la disponibilité des services pour l'ensemble de l'organisation. Voici un aperçu des responsabilités clés",
             ],
             [
@@ -162,6 +167,7 @@ class JobSeeder extends Seeder
                 ],
                 'salary_high' => 220000,
                 'salary_low' => 90000,
+                'diploma_id' => 1,
                 'description' => "En tant qu'administrateur réseau, vous serez responsable de la gestion et de la maintenance de notre infrastructure réseau afin de garantir un fonctionnement fluide et sécurisé. Vous travaillerez en étroite collaboration avec notre équipe informatique pour assurer la connectivité réseau, la sécurité et la disponibilité des services pour l'ensemble de l'organisation. Voici un aperçu des responsabilités clés",
             ],
             [
@@ -187,6 +193,7 @@ class JobSeeder extends Seeder
                 ],
                 'salary_high' => 220000,
                 'salary_low' => 90000,
+                'diploma_id' => 1,
                 'description' => "En tant qu'administrateur réseau, vous serez responsable de la gestion et de la maintenance de notre infrastructure réseau afin de garantir un fonctionnement fluide et sécurisé. Vous travaillerez en étroite collaboration avec notre équipe informatique pour assurer la connectivité réseau, la sécurité et la disponibilité des services pour l'ensemble de l'organisation. Voici un aperçu des responsabilités clés",
             ],
         ];

@@ -73,7 +73,9 @@ export default function Who() {
                         </div>
                     </div>
 
-                    <Polygon1 />
+                    <div className="relative lg:static h-[320px] lg:h-auto order-2 lg:order-1">
+                        <Polygon1 />
+                    </div>
                 </div>
             </Section>
         </div>

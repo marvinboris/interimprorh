@@ -10,7 +10,7 @@ class Job extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'company_id', 'salary_low', 'salary_high', 'location', 'contract_id', 'languages', 'responsibilities', 'qualifications', 'advantages', 'experience'
+        'name', 'description', 'company_id', 'salary_low', 'salary_high', 'location', 'contract_id', 'diploma_id', 'languages', 'responsibilities', 'qualifications', 'advantages', 'experience'
     ];
 
     protected $casts = [
@@ -29,5 +29,10 @@ class Job extends Model
     public function contract()
     {
         return $this->belongsTo(Contract::class);
+    }
+
+    public function diploma()
+    {
+        return $this->belongsTo(Diploma::class);
     }
 }

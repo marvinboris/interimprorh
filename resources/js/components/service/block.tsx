@@ -27,12 +27,12 @@ export function ServiceBlock({
                 <p className="mt-4 line-clamp-2">{body}</p>
 
                 <div className="mt-4 flex gap-4 font-medium">
-                    <div className="bg-stone-100 flex items-center p-2.5 gap-2.5">
+                    <div className="bg-stone-100 flex items-center p-2.5 gap-2.5 rounded">
                         <Calendar className="size-3.5" />
                         <span>{moment(created_at).fromNow()}</span>
                     </div>
 
-                    <div className="bg-stone-100 flex items-center p-2.5 gap-2.5">
+                    <div className="bg-stone-100 flex items-center p-2.5 gap-2.5 rounded">
                         <Message className="size-3.5" />
                         <span>{comments}</span>
                     </div>

@@ -194,7 +194,7 @@ const Li = ({
     green?: boolean;
 }) => {
     return (
-        <div className="flex gap-2.5 text-sm">
+        <div className="flex gap-2.5 text-sm md:w-1/2">
             <svg
                 width="22"
                 height="22"

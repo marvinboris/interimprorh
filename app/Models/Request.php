@@ -10,21 +10,16 @@ class Request extends Model
     use HasFactory;
 
     protected $fillable = [
-        'company_id', 'applicant_id', 'location', 'contract_id', 'status'
+        'job_id', 'applicant_id', 'status'
     ];
 
-    public function company()
+    public function job()
     {
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo(Job::class);
     }
 
     public function applicant()
     {
         return $this->belongsTo(Applicant::class);
-    }
-
-    public function contract()
-    {
-        return $this->belongsTo(Contract::class);
     }
 }

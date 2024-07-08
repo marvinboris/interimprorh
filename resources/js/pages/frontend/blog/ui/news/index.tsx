@@ -18,7 +18,7 @@ export default function News() {
         Nos <span>Annonces</span>
       </SectionTitle>
 
-      <div className="mt-8 lg:mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-7">
+      <div className="mt-8 lg:mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-7 xl:gap-10">
         {news?.map((news) => (
           <ServiceBlock key={"news-block-" + news.id} {...news} />
         ))}

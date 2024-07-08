@@ -110,8 +110,7 @@ export function Table({
 
             <div className="w-full overflow-auto">
                 <table className="w-full text-sm">
-                    <thead className="relative z-0">
-                        <div className="absolute bg-gray-100 rounded-lg -z-10 inset-0" />
+                    <thead className="relative z-0 after:absolute after:bg-gray-100 after:rounded-lg after:-z-10 after:inset-0">
                         <tr>
                             {fields.map((field) => (
                                 <th

@@ -21,6 +21,11 @@ export function LayoutApp({ children }: { children?: React.ReactNode }) {
     const dispatch = useAppDispatch();
     const { token, status } = useAppSelector(selectAuth);
 
+    const options = React.useMemo(
+        () => countries.map((c) => ({ value: c.country, label: c.name })),
+        [countries]
+    );
+
     const { i18n } = useTranslation();
 
     React.useEffect(() => {
@@ -96,7 +101,7 @@ export function LayoutApp({ children }: { children?: React.ReactNode }) {
 
     return loaded && languages ? (
         <CountriesContext.Provider
-            value={{ countries, defaultCode, setCountries }}
+            value={{ countries, options, defaultCode, setCountries }}
         >
             <LanguageContext.Provider
                 value={{ language, languages, setLanguage, setLanguages }}

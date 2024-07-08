@@ -3,20 +3,29 @@ import Right from "./right";
 import { Button } from "@/components";
 import Avatar from "./avatar";
 import { Link } from "react-router-dom";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Banner() {
+    const { t } = useTranslation();
+
     return (
         <div className="pt-8 lg:pt-32 pb-24 lg:pb-4 container-auto flex flex-col lg:flex-row relative overflow-clip lg:overflow-visible">
             <div className="order-2 lg:order-1">
                 <h1 className="font-bold text-3xl/tight lg:text-6xl/tight text-center lg:text-left">
-                    Unlock your next{" "}
-                    <span className="text-primary">career opportunity</span>{" "}
-                    today
+                    <Trans
+                        i18nKey="Unlock your next <1>career opportunity</1> today"
+                        t={t}
+                    >
+                        Unlock your next{" "}
+                        <span className="text-primary">career opportunity</span>{" "}
+                        today
+                    </Trans>
                 </h1>
 
                 <p className="lg:w-3/5 mt-5 text-lg lg:text-xl text-center lg:text-left">
-                    Find your dream job today. At Interim Pro RH discover
-                    opportunities that match your skills and ambitions.
+                    {t(
+                        "Find your dream job today. At Interim Pro RH discover opportunities that match your skills and ambitions."
+                    )}
                 </p>
 
                 <div className="flex flex-col justify-center lg:justify-start sm:flex-row gap-3 lg:gap-6 mt-10 *:*:w-full">

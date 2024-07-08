@@ -7,7 +7,7 @@ export default function Team() {
 
     if (loading) return <Loading />;
     return (
-        <div className="overflow-clip relative pb-20 bg-stone-100">
+        <div className="overflow-clip relative py-20 bg-stone-100">
             <TransparentTitle className="absolute top-0 right-0 translate-x-1/2">
                 Notre équipe
             </TransparentTitle>
