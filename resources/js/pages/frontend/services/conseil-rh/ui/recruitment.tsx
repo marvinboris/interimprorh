@@ -6,8 +6,11 @@ import {
     TransparentTitle,
 } from "@/components";
 import { ArrowRight } from "iconsax-react";
+import { useTranslation } from "react-i18next";
 
 export default function Recruitment() {
+    const { t } = useTranslation();
+
     return (
         <div className="overflow-clip relative">
             <Section>
@@ -17,7 +20,7 @@ export default function Recruitment() {
 
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-24">
                     <div>
-                        <SectionTitle>Recrutement</SectionTitle>
+                        <SectionTitle>{t("Recruitment")}</SectionTitle>
 
                         <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
                             <p>
@@ -34,7 +37,7 @@ export default function Recruitment() {
 
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">
                             <Button size="xl">
-                                <span>{"Contactez-nous"}</span>
+                                <span>{t("Contact us")}</span>
                                 <ArrowRight className="size-6" />
                             </Button>
                         </div>

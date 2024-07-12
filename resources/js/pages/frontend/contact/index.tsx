@@ -16,11 +16,13 @@ import { Contact } from "@types";
 
 import { Call, Message } from "iconsax-react";
 import React, { FormEvent } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { Send } from "react-iconly";
 import { v4 as uuidv4 } from "uuid";
 
 export function PageContact() {
     const [loading, setLoading] = React.useState(false);
+    const { t } = useTranslation();
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -61,13 +63,19 @@ export function PageContact() {
 
     return (
         <>
-            <Header>Cliquez ici</Header>
+            <Header>
+                <Trans i18nKey="Contact <1>us</1>">
+                    Contact <span>us</span>
+                </Trans>
+            </Header>
             <div className="bg-stone-100">
                 <Section className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16 pb-20">
                     <div>
                         <div className="bg-primary text-white p-8 lg:p-16">
                             <div className="*:opacity-50 text-3xl lg:text-6xl font-bold">
-                                Nous <span>joindre</span>
+                                <Trans i18nKey="Contact <1>us</1>">
+                                    Contact <span>us</span>
+                                </Trans>
                             </div>
 
                             <p className="text-lg mt-8">
@@ -137,11 +145,10 @@ export function PageContact() {
 
                     <form onSubmit={onSubmit} className="pt-8 lg:pt-16">
                         <div className="text-3xl lg:text-4xl/none font-bold text-black text-center lg:text-left">
-                            Vous avez un sujet ?
+                            {t("Do you have a subject ?")}
                         </div>
                         <div className="text-sm lg:text-base text-center lg:text-left">
-                            Ecrivez-vous en remplissant le formulaire
-                            ci-dessous.
+                            {t("Write to us by filling the below form.")}
                         </div>
 
                         <div className="relative mt-8 xl:mt-16">
@@ -152,14 +159,14 @@ export function PageContact() {
                             </Transition>
 
                             <div className="p-4 bg-white border border-neutral-200 grid sm:grid-cols-2 gap-4 rounded-2xl">
-                                <Input label={"Votre nom"} name="name" />
+                                <Input label={t("Your name")} name="name" />
                                 <Input
-                                    label={"Votre e-mail"}
+                                    label={t("Your email")}
                                     type="email"
                                     name="email"
                                 />
                                 <CustomSelect
-                                    label="Votre objet"
+                                    label={t("Your object")}
                                     name="object"
                                     options={[
                                         {
@@ -169,13 +176,13 @@ export function PageContact() {
                                     ]}
                                 />
                                 <Input
-                                    label={"Telephone"}
+                                    label={t("Phone No.")}
                                     type="tel"
                                     name="phone"
                                     placeholder="54 100 0003"
                                 />
                                 <TextArea
-                                    label={"Votre message"}
+                                    label={t("Your message")}
                                     name="message"
                                     className="sm:col-span-2"
                                 />
@@ -183,7 +190,7 @@ export function PageContact() {
 
                             <div className="mt-8 xl:mt-11 text-center lg:text-left">
                                 <Button size="xl">
-                                    <span>Envoyer votre message</span>
+                                    <span>{t("Send your message")}</span>
                                     <Send size={20} />
                                 </Button>
                             </div>

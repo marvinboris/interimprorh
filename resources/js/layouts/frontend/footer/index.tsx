@@ -11,10 +11,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Send } from "react-iconly";
 import React, { FormEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
     const [loading, setLoading] = React.useState(false);
     const location = useLocation();
+    const { t } = useTranslation();
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -59,27 +61,29 @@ export default function Footer() {
                             <div className="font-bold">Douala - Cameroun</div>
 
                             <div className="mt-2">
-                                Situé au carrefour Douala Bercy
+                                {t("Located at carrefour Douala Bercy")}
                                 <br />
-                                BP : 15170 Akwa Douala
+                                {t("PO Box. 15170 Akwa Douala")}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <FooterTitle>Important links</FooterTitle>
+                    <FooterTitle>{t("Important links")}</FooterTitle>
                     <div className="mt-7 *:flex *:items-center *:gap-2 *:before:h-px *:before:w-2 *:before:bg-white *:before:rounded-full">
-                        <Link to="/">Home</Link>
-                        <Link to="/about">About us</Link>
-                        <Link to="/services">Services</Link>
-                        <Link to="/jobs">Jobs</Link>
-                        <Link to="/terms-conditions">Terms & Conditions</Link>
-                        <Link to="/privacy-policy">Privacy policy</Link>
+                        <Link to="/">{t("Home")}</Link>
+                        <Link to="/about">{t("About us")}</Link>
+                        <Link to="/services">{t("Services")}</Link>
+                        <Link to="/jobs">{t("Jobs")}</Link>
+                        <Link to="/terms-conditions">
+                            {t("Terms & Conditions")}
+                        </Link>
+                        <Link to="/privacy-policy">{t("Privacy policy")}</Link>
                     </div>
                 </div>
                 <div className="flex-1">
                     <div>
-                        <FooterTitle>Contact us</FooterTitle>
+                        <FooterTitle>{t("Contact us")}</FooterTitle>
                         <div className="mt-7">
                             <div className="flex items-center gap-2.5">
                                 <Message className="size-5" />
@@ -103,7 +107,9 @@ export default function Footer() {
                     </div>
 
                     <div className="mt-5">
-                        <FooterTitle>Subscribe to newsletter</FooterTitle>
+                        <FooterTitle>
+                            {t("Subscribe to newsletter")}
+                        </FooterTitle>
                         <form
                             onSubmit={onSubmit}
                             className="flex items-center p-2.5 gap-3.5 rounded-xl bg-white/20 mt-4"
@@ -113,7 +119,7 @@ export default function Footer() {
                             <input
                                 name="email"
                                 type="email"
-                                placeholder="Your e-mail"
+                                placeholder={t("Your e-mail")}
                                 className="p-0 bg-transparent border-0 outline-none flex-1"
                             />
 
@@ -123,7 +129,7 @@ export default function Footer() {
                                 ) : (
                                     <>
                                         <span className="hidden lg:inline-block">
-                                            Subscribe
+                                            {t("Subscribe")}
                                         </span>
                                         <Send size={24} />
                                     </>
@@ -133,7 +139,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="flex-1">
-                    <FooterTitle>Find us on Gmaps</FooterTitle>
+                    <FooterTitle>{t("Find us on Gmaps")}</FooterTitle>
 
                     <div className="mt-7">
                         <iframe
@@ -148,8 +154,8 @@ export default function Footer() {
             <div>
                 <div className="container-auto flex flex-col lg:flex-row items-center gap-4 py-4">
                     <div className="*:font-medium text-center lg:text-left">
-                        <span>Copyright 2024 |</span> . All Rights Reserved{" "}
-                        <span>|</span> Made with love by{" "}
+                        <span>Copyright 2024 |</span> .{" "}
+                        {t("All Rights Reserved")} <span>|</span> {t("Made by")}{" "}
                         <span>Briluce Services</span>
                     </div>
 

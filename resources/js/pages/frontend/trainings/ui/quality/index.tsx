@@ -2,6 +2,7 @@ import { Button, Section, SectionTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
 import Frame from "../frame";
 import { Link } from "react-router-dom";
+import { Trans } from "react-i18next";
 
 export default function Quality() {
     return (
@@ -13,9 +14,10 @@ export default function Quality() {
 
                 <div className="order-1 lg:order-2">
                     <SectionTitle>
-                        Qualité, Hygiène,
-                        <br /> <span>Sécurité et</span> <br />
-                        <span>Environnement</span>
+                        <Trans i18nKey="Quality, Health, <br /> <2>Safety and</2> <br /> <4>Environment</4>">
+                            Quality, Health, <br /> <span>Safety and</span>{" "}
+                            <br /> <span>Environment</span>
+                        </Trans>
                     </SectionTitle>
 
                     <p className="mt-4 lg:mt-0">
@@ -35,7 +37,11 @@ export default function Quality() {
                     <div className="mt-8 lg:mt-11 text-center lg:text-left">
                         <Link to="/contact">
                             <Button size="xl" div>
-                                <span>Contactez-nous</span>
+                                <span>
+                                    <Trans i18nKey="Contact <1>us</1>">
+                                        Contact <span>us</span>
+                                    </Trans>
+                                </span>
                                 <ArrowRight size={20} />
                             </Button>
                         </Link>

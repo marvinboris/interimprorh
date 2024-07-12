@@ -5,19 +5,22 @@ import Quality from "./ui/quality";
 import Communication from "./ui/communication";
 import Logistics from "./ui/logistics";
 import Law from "./ui/law";
+import { useTranslation } from "react-i18next";
 
 export function PageTrainings() {
-  return (
-    <>
-      <Header>Nos formations</Header>
-      <div className="pt-12 *:pb-24">
-        <HR />
-        <Accounting />
-        <Logistics />
-        <Quality />
-        <Law />
-        <Communication />
-      </div>
-    </>
-  );
+    const { t } = useTranslation();
+
+    return (
+        <>
+            <Header>{t("Our trainings")}</Header>
+            <div className="pt-12 *:pb-24">
+                <HR />
+                <Accounting />
+                <Logistics />
+                <Quality />
+                <Law />
+                <Communication />
+            </div>
+        </>
+    );
 }

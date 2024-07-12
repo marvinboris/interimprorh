@@ -2,13 +2,17 @@ import { Button, Section, SectionTitle } from "@/components";
 import Frame from "../frame";
 import { ArrowRight, TickCircle } from "iconsax-react";
 import { Link } from "react-router-dom";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function HR() {
+    const { t } = useTranslation();
+
     return (
         <Section>
             <SectionTitle>
-                Gestion des
-                <br /> <span>ressources humaines</span>
+                <Trans i18nKey="<0>Human resource</0> <br /> management">
+                    <span>Human resource</span> <br /> management
+                </Trans>
             </SectionTitle>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4 lg:mt-12">
@@ -32,7 +36,7 @@ export default function HR() {
                     <div className="mt-8 lg:mt-14 text-center lg:text-left">
                         <Link to="/contact">
                             <Button size="xl" div>
-                                <span>Souscrire</span>
+                                <span>{t("Subscribe")}</span>
                                 <ArrowRight size={20} />
                             </Button>
                         </Link>

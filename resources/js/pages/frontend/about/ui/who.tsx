@@ -6,6 +6,7 @@ import {
     TransparentTitle,
 } from "@/components";
 import { ArrowRight } from "iconsax-react";
+import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function Who() {
@@ -13,13 +14,17 @@ export default function Who() {
         <div className="overflow-x-clip relative">
             <Section>
                 <TransparentTitle className="absolute top-0 bottom-0 translate-x-1/2 truncate">
-                    Qui sommes-nous
+                    <Trans i18nKey="Who <1>are we ?</1>">
+                        Who <span>are we ?</span>
+                    </Trans>
                 </TransparentTitle>
 
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-8 lg:pt-24">
                     <div>
                         <SectionTitle>
-                            Qui <span>sommes-nous ?</span>
+                            <Trans i18nKey="Who <1>are we ?</1>">
+                                Who <span>are we ?</span>
+                            </Trans>
                         </SectionTitle>
 
                         <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
@@ -66,7 +71,11 @@ export default function Who() {
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">
                             <Link to="/contact">
                                 <Button size="xl" div>
-                                    <span>{"Contactez-nous"}</span>
+                                    <span>
+                                        <Trans i18nKey="Contact <1>us</1>">
+                                            Contact <span>us</span>
+                                        </Trans>
+                                    </span>
                                     <ArrowRight className="size-6" />
                                 </Button>
                             </Link>

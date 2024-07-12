@@ -2,6 +2,7 @@ import { Button, Section, SectionTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
 import Frame from "../frame";
 import { Link } from "react-router-dom";
+import { Trans } from "react-i18next";
 
 export default function Law() {
     return (
@@ -9,8 +10,9 @@ export default function Law() {
             <div className="grid lg:grid-cols-2 gap-8">
                 <div>
                     <SectionTitle>
-                        Juridique <span>&</span>
-                        <br /> <span>Droit social</span>
+                        <Trans i18nKey="Legal <1>&</1> <br /> <3>Social law</3>">
+                            Legal <span>&</span> <br /> <span>Social law</span>
+                        </Trans>
                     </SectionTitle>
 
                     <p className="mt-4 lg:mt-0">
@@ -25,7 +27,11 @@ export default function Law() {
                     <div className="mt-8 lg:mt-11 text-center lg:text-left">
                         <Link to="/contact">
                             <Button size="xl">
-                                <span>Contactez-nous</span>
+                                <span>
+                                    <Trans i18nKey="Contact <1>us</1>">
+                                        Contact <span>us</span>
+                                    </Trans>
+                                </span>
                                 <ArrowRight size={20} />
                             </Button>
                         </Link>

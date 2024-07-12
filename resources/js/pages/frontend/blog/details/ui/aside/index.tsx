@@ -6,17 +6,19 @@ import Twitter from "./icons/twitter";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Block from "./block";
 import { useNews } from "@/hooks";
+import { useTranslation } from "react-i18next";
 
 export default function Aside() {
   const { loading, data: news } = useNews();
+  const {t} = useTranslation()
 
   if (loading) return <Loading />;
   return (
     <aside className="space-y-10 w-96 mx-auto">
       <div className="rounded-2xl bg-primary/5 p-5">
-        <div className="text-2xl font-bold">Follow us on :</div>
+        <div className="text-2xl font-bold">{t("Follow us on")} :</div>
         <p className="text-sm text-neutral-500">
-          Need to know more about us ?{" "}
+          {t("Need to know more about us ?")}
         </p>
 
         <div className="mt-7 flex gap-3.5 *:flex *:size-11 *:*:size-5 *:items-center *:justify-center *:bg-white *:rounded-full text-primary">
@@ -39,7 +41,7 @@ export default function Aside() {
         <Input type="search" />
 
         <div className="mt-6 flex items-center gap-6">
-          <div className="text-2xl font-bold">Recent post</div>
+          <div className="text-2xl font-bold">{t("Recent post")}</div>
 
           <div className="flex gap-2 ml-auto *:size-8 *:flex *:items-center *:justify-center *:rounded-full">
             <button className="bg-stone-100">

@@ -91,9 +91,9 @@ export function LayoutApp({ children }: { children?: React.ReactNode }) {
                         language.abbr === localStorage.getItem("lang") ||
                         language.abbr === DEFAULT_LOCALE
                 ) || {
-                    abbr: "en",
-                    flag: "gb",
-                    name: "English",
+                    abbr: "fr",
+                    flag: "fr",
+                    name: "Français",
                 };
                 setLanguage(language);
             });

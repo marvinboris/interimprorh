@@ -1,7 +1,10 @@
 import { Button, Polygon1, Section, SectionTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
+import { useTranslation } from "react-i18next";
 
 export default function Training() {
+    const { t } = useTranslation();
+
     return (
         <div className="overflow-clip relative">
             <Section>
@@ -11,7 +14,7 @@ export default function Training() {
                     </div>
 
                     <div className="order-1 lg:order-2">
-                        <SectionTitle>Formation</SectionTitle>
+                        <SectionTitle>{t("Training")}</SectionTitle>
 
                         <div className="text-lg text-body space-y-4 mt-4">
                             <p>
@@ -31,7 +34,7 @@ export default function Training() {
 
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">
                             <Button size="xl">
-                                <span>{"Contactez-nous"}</span>
+                                <span>{t("Contact us")}</span>
                                 <ArrowRight className="size-6" />
                             </Button>
                         </div>

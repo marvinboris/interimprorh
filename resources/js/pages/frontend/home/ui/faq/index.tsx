@@ -4,8 +4,11 @@ import { FAQ } from "@types";
 import React from "react";
 import Card from "./card";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Faq() {
+    const { t } = useTranslation();
+
     const { data: faq, loading } = useFaq();
     const [selected, setSelected] = React.useState<FAQ>();
     const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -18,14 +21,16 @@ export default function Faq() {
     return (
         <div className="relative pt-24">
             <TransparentTitle className="absolute top-0 right-0">
-                FAQ
+                {t("FAQ")}
             </TransparentTitle>
 
             <Section>
                 <SectionTitle big className="text-center lg:text-left">
-                    Frequently
-                    <br />
-                    <span>asked questions</span>
+                    <Trans i18nKey="Frequently <br /> <2>asked questions</2>">
+                        Frequently
+                        <br />
+                        <span>asked questions</span>
+                    </Trans>
                 </SectionTitle>
 
                 <div className="mt-4 lg:mt-14 gap-x-4 lg:gap-x-14 grid grid-cols-1 lg:grid-cols-2">
@@ -63,14 +68,14 @@ export default function Faq() {
                     <div className="mt-8 flex gap-6 justify-center lg:justify-start">
                         <button
                             role="button"
-                            aria-label="Previous"
+                            aria-label={t("Previous")}
                             className="size-11 flex items-center justify-center rounded-full bg-primary/10 text-primary"
                         >
                             <ArrowLeft className="size-4" />
                         </button>
                         <button
                             role="button"
-                            aria-label="Next"
+                            aria-label={t("Next")}
                             className="size-11 flex items-center justify-center rounded-full bg-primary text-white"
                         >
                             <ArrowRight className="size-4" />

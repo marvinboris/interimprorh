@@ -14,9 +14,11 @@ import Block from "./block";
 import React, { FormEvent } from "react";
 import { Send } from "react-iconly";
 import { v4 as uuidv4 } from "uuid";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function ContactUs() {
     const [loading, setLoading] = React.useState(false);
+    const { t } = useTranslation();
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -58,7 +60,9 @@ export default function ContactUs() {
     return (
         <Section className="pt-24">
             <SectionTitle big className="text-center lg:text-left">
-                Contactez <span>nous</span>
+                <Trans i18nKey="Contact <1>us</1>">
+                    Contact <span>us</span>
+                </Trans>
             </SectionTitle>
 
             <div className="lg:mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
@@ -68,27 +72,27 @@ export default function ContactUs() {
                     </Transition>
 
                     <div className="border border-neutral-200 rounded-2xl bg-stone-100 p-4 grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
-                        <Input label={"Votre nom"} name="name" />
+                        <Input label={t("Your name")} name="name" />
                         <Input
-                            label={"Votre e-mail"}
+                            label={t("Your email")}
                             type="email"
                             name="email"
                         />
                         <CustomSelect
-                            label="Votre objet"
+                            label={t("Your object")}
                             name="object"
                             options={[
                                 { value: "job", label: "Recherche d'emploi" },
                             ]}
                         />
                         <Input
-                            label={"Telephone"}
+                            label={t("Phone No.")}
                             type="tel"
                             name="phone"
                             placeholder="54 100 0003"
                         />
                         <TextArea
-                            label={"Votre message"}
+                            label={t("Your message")}
                             name="message"
                             className="md:col-span-2"
                         />
@@ -96,7 +100,7 @@ export default function ContactUs() {
 
                     <div className="mt-4 lg:mt-11 text-center lg:text-left">
                         <Button size="xl" type="submit">
-                            <span>Envoyer votre message</span>
+                            <span>{t("Send your message")}</span>
                             <Send size={24} />
                         </Button>
                     </div>

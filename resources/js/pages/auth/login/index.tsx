@@ -13,10 +13,12 @@ import { Status } from "@/enums";
 import { selectAuth, userLogin } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import React, { FormEvent } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 
 export function PageAuthLogin() {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const dispatch = useAppDispatch();
     const { token, status, message } = useAppSelector(selectAuth);
@@ -57,10 +59,9 @@ export function PageAuthLogin() {
 
             <Section className="flex items-center flex-col lg:flex-row gap-12">
                 <SectionTitle className="flex-1">
-                    Welcome back!
-                    <br />
-                    <span>Log in</span>, to access <br />
-                    user account.
+                    <Trans i18nKey="Welcome back! <br /> <4>Log in</4>, to access <br /> user account.">
+                        Welcome back! <br /> <span>Log in</span>, to access <br /> user account.
+                    </Trans>
                 </SectionTitle>
 
                 <div className="w-full sm:w-[415px] flex-none relative">
@@ -75,7 +76,7 @@ export function PageAuthLogin() {
                             <Polygon />
                         </div>
 
-                        <div className="font-bold text-2xl">Sign in</div>
+                        <div className="font-bold text-2xl">{t("Sign in")}</div>
                         <form
                             ref={formRef}
                             onSubmit={onSubmit}
@@ -99,21 +100,21 @@ export function PageAuthLogin() {
                                 required
                                 name="email"
                                 type="email"
-                                label="E-mail address"
+                                label={t("E-mail address")}
                                 placeholder="johndoe@email.com"
                             />
                             <Input
                                 required
                                 name="password"
                                 type="password"
-                                label="Password"
+                                label={t("Password")}
                                 className="mt-2.5"
                                 placeholder="*****************"
                             />
 
                             <div className="text-right mt-6 text-xs font-medium *:underline *:text-primary *:font-semibold">
-                                Forgot password ?{" "}
-                                <Link to="/reset">Reset here</Link>
+                                {t("Forgot password")} ?{" "}
+                                <Link to="/reset">{t("Reset here")}</Link>
                             </div>
 
                             <div className="mt-8">
@@ -122,13 +123,13 @@ export function PageAuthLogin() {
                                     size="xl"
                                     className="w-full"
                                 >
-                                    Log in
+                                    {t("Log in")}
                                 </Button>
                             </div>
 
                             <div className="mt-5 text-center text-sm font-medium *:underline *:text-primary *:font-semibold">
-                                Don’t have an account ?{" "}
-                                <Link to="/register">Create one</Link>
+                                {t("Don’t have an account")} ?{" "}
+                                <Link to="/register">{t("Create one")}</Link>
                             </div>
                         </form>
                     </div>

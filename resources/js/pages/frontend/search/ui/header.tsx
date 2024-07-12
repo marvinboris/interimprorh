@@ -7,11 +7,13 @@ import { Category, CloseCircle, Location } from "iconsax-react";
 import React from "react";
 import { useCompanyActivities } from "@/hooks";
 import { useCountriesContext } from "@/contexts";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
     const { data, setData } = usePageSearchContext();
     const { options: specialtyOptions } = useCompanyActivities();
     const { options: countryOptions } = useCountriesContext();
+    const { t } = useTranslation();
 
     const [country, setCountry] = React.useState("");
     const [loading, setLoading] = React.useState(false);
@@ -55,7 +57,7 @@ export default function Header() {
     return (
         <header className="pt-4 lg:pt-8 pb-11 bg-stone-100/50">
             <Section className="space-y-4 lg:space-y-6">
-                <h1 className="text-2xl font-bold">Job search</h1>
+                <h1 className="text-2xl font-bold">{t("Job search")}</h1>
 
                 <div className="border border-neutral-200 bg-white rounded-xl p-3 gap-3 flex flex-col lg:flex-row">
                     <div className="grid lg:grid-cols-3 gap-3 lg:w-3/5 lg:divide-x-4 divide-neutral-200 *:*:*:*:*:!border-0 lg:*:pl-3">
@@ -65,7 +67,7 @@ export default function Header() {
                                 value={specialty}
                                 onChange={setSpecialty}
                                 options={specialtyOptions}
-                                placeholder="Select specialty"
+                                placeholder={t("Select specialty")}
                                 addon={
                                     <Category className="size-6 text-primary mr-3" />
                                 }
@@ -78,7 +80,7 @@ export default function Header() {
                                 name="country"
                                 value={country}
                                 onChange={setCountry}
-                                placeholder="Country"
+                                placeholder={t("Country")}
                                 addon={
                                     <Location className="size-6 text-primary mr-3" />
                                 }
@@ -91,7 +93,7 @@ export default function Header() {
                                 name="region"
                                 value={region}
                                 onChange={setRegion}
-                                placeholder="Region"
+                                placeholder={t("Region")}
                                 addon={
                                     <Location className="size-6 text-primary mr-3" />
                                 }
@@ -106,10 +108,10 @@ export default function Header() {
                             className="!text-danger font-bold"
                         >
                             <CloseCircle className="size-4" />
-                            <span className="underline">{"Clear filter"}</span>
+                            <span className="underline">{t("Clear filter")}</span>
                         </Button>
 
-                        <Button onClick={onSearch}>Search</Button>
+                        <Button onClick={onSearch}>{t("Search")}</Button>
                     </div>
                 </div>
 
@@ -129,14 +131,14 @@ export default function Header() {
                                 )
                             }
                         >
-                            {filter}
+                            {t(filter)}
                         </div>
                     ))}
 
                     <div className="lg:ml-auto lg:text-lg col-span-2">
-                        Search results :{" "}
+                        {t("Search results")} :{" "}
                         <span className="text-primary font-medium underline">
-                            {data.length} jobs found
+                            {data.length} {t("jobs found")}
                         </span>
                     </div>
                 </div>

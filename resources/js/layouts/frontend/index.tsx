@@ -8,9 +8,11 @@ import { useAppSelector } from "@/hooks";
 import { selectAuth } from "@/features";
 import { isApplicant } from "@/utils";
 import ProfilePic from "./profile-pic";
+import { useTranslation } from "react-i18next";
 
 export function LayoutFrontend() {
     const { data } = useAppSelector(selectAuth);
+    const { t } = useTranslation();
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -54,8 +56,8 @@ export function LayoutFrontend() {
                             className="hidden lg:flex items-center text-primary gap-6 ml-auto"
                             to="/login"
                         >
-                            <div className="font-semibold font-display underline text-sm">
-                                SIGN IN
+                            <div className="font-semibold font-display underline uppercase text-sm">
+                                {t("Sign in")}
                             </div>
 
                             <div className="size-14 flex items-center justify-center rounded-full bg-primary/10">

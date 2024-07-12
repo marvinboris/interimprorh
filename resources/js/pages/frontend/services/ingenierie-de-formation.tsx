@@ -1,17 +1,22 @@
 import { Button, Header, Polygon1, Section, SectionTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
+import { Trans, useTranslation } from "react-i18next";
 
 export function PageServiceEngineeringTraining() {
+    const { t } = useTranslation();
+
     return (
         <>
-            <Header>Ingénierie de formation</Header>
+            <Header>{t("Training engineering")}</Header>
 
             <div className="overflow-clip relative">
                 <Section>
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-24">
                         <div>
                             <SectionTitle>
-                                Ingénierie de <span>formation</span>
+                                <Trans i18nKey="<0>Training</0> engineering">
+                                    <span>Training</span> engineering
+                                </Trans>
                             </SectionTitle>
 
                             <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
@@ -43,7 +48,7 @@ export function PageServiceEngineeringTraining() {
 
                             <div className="mt-8 lg:mt-20 text-center lg:text-left">
                                 <Button size="xl">
-                                    <span>{"Contactez-nous"}</span>
+                                    <span>{t("Contact us")}</span>
                                     <ArrowRight className="size-6" />
                                 </Button>
                             </div>

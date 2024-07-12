@@ -2,34 +2,35 @@ import { Button, Section, SectionTitle, TransparentTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
 import Svg from "./svg";
 import { Link } from "react-router-dom";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Career() {
+    const { t } = useTranslation();
+
     return (
         <Section className="overflow-clip lg:overflow-visible">
-            <TransparentTitle>Carrière</TransparentTitle>
+            <TransparentTitle>{t("Career")}</TransparentTitle>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 mt-24 lg:mt-0">
                 <div className="lg:pt-12">
                     <SectionTitle>
-                        Votre <span>Carrière</span>
+                        <Trans i18nKey="Your <1>Career</1>">
+                            Your <span>Career</span>
+                        </Trans>
                     </SectionTitle>
 
                     <div className="lg:text-lg text-body text-justify space-y-4 mt-4 lg:mt-6">
                         <p>
-                            Plus qu’une agence d’intérim, nous sommes un
-                            partenaire qui vous écoute, vous conseille et vous
-                            oriente vers les meilleures opportunités. Que vous
-                            soyez à la recherche d’un CDI, d’un CDD, d’une
-                            mission temporaire ou d’une formation qualifiante,
-                            nous vous proposons des offres adaptées à votre
-                            profil et à vos attentes.
+                            {t(
+                                "Plus qu’une agence d’intérim, nous sommes un partenaire qui vous écoute, vous conseille et vous oriente vers les meilleures opportunités. Que vous soyez à la recherche d’un CDI, d’un CDD, d’une mission temporaire ou d’une formation qualifiante, nous vous proposons des offres adaptées à votre profil et à vos attentes."
+                            )}
                         </p>
                     </div>
 
                     <div className="mt-8 lg:mt-20 text-center lg:text-left">
                         <Link to="/careers">
                             <Button size="xl" div>
-                                <span>{"Lire la suite"}</span>
+                                <span>{t("Read more")}</span>
                                 <ArrowRight className="size-6" />
                             </Button>
                         </Link>

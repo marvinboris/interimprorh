@@ -13,9 +13,11 @@ import {
 import { Message } from "@types";
 import { ArrowRight } from "iconsax-react";
 import React, { FormEvent } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 export function PageAuthEmployer() {
     const { options } = useCompanyActivities();
+    const { t } = useTranslation();
 
     const formRef = React.useRef<HTMLFormElement>(null);
 
@@ -83,8 +85,10 @@ export function PageAuthEmployer() {
 
             <Section className="flex items-center flex-col lg:flex-row gap-12">
                 <SectionTitle className="flex-1">
-                    Employer <br />
-                    <span>Sign up.</span> Create <br /> your account
+                    <Trans i18nKey="Employer <br /> <3>Sign up.</3> Create <br /> your account">
+                        Employer <br /> <span>Sign up.</span> Create <br /> your
+                        account
+                    </Trans>
                 </SectionTitle>
 
                 <form
@@ -109,46 +113,46 @@ export function PageAuthEmployer() {
                     <Input
                         required
                         name="name"
-                        label="Company name"
+                        label={t("Company name")}
                         placeholder="Interim Pro RH"
                     />
                     <CustomSelect
                         name="activity"
-                        label="Company activity"
+                        label={t("Company activity")}
                         options={options}
                     />
                     <Input
                         required
                         name="email"
                         type="email"
-                        label="Company e-mail"
+                        label={t("Company e-mail")}
                         placeholder="int@email.com"
                     />
                     <Input
                         required
                         name="phone"
                         type="tel"
-                        label="Phone No."
+                        label={t("Phone No.")}
                         placeholder="54 100 0003"
                     />
                     <Input
                         required
                         name="password"
                         type="password"
-                        label="Password"
+                        label={t("Password")}
                         placeholder="*****************"
                     />
                     <Input
                         required
                         name="password_confirmation"
                         type="password"
-                        label="Confirm password"
+                        label={t("Confirm password")}
                         placeholder="*****************"
                     />
 
                     <div className="mt-8">
                         <Button type="submit" size="xl" className="w-full">
-                            Continue
+                            {t("Continue")}
                             <ArrowRight className="size-5" />
                         </Button>
                     </div>

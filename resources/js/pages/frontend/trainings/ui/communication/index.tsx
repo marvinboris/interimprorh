@@ -2,6 +2,7 @@ import { Button, Section, SectionTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
 import Frame from "../frame";
 import { Link } from "react-router-dom";
+import { Trans } from "react-i18next";
 
 export default function Communication() {
     return (
@@ -13,8 +14,10 @@ export default function Communication() {
 
                 <div className="order-1 lg:order-2">
                     <SectionTitle>
-                        Communication/
-                        <br /> <span>Marketing digital</span>
+                        <Trans i18nKey="Communication / <br /> <2>Digital marketing</2>">
+                            Communication / <br />{" "}
+                            <span>Digital marketing</span>
+                        </Trans>
                     </SectionTitle>
 
                     <p className="mt-4 lg:mt-0">
@@ -34,7 +37,11 @@ export default function Communication() {
                     <div className="mt-8 lg:mt-11 text-center lg:text-left">
                         <Link to="/contact">
                             <Button size="xl" div>
-                                <span>Contactez-nous</span>
+                                <span>
+                                    <Trans i18nKey="Contact <1>us</1>">
+                                        Contact <span>us</span>
+                                    </Trans>
+                                </span>
                                 <ArrowRight size={20} />
                             </Button>
                         </Link>

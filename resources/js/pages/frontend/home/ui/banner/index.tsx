@@ -4,6 +4,7 @@ import { Button } from "@/components";
 import Avatar from "./avatar";
 import { Link } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
+import React from "react";
 
 export default function Banner() {
     const { t } = useTranslation();
@@ -12,10 +13,8 @@ export default function Banner() {
         <div className="pt-8 lg:pt-32 pb-24 lg:pb-4 container-auto flex flex-col lg:flex-row relative overflow-clip lg:overflow-visible">
             <div className="order-2 lg:order-1">
                 <h1 className="font-bold text-3xl/tight lg:text-6xl/tight text-center lg:text-left *:text-primary">
-                    <Trans i18nKey="Unlock your next <2>career opportunity</2> today">
-                        Unlock your next{" "}
-                        <span>career opportunity</span>{" "}
-                        today
+                    <Trans i18nKey="Unlock your next <1>career opportunity</1> today">
+                        Unlock your next <span>career opportunity</span> today
                     </Trans>
                 </h1>
 
@@ -29,14 +28,14 @@ export default function Banner() {
                     <Link to="/search">
                         <Button size="xl" div>
                             <SearchNormal1 className="size-6" />
-                            <span>{"Am looking for job"}</span>
+                            <span>{t("Am looking for job")}</span>
                         </Button>
                     </Link>
 
                     <Link to="/employer">
                         <Button color="white" size="xl" div>
                             <Briefcase className="size-6" />
-                            <span>{"Am an employer"}</span>
+                            <span>{t("Am an employer")}</span>
                         </Button>
                     </Link>
                 </div>
@@ -69,10 +68,15 @@ export default function Banner() {
                     </div>
 
                     <p className="text-body flex-1 sm:flex-none lg:flex-1">
-                        More than{" "}
-                        <span className="font-bold">12,000 thousand</span> users
-                        <br />
-                        trust our website
+                        <Trans count={12000}>
+                            More than{" "}
+                            <span className="font-bold">
+                                {{ count: 12000 } as unknown as React.ReactNode} thousand
+                            </span>{" "}
+                            users
+                            <br />
+                            trust our website
+                        </Trans>
                     </p>
                 </div>
             </div>

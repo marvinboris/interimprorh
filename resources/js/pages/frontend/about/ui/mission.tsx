@@ -1,5 +1,6 @@
 import { Button, Polygon1, Section, SectionTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
+import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function Mission() {
@@ -13,7 +14,9 @@ export default function Mission() {
 
                     <div className="order-1 lg:order-2">
                         <SectionTitle>
-                            Notre <span>mission</span>
+                            <Trans i18nKey="Our <1>mission</1>">
+                                Our <span>mission</span>
+                            </Trans>
                         </SectionTitle>
 
                         <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
@@ -31,7 +34,11 @@ export default function Mission() {
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">
                             <Link to="/contact">
                                 <Button size="xl" div>
-                                    <span>{"Contactez-nous"}</span>
+                                    <span>
+                                        <Trans i18nKey="Contact <1>us</1>">
+                                            Contact <span>us</span>
+                                        </Trans>
+                                    </span>
                                     <ArrowRight className="size-6" />
                                 </Button>
                             </Link>

@@ -12,16 +12,23 @@ import { Send } from "react-iconly";
 import React from "react";
 import { cn } from "@/utils";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 
 export default function Details() {
-    const { selected, setSelected } = usePageSearchContext();
-    if (!selected) return null;
+    const { t } = useTranslation();
 
-    const allTabs = ["Responsabilités", "Qualifications", "Avantages"] as const;
+    const { selected, setSelected } = usePageSearchContext();
+
+    const allTabs = [
+        "Responsibilities",
+        "Qualifications",
+        "Advantages",
+    ] as const;
     const [activeTab, setActiveTab] = React.useState<(typeof allTabs)[number]>(
         allTabs[0]
     );
 
+    if (!selected) return null;
     const {
         company,
         name,
@@ -86,7 +93,7 @@ export default function Details() {
 
                 <div className="mt-6">
                     <Button>
-                        <span>Postuler</span>
+                        <span>{t("Apply")}</span>
                         <Send size={20} />
                     </Button>
                 </div>
@@ -117,7 +124,7 @@ export default function Details() {
                                 </div>
                             ) : null}
                             <Document className="size-5" />
-                            {tab}
+                            {t(tab)}
                         </div>
                     ))}
                 </div>
@@ -125,7 +132,7 @@ export default function Details() {
                 <div className="mt-6 space-y-6">
                     {
                         {
-                            Responsabilités: responsibilities.map(
+                            Responsibilities: responsibilities.map(
                                 (responsibility, index) => (
                                     <Li
                                         key={
@@ -153,7 +160,7 @@ export default function Details() {
                                     </Li>
                                 )
                             ),
-                            Avantages: advantages.map((advantage, index) => (
+                            Advantages: advantages.map((advantage, index) => (
                                 <Li
                                     key={
                                         "job-advantage-" +
@@ -169,7 +176,7 @@ export default function Details() {
                     }
                 </div>
 
-                <div className="mt-9 font-bold text-xl">Expérience</div>
+                <div className="mt-9 font-bold text-xl">{t("Experience")}</div>
 
                 <div className="mt-4 space-y-3">
                     {experience.map((experience, index) => (

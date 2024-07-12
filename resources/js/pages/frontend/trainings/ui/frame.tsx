@@ -10,7 +10,7 @@ export default function Frame({
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
-                className="size-full absolute lg:static top-1/2 left-1/2 -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:translate-y-0"
+                className="size-full absolute lg:static top-1/2 left-1/2 -ml-[5%] -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:translate-y-0"
                 {...props}
             >
                 <g style={{ mixBlendMode: "multiply" }} opacity="0.4">

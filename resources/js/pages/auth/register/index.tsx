@@ -11,10 +11,12 @@ import {
 } from "@/components";
 import { Message } from "@types";
 import React, { FormEvent } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export function PageAuthRegister() {
     const formRef = React.useRef<HTMLFormElement>(null);
+    const { t } = useTranslation();
 
     const [loading, setLoading] = React.useState(false);
     const [message, setMessage] = React.useState<Message>();
@@ -74,11 +76,12 @@ export function PageAuthRegister() {
 
             <Section className="flex items-center flex-col lg:flex-row gap-12">
                 <SectionTitle className="flex-1">
-                    Welcome !
-                    <br />
-                    <span>Create your account,</span>
-                    <br />
-                    in few steps
+                    <Trans i18nKey="Welcome !<br /><3>Create your account,</3><br />in few steps">
+                        Welcome !<br />
+                        <span>Create your account,</span>
+                        <br />
+                        in few steps
+                    </Trans>
                 </SectionTitle>
 
                 <div className="w-full sm:w-[415px] flex-none relative">
@@ -93,7 +96,9 @@ export function PageAuthRegister() {
                             <Polygon />
                         </div>
 
-                        <div className="font-bold text-2xl">Create account</div>
+                        <div className="font-bold text-2xl">
+                            {t("Create account")}
+                        </div>
                         <form
                             ref={formRef}
                             onSubmit={onSubmit}
@@ -117,14 +122,14 @@ export function PageAuthRegister() {
                                 required
                                 name="email"
                                 type="email"
-                                label="E-mail address"
+                                label={t("E-mail address")}
                                 placeholder="johndoe@email.com"
                             />
                             <Input
                                 required
                                 name="password"
                                 type="password"
-                                label="Password"
+                                label={t("Password")}
                                 className="mt-2.5"
                                 placeholder="*****************"
                             />
@@ -132,7 +137,7 @@ export function PageAuthRegister() {
                                 required
                                 name="password_confirmation"
                                 type="password"
-                                label="Password"
+                                label={t("Confirm password")}
                                 className="mt-2.5"
                                 placeholder="*****************"
                             />
@@ -143,13 +148,13 @@ export function PageAuthRegister() {
                                     size="xl"
                                     className="w-full"
                                 >
-                                    Sign up
+                                    {t("Sign up")}
                                 </Button>
                             </div>
 
                             <div className="mt-5 text-center text-sm font-medium *:underline *:text-primary *:font-semibold">
-                                Already registered ?{" "}
-                                <Link to="/login">Sign in</Link>
+                                {t("Already registered")} ?{" "}
+                                <Link to="/login">{t("Sign in")}</Link>
                             </div>
                         </form>
                     </div>
