@@ -23,16 +23,7 @@ export default function Recruitment() {
                         <SectionTitle>{t("Recruitment")}</SectionTitle>
 
                         <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
-                            <p>
-                                IP-RH dispose d’une approche de recrutement qui
-                                s’appuie sur une démarche qualité, garantissant
-                                une entière transparence et objectivité à chaque
-                                étape du recrutement. Le talent pouvant revêtir
-                                de nombreuses formes, nous promouvons avant tout
-                                la compétence et l’éthique dans nos rapports,
-                                tout en traitant le candidat avec respect et
-                                équité. 
-                            </p>
+                            <p>{t("Services/Recruitment")}</p>
                         </div>
 
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">

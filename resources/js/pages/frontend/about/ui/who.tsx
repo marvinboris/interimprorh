@@ -6,10 +6,12 @@ import {
     TransparentTitle,
 } from "@/components";
 import { ArrowRight } from "iconsax-react";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function Who() {
+    const { t } = useTranslation();
+
     return (
         <div className="overflow-x-clip relative">
             <Section>
@@ -28,44 +30,11 @@ export default function Who() {
                         </SectionTitle>
 
                         <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
-                            <p>
-                                <span>INTERIM PRO</span> RH est une entreprise
-                                fondée par un groupe de cadres de divers
-                                secteurs d’activités confrontés tout au long de
-                                leurs différentes carrières aux problématiques
-                                ressources humaines.
-                            </p>
+                            <p>{t("About/Who/1")}</p>
 
-                            <p>
-                                <span>INTERIM PRO RH</span> vise à s’établir
-                                comme un fournisseur de premier plan d’employés
-                                pour diverses organisations quelque soit leur
-                                secteur d’activité. Aujourd’hui chez INTERIM PRO
-                                RH, nous nous concentrons sur la mise à
-                                disposition de main d’œuvre aux entreprises
-                                situées au Cameroun et dans la sous-région
-                                Afrique centrale.
-                            </p>
+                            <p>{t("About/Who/2")}</p>
 
-                            <p>
-                                Notre compagnie reçoit des centaines de
-                                candidatures chaque jour et offre une
-                                opportunité unique aux employeurs et aux
-                                demandeurs d’emploi de se rencontrer pour la
-                                réussite de leur projet. Pour ce faire , nous
-                                mettons à la disposition à travers le digital un
-                                canal de communication flexible et efficace pour
-                                les employeurs et futurs employés.
-                                <br />
-                                <br />
-                                Nous nous appuyons sur une vaste base de données
-                                remplis de profils divers et expérimentés,
-                                classés par secteur d’activité. Nous disposons
-                                d’une équipe compétente en ce qui concerne le
-                                traitement efficace de tout projet de
-                                recrutement et nous veillons à fournir aux
-                                candidats le poste le plus approprié.
-                            </p>
+                            <p>{t("About/Who/3")}</p>
                         </div>
 
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">

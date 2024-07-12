@@ -32,26 +32,25 @@ export default function About() {
 
                     <div className="lg:text-lg text-body space-y-4 mt-4">
                         <p>
-                            <Trans i18nKey="<0>INTERIM PRO RH</0>  est une entreprise fondée par un groupe de cadres de divers secteurs d’activités confrontés tout au long de leurs différentes carrières aux problématiques ressources humaines.">
+                            <Trans i18nKey="Home/About/1">
                                 <span className="font-bold">
                                     INTERIM PRO RH
-                                </span>
-                                 est une entreprise fondée par un groupe de
-                                cadres de divers secteurs d’activités confrontés
-                                tout au long de leurs différentes carrières aux
-                                problématiques ressources humaines.
+                                </span>{" "}
+                                is a company founded by a group of executives
+                                from various sectors of activity confronted with
+                                human resources issues throughout their
+                                different careers.
                             </Trans>
                         </p>
 
                         <p>
-                            <Trans i18nKey="<0>INTERIM PRO RH</0>  vise à s’établir comme un fournisseur de premier plan d’employés pour diverses organisations quelque soit leur secteur d’activité.">
+                            <Trans i18nKey="Home/About/2">
                                 <span className="font-bold">
                                     INTERIM PRO RH
-                                </span>
-                                 vise à s’établir comme un fournisseur de
-                                premier plan d’employés pour diverses
-                                organisations quelque soit leur secteur
-                                d’activité.
+                                </span>{" "}
+                                aims to establish itself as a leading supplier
+                                of employees for various organizations
+                                regardless of their sector of activity.
                             </Trans>
                         </p>
                     </div>

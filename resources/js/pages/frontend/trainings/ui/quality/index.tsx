@@ -2,9 +2,11 @@ import { Button, Section, SectionTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
 import Frame from "../frame";
 import { Link } from "react-router-dom";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Quality() {
+    const { t } = useTranslation();
+
     return (
         <Section>
             <div className="grid lg:grid-cols-2 gap-8">
@@ -20,19 +22,9 @@ export default function Quality() {
                         </Trans>
                     </SectionTitle>
 
-                    <p className="mt-4 lg:mt-0">
-                        Répondre aux besoins de recherche d'emploi et carrière
-                        des candidats individuels en les aidant à organiser leur
-                        recherche d'emploi au Cameroun et dans la sous-région.
-                    </p>
+                    <p className="mt-4 lg:mt-0">{t("Trainings/Quality/1")}</p>
 
-                    <p>
-                        Avec notre système d'application en ligne, les candidats
-                        peuvent : candidater à un poste, déposer leur CV ou
-                        simplement laisser leur numéro de téléphone et / ou
-                        e-mail. Nous nous chargeons de les recontacter par la
-                        suite.
-                    </p>
+                    <p>{t("Trainings/Quality/2")}</p>
 
                     <div className="mt-8 lg:mt-11 text-center lg:text-left">
                         <Link to="/contact">

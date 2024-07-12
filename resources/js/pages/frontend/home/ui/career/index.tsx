@@ -20,11 +20,7 @@ export default function Career() {
                     </SectionTitle>
 
                     <div className="lg:text-lg text-body text-justify space-y-4 mt-4 lg:mt-6">
-                        <p>
-                            {t(
-                                "Plus qu’une agence d’intérim, nous sommes un partenaire qui vous écoute, vous conseille et vous oriente vers les meilleures opportunités. Que vous soyez à la recherche d’un CDI, d’un CDD, d’une mission temporaire ou d’une formation qualifiante, nous vous proposons des offres adaptées à votre profil et à vos attentes."
-                            )}
-                        </p>
+                        <p>{t("Home/Carrer")}</p>
                     </div>
 
                     <div className="mt-8 lg:mt-20 text-center lg:text-left">

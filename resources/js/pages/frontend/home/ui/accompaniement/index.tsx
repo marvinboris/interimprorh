@@ -27,9 +27,7 @@ export default function Accompaniement() {
 
                         <div className="lg:text-lg text-justify text-body space-y-4 mt-4 lg:mt-6">
                             <p>
-                                {t(
-                                    "INTERIM PRO RH réalise l’audit de votre structure ou l’évaluation de votre projet d’entreprise. Notre démarche permet de s’assurer, avec la participation des acteurs, que les objectifs fixés sont atteints et de porter un regard sur les actions, sur les pratiques qui ont été mises en œuvre pour les atteindre afin de proposer des actions d’amélioration."
-                                )}
+                                {t("Home/Accompaniement")}
                             </p>
                         </div>
 

@@ -17,20 +17,14 @@ export default function HR() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4 lg:mt-12">
                 <div className="lg:text-lg text-justify">
-                    <p>
-                        La formation en Gestion des Ressources Humaines (GRH)
-                        vise à développer les compétences nécessaires pour gérer
-                        efficacement le capital humain d'une organisation. Voici
-                        un court résumé de cette formation avec cinq avantages
-                        principaux :
-                    </p>
+                    <p>{t("Trainings/HR")}</p>
 
                     <ul className="mt-4 lg:mt-9 lg:space-y-2.5">
-                        <Li>Compréhension approfondie des pratiques RH</Li>
-                        <Li>Développement de compétences en leadership</Li>
-                        <Li>Adaptabilité aux besoins du marché du travail</Li>
-                        <Li>Gestion efficace des talents</Li>
-                        <Li>Amélioration de la culture organisationnelle</Li>
+                        <Li>{t("Trainings/HR/1")}</Li>
+                        <Li>{t("Trainings/HR/2")}</Li>
+                        <Li>{t("Trainings/HR/3")}</Li>
+                        <Li>{t("Trainings/HR/4")}</Li>
+                        <Li>{t("Trainings/HR/5")}</Li>
                     </ul>
 
                     <div className="mt-8 lg:mt-14 text-center lg:text-left">

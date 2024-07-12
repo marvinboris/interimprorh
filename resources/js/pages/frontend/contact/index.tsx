@@ -79,12 +79,7 @@ export function PageContact() {
                             </div>
 
                             <p className="text-lg mt-8">
-                                Si vous avez des questions ou des demandes
-                                particulières, n’hésitez pas à nous contacter.
-                                Nous vous répondrons dans les meilleurs délais.
-                                Vous pouvez nous joindre par téléphone, par
-                                e-mail ou via le formulaire de contact. Merci de
-                                votre visite!
+                                {t("Contact/Contact")}
                             </p>
 
                             <div className="h-px rounded-full bg-white/30 my-4 lg:my-6" />

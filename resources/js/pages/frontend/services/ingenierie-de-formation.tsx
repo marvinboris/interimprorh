@@ -20,30 +20,8 @@ export function PageServiceEngineeringTraining() {
                             </SectionTitle>
 
                             <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
-                                <p>
-                                    La formation professionnelle est un levier
-                                    indispensable dans le maintien des
-                                    compétences. Elle consiste à acquérir, à
-                                    maintenir ou à améliorer les différents
-                                    savoirs : savoir-faire, savoir-être. Et ce,
-                                    afin de répondre aux besoins en compétences
-                                    et au développement qui l’accompagne.Pour
-                                    une entreprise, elle vise à faire évoluer
-                                    les compétences et les performances des
-                                    employés, par conséquent, sa croissance
-                                    économique.
-                                </p>
-
-                                <p>
-                                    INTERIM PRO RH met en œuvre des modules de
-                                    formation et les propose aux apprenants.
-                                    Nous relevons les besoins en formation des
-                                    apprenants, et formulons des objectifs en
-                                    fonction de ces besoins, en tenant compte
-                                    des contraintes liées à l’activité
-                                    professionnelle, du contexte et du mécanisme
-                                    autour de ladite activité.
-                                </p>
+                                <p>{t("Services/Engineering/1")}</p>
+                                <p>{t("Services/Engineering/2")}</p>
                             </div>
 
                             <div className="mt-8 lg:mt-20 text-center lg:text-left">
