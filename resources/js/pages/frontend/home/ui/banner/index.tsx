@@ -67,12 +67,10 @@ export default function Banner() {
                         </button>
                     </div>
 
-                    <p className="text-body flex-1 sm:flex-none lg:flex-1">
-                        <Trans count={12000}>
+                    <p className="text-body flex-1 sm:flex-none lg:flex-1 lg:pl-3">
+                        <Trans i18nKey="More than <2>12000</2> users<br />trust our website">
                             More than{" "}
-                            <span className="font-bold">
-                                {{ count: 12000 } as unknown as React.ReactNode} thousand
-                            </span>{" "}
+                            <span className="font-bold">12000</span>{" "}
                             users
                             <br />
                             trust our website
