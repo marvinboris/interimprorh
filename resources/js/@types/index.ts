@@ -2,6 +2,7 @@ export * from "./admin";
 export * from "./applicant";
 export * from "./company";
 export * from "./contact";
+export * from "./contract";
 export * from "./country";
 export * from "./diploma";
 export * from "./faq";

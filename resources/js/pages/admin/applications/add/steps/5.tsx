@@ -3,16 +3,18 @@ import { AddSquare, InfoCircle, TickCircle } from "iconsax-react";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-export function Step4() {
+export function Step5() {
     const textArea = React.useRef<HTMLDivElement>(null);
 
-    const [advantages, setBenefits] = React.useState<string[]>([]);
+    const [responsibilities, setResponsibilities] = React.useState<string[]>(
+        []
+    );
 
     return (
         <>
             <div className="col-span-2">
                 <div ref={textArea}>
-                    <TextArea label="Benefits" />
+                    <TextArea label="Responsibilities" />
                 </div>
 
                 <div className="mt-4 flex items-center gap-3">
@@ -21,9 +23,11 @@ export function Step4() {
                         onClick={() => {
                             const component =
                                 textArea.current?.querySelector("textarea");
-                            const benefit = component?.value;
-                            if (benefit) {
-                                setBenefits((prev) => prev.concat(benefit));
+                            const responsibility = component?.value;
+                            if (responsibility) {
+                                setResponsibilities((prev) =>
+                                    prev.concat(responsibility)
+                                );
                                 if (component) component.value = "";
                             }
                         }}
@@ -41,17 +45,20 @@ export function Step4() {
             </div>
 
             <div className="border border-neutral-200 rounded-xl p-4 mt-5 overflow-auto">
-                {advantages.map((benefit) => (
-                    <div key={"benefit-" + uuidv4()} className="flex gap-2.5">
+                {responsibilities.map((responsibility) => (
+                    <div
+                        key={"responsibility-" + uuidv4()}
+                        className="flex gap-2.5"
+                    >
                         <TickCircle
                             variant="Bulk"
                             className="size-5 text-primary"
                         />
-                        <div className="text-xs">{benefit}</div>
+                        <div className="text-xs">{responsibility}</div>
                         <input
                             type="hidden"
-                            name="advantages[]"
-                            value={benefit}
+                            name="responsibilities[]"
+                            value={responsibility}
                         />
                     </div>
                 ))}

@@ -185,7 +185,7 @@ export function CustomSelect({
                             <input
                                 key={value + index}
                                 type="hidden"
-                                name={props.name + "[]"}
+                                name={props.name}
                                 value={value}
                             />
                         ))}

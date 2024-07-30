@@ -43,6 +43,7 @@ export type Resource =
     | "company_activities"
     | "company_types"
     | "contacts"
+    | "contracts"
     | "diplomas"
     | "faqs"
     | "skills-hr"

@@ -3,6 +3,7 @@ import {
     Applicant,
     CompanyActivity,
     CompanyType,
+    Contract,
     Diploma,
     FAQ,
     Job,
@@ -93,19 +94,15 @@ export function useLanguages() {
 }
 
 export function useContracts() {
-    const [contracts, setContracts] = React.useState<string[]>([]);
-
-    React.useEffect(() => {
-        const contracts: string[] = ["CDD", "CDI"];
-
-        setContracts(contracts);
-    }, []);
+    const { data: contracts } = useFetch<Contract[]>({
+        resource: "contracts",
+    });
 
     return {
         contracts,
-        options: contracts.map((contract) => ({
-            value: contract,
-            label: contract,
+        options: contracts?.map((contract) => ({
+            value: contract.id,
+            label: contract.name,
         })),
     };
 }

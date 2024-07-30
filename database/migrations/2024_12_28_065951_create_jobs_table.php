@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->date('join');
             $table->text('description');
             $table->foreignId('company_id')->constrained();
-            $table->decimal('salary_low', 8, 2);
-            $table->decimal('salary_high', 8, 2);
+            $table->double('salary_low');
+            $table->double('salary_high');
             $table->string('location');
             $table->foreignId('contract_id')->constrained();
             $table->foreignId('diploma_id')->constrained();

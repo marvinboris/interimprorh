@@ -12,7 +12,7 @@ export function Step1() {
 
     return (
         <>
-            <Input name="position" label="Job position" />
+            <Input name="name" label="Job position" />
             <Input name="join" type="date" label="Expected join date" />
             <CustomSelect
                 name="company_id"
@@ -21,7 +21,7 @@ export function Step1() {
             />
             <CustomSelect
                 multiple
-                name="languages"
+                name="languages[]"
                 label="Languages"
                 value={languages}
                 onChange={setLanguages}

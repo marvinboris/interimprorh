@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\Applicant;
 use App\Models\Job;
 use Illuminate\Http\JsonResponse;
 
-class AdminDashboardController extends Controller
+class DashboardController extends Controller
 {
     public function index(): JsonResponse
     {

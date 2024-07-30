@@ -17,7 +17,8 @@ use App\Http\Controllers\SkillHRController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\TestimonyController;
-use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\Admin\JobController as AdminJobController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\UtilController;
@@ -51,6 +52,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+        Route::post('/jobs', [AdminJobController::class, 'store'])->name('jobs.store');
     });
 });
 

@@ -16,6 +16,7 @@ class JobSeeder extends Seeder
         $jobs = [
             [
                 'advantages' => [],
+                'join' => '2025-02-08',
                 'company_id' => 1,
                 'contract_id' => 1,
                 'experience' => [
@@ -42,6 +43,7 @@ class JobSeeder extends Seeder
             ],
             [
                 'advantages' => [],
+                'join' => '2025-02-08',
                 'company_id' => 2,
                 'contract_id' => 1,
                 'experience' => [
@@ -68,6 +70,7 @@ class JobSeeder extends Seeder
             ],
             [
                 'advantages' => [],
+                'join' => '2025-02-08',
                 'company_id' => 3,
                 'contract_id' => 1,
                 'experience' => [
@@ -94,6 +97,7 @@ class JobSeeder extends Seeder
             ],
             [
                 'advantages' => [],
+                'join' => '2025-02-08',
                 'company_id' => 3,
                 'contract_id' => 1,
                 'experience' => [
@@ -120,6 +124,7 @@ class JobSeeder extends Seeder
             ],
             [
                 'advantages' => [],
+                'join' => '2025-02-08',
                 'company_id' => 4,
                 'contract_id' => 1,
                 'experience' => [
@@ -146,6 +151,7 @@ class JobSeeder extends Seeder
             ],
             [
                 'advantages' => [],
+                'join' => '2025-02-08',
                 'company_id' => 5,
                 'contract_id' => 1,
                 'experience' => [
@@ -172,6 +178,7 @@ class JobSeeder extends Seeder
             ],
             [
                 'advantages' => [],
+                'join' => '2025-02-08',
                 'company_id' => 6,
                 'contract_id' => 1,
                 'experience' => [

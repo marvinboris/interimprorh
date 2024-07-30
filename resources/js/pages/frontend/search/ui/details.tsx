@@ -179,7 +179,10 @@ export default function Details() {
                 <div className="mt-9 font-bold text-xl">{t("Experience")}</div>
 
                 <div className="mt-4 space-y-3">
-                    {experience.map((experience, index) => (
+                    {(Array.isArray(experience)
+                        ? experience
+                        : [experience]
+                    ).map((experience, index) => (
                         <Li
                             key={"job-experience-" + experience + "-" + index}
                             green
