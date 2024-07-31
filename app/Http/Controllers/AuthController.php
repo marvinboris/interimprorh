@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Welcome;
 use App\Models\Admin;
 use App\Models\Applicant;
 use App\Models\Company;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -73,6 +75,9 @@ class AuthController extends Controller
             'password' => 'required|confirmed'
         ]);
 
+        Mail::to($data['email'])->send(new Welcome([
+            'password' => $data['password'],
+        ]));
         Applicant::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

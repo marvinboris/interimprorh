@@ -20,6 +20,12 @@ class AdminSeeder extends Seeder
                 'email' => 'jaris.ultio.21@gmail.com',
                 'phone' => '237 655588688',
                 'password' => Hash::make('12345'),
+            ],
+            [
+                'name' => 'Interim Pro RH',
+                'email' => 'iprh@admin.com',
+                'phone' => '237  657878787',
+                'password' => Hash::make('12345'),
             ]
         ];
         foreach ($admins as $admin) {

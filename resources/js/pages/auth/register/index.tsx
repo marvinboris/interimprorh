@@ -55,11 +55,22 @@ export function PageAuthRegister() {
                     password_confirmation,
                 }),
             });
-            const data = (await res.json()) as { email: string };
-            setMessage({
-                content: `Account successfully created. E-mail sent to : ${data.email}`,
-                type: "success",
-            });
+            const data = (await res.json()) as
+                | { email: string }
+                | { errors: Record<string, string[]> };
+            setMessage(
+                "email" in data
+                    ? {
+                          content: `Account successfully created. E-mail sent to : ${data.email}`,
+                          type: "success",
+                      }
+                    : {
+                          content: Object.values(data.errors)
+                              .map((t) => t.join("\n"))
+                              .join("\n"),
+                          type: "danger",
+                      }
+            );
             form.reset();
             setLoading(false);
         } catch (error) {
