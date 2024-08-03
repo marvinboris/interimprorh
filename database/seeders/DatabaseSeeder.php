@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             DiplomaSeeder::class,
             CompanyActivitySeeder::class,
             CompanySeeder::class,
+            CompanyTypeSeeder::class,
             FAQSeeder::class,
             SkillHRSeeder::class,
             ServiceSeeder::class,

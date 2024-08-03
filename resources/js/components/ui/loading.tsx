@@ -14,7 +14,7 @@ export function Loading({
                 {...props}
                 className={cn(
                     relative ? "relative" : "absolute inset-0",
-                    "flex items-center justify-center",
+                    "z-10 flex items-center justify-center",
                     className
                 )}
             >

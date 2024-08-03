@@ -10,7 +10,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        return Company::all();
+        return Company::latest()->get();
     }
 
     public function show($id)

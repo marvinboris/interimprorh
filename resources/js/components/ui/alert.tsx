@@ -45,7 +45,7 @@ export function Alert({
             <div
                 {...props}
                 className={cn(
-                    "py-2 px-4 font-medium rounded flex items-center",
+                    "py-2 px-4 font-medium rounded flex items-center gap-3",
                     {
                         info: "border border-cyan-200 bg-cyan-100 text-cyan-600",
                         danger: "border border-rose-200 bg-rose-100 text-rose-600",
@@ -63,7 +63,9 @@ export function Alert({
 
                 <Transition show={closable}>
                     <button
-                        className="ml-3 text-sm font-semibold text-gray-500 hover:text-gray-700"
+                        type="button"
+                        role="button"
+                        className="ml-auto text-sm font-semibold text-gray-500 hover:text-gray-700"
                         onClick={() => {
                             setShow(false);
                             setDisappearing(false);

@@ -17,6 +17,7 @@ use App\Http\Controllers\SkillHRController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\TestimonyController;
+use App\Http\Controllers\Admin\CompanyController as AdminCompanyController;
 use App\Http\Controllers\Admin\JobController as AdminJobController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\AuthController;
@@ -54,6 +55,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
         Route::post('/jobs', [AdminJobController::class, 'store'])->name('jobs.store');
+        Route::post('/companies', [AdminCompanyController::class, 'store'])->name('companies.store');
     });
 });
 

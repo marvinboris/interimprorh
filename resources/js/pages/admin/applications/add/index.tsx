@@ -1,4 +1,4 @@
-import { Button, FormSteps, Loading } from "@/components";
+import { Alert, Button, FormSteps, Loading } from "@/components";
 import { Step1, Step2, Step3, Step4, Step5 } from "./steps";
 import React, { FormEvent } from "react";
 import { ArrowRight } from "react-iconly";
@@ -80,9 +80,16 @@ export function PageAdminApplicationsAdd() {
         <form
             ref={formRef}
             onSubmit={onSubmit}
-            className="relative rounded-xl md:rounded-2xl xl:rounded-3xl bg-white p-4 md:p-8 xl:p-12 grid md:grid-cols-2 xl:grid-cols-3 gap-1.5 md:gap-2.5 xl:gap-x-3.5 gap-y-3 md:gap-y-5 xl:gap-y-7"
+            className="relative z-0 rounded-xl md:rounded-2xl xl:rounded-3xl bg-white p-4 md:p-8 xl:p-12 grid md:grid-cols-2 xl:grid-cols-3 gap-1.5 md:gap-2.5 xl:gap-x-3.5 gap-y-3 md:gap-y-5 xl:gap-y-7"
         >
             <Loading show={loading} />
+
+            <Alert
+                className="md:col-span-2 xl:col-span-3"
+                color={message?.type}
+            >
+                {message?.content}
+            </Alert>
 
             <FormSteps active={step} options={steps} />
 
