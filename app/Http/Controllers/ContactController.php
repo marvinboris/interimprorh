@@ -3,8 +3,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Contact as ContactMail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -16,6 +18,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $contact = Contact::create($request->all());
+        Mail::to('brilucews@gmail.com')->send(new ContactMail($contact));
         return response()->json($contact, 201);
     }
 

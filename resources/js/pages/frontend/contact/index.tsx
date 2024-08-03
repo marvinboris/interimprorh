@@ -2,6 +2,7 @@ import Facebook from "./icons/facebook";
 import Instagram from "./icons/instagram";
 import WhatsApp from "./icons/whatsapp";
 import {
+    Alert,
     Button,
     CustomSelect,
     Header,
@@ -12,7 +13,7 @@ import {
     Transition,
 } from "@/components";
 import { fetch } from "@/services";
-import { Contact } from "@types";
+import { Contact, Message as MessageType } from "@types";
 
 import { Call, Message } from "iconsax-react";
 import React, { FormEvent } from "react";
@@ -21,7 +22,9 @@ import { Send } from "react-iconly";
 import { v4 as uuidv4 } from "uuid";
 
 export function PageContact() {
+    const ref = React.useRef<HTMLFormElement>(null);
     const [loading, setLoading] = React.useState(false);
+    const [message, setMessage] = React.useState<MessageType>();
     const { t } = useTranslation();
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -52,8 +55,16 @@ export function PageContact() {
             });
 
             if (contact) {
-                // Sweet alert success message
-            }
+                setMessage({
+                    content: "Message sent",
+                    type: "success",
+                });
+                ref.current?.reset();
+            } else
+                setMessage({
+                    content: "Error, try again",
+                    type: "danger",
+                });
 
             setLoading(false);
         };
@@ -138,7 +149,11 @@ export function PageContact() {
                         </div>
                     </div>
 
-                    <form onSubmit={onSubmit} className="pt-8 lg:pt-16">
+                    <form
+                        ref={ref}
+                        onSubmit={onSubmit}
+                        className="pt-8 lg:pt-16"
+                    >
                         <div className="text-3xl lg:text-4xl/none font-bold text-black text-center lg:text-left">
                             {t("Do you have a subject ?")}
                         </div>
@@ -147,11 +162,11 @@ export function PageContact() {
                         </div>
 
                         <div className="relative mt-8 xl:mt-16">
-                            <Transition show={loading}>
-                                <div className="absolute inset-0 z-10">
-                                    <Loading />
-                                </div>
-                            </Transition>
+                            <Loading show={loading} />
+
+                            <Alert className="mb-3" color={message?.type}>
+                                {message?.content}
+                            </Alert>
 
                             <div className="p-4 bg-white border border-neutral-200 grid sm:grid-cols-2 gap-4 rounded-2xl">
                                 <Input label={t("Your name")} name="name" />
@@ -184,7 +199,7 @@ export function PageContact() {
                             </div>
 
                             <div className="mt-8 xl:mt-11 text-center lg:text-left">
-                                <Button size="xl">
+                                <Button type="submit" size="xl">
                                     <span>{t("Send your message")}</span>
                                     <Send size={20} />
                                 </Button>

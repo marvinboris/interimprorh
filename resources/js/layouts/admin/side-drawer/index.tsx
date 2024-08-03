@@ -1,12 +1,14 @@
+import { logout } from "@/features";
 import { useLayoutAdminContext } from "../context";
 import NavItem from "./nav-item";
 import { Logo, Transition } from "@/components";
-import { useWindowSize } from "@/hooks";
-import { Building, Home, PathTool, Setting } from "iconsax-react";
+import { useAppDispatch, useWindowSize } from "@/hooks";
+import { Building, Home, Logout, PathTool, Setting } from "iconsax-react";
 import { useTranslation } from "react-i18next";
 import { Work } from "react-iconly";
 
 export default function SideDrawer() {
+    const dispatch = useAppDispatch();
     const { open, setOpen } = useLayoutAdminContext();
     const { width } = useWindowSize();
 
@@ -25,7 +27,7 @@ export default function SideDrawer() {
                         <Logo />
                     </div>
 
-                    <nav className="flex-1 overflow-auto">
+                    <nav className="flex-1 flex-col overflow-auto">
                         <NavItem
                             href="/admin"
                             exact
@@ -59,6 +61,18 @@ export default function SideDrawer() {
                             icon={Setting}
                             name={t("Settings")}
                         />
+
+                        <div
+                            className="mt-auto"
+                            onClick={() => dispatch(logout())}
+                        >
+                            <NavItem
+                                href="/"
+                                inactive
+                                icon={Logout}
+                                name={t("Logout")}
+                            />
+                        </div>
                     </nav>
                 </aside>
             </div>
