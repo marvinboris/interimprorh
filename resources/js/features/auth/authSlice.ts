@@ -1,13 +1,19 @@
-import { getCheck, patchUser, postAdminLogin, postUserLogin } from "./authAPI";
+import {
+    getCheck,
+    patchUser,
+    postAdminLogin,
+    postEmployerLogin,
+    postUserLogin,
+} from "./authAPI";
 import { Status } from "@/enums";
 import { AppState } from "@/store";
 import { message, setAuthToken } from "@/utils";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Admin, Applicant, Message } from "@types";
+import { Admin, Applicant, Company, Message } from "@types";
 
 interface AuthState {
     token: string | null;
-    data: Admin | Applicant | null;
+    data: Admin | Company | Applicant | null;
     role?: string;
     status: Status;
     message: Message | null;
@@ -43,6 +49,11 @@ const checkAuthTimeout = createAsyncThunk(
     }
 );
 
+export const employerLogin = createAsyncThunk(
+    "auth/employer/login",
+    async (data: { email: string; password: string }) =>
+        await postEmployerLogin(data)
+);
 export const adminLogin = createAsyncThunk(
     "auth/admin/login",
     async (data: { email: string; password: string }) =>
@@ -95,6 +106,35 @@ export const authSlice = createSlice({
                 }
             })
             .addCase(userLogin.rejected, (state, action) => {
+                state.token = null;
+                state.data = null;
+                if (action.error.message)
+                    state.message = message(action.error.message, "danger");
+                state.status = Status.FAILED;
+            })
+
+            .addCase(employerLogin.pending, dataLoading)
+            .addCase(employerLogin.fulfilled, (state, action) => {
+                if ("content" in action.payload.data)
+                    state.message = action.payload.data;
+                else {
+                    localStorage.setItem("token", action.payload.token);
+                    localStorage.setItem(
+                        "expirationDate",
+                        new Date(action.payload.expires_at).toString()
+                    );
+
+                    state.token = action.payload.token;
+                    state.data = action.payload.data;
+                    state.role = "employer";
+                    state.status = Status.IDLE;
+
+                    checkAuthTimeout(
+                        action.payload.expires_at - new Date().getTime()
+                    );
+                }
+            })
+            .addCase(employerLogin.rejected, (state, action) => {
                 state.token = null;
                 state.data = null;
                 if (action.error.message)

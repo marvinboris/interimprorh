@@ -47,6 +47,12 @@ return [
             'hash' => false,
         ],
 
+        'employer' => [
+            'driver' => 'passport',
+            'provider' => 'employers',
+            'hash' => false,
+        ],
+
         'admin' => [
             'driver' => 'passport',
             'provider' => 'admins',
@@ -75,6 +81,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\Applicant::class,
+        ],
+
+        'employers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Company::class,
         ],
 
         'admins' => [

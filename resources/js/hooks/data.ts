@@ -145,9 +145,10 @@ export function useTestimonies() {
     });
 }
 
-export function useJobs() {
+export function useJobs(as?: 'employer') {
     return useFetch<Job[]>({
         resource: "jobs",
+        as
     });
 }
 

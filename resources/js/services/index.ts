@@ -60,16 +60,19 @@ export async function fetch<T extends RequestData>({
     method,
     data: body,
     params,
+    as,
 }: {
     resource: Resource;
     method?: "GET" | "POST" | "PUT" | "DELETE";
     data?: FromData<T>;
     params?: Record<string, string | number | boolean>;
+    as?: "employer" | "admin";
 }) {
     try {
         const res = await axios.get<T>(
             `${
                 "/api/" +
+                (as ? as + "/" : "") +
                 resource.split("_").join("-") +
                 ((method === "PUT" || method === "DELETE") && body?.id
                     ? `${body?.id}/`

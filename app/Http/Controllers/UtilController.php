@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\Customer;
 use App\Models\Language;
 use App\Models\Applicant;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class UtilController extends Controller
@@ -17,6 +18,9 @@ class UtilController extends Controller
         switch ($account->token()->name) {
             case Applicant::personalAccessToken():
                 $account = Applicant::find($account->id);
+                break;
+            case Company::personalAccessToken():
+                $account = Company::find($account->id);
                 break;
             case Admin::personalAccessToken():
                 $account = Admin::find($account->id);
@@ -39,6 +43,8 @@ class UtilController extends Controller
         switch ($account->token()->name) {
             case Applicant::personalAccessToken():
                 return Applicant::find($account->id);
+            case Company::personalAccessToken():
+                return Company::find($account->id);
             case Admin::personalAccessToken():
                 return Admin::find($account->id);
         }
@@ -143,7 +149,7 @@ class UtilController extends Controller
             $data = $data + [
                 'role' => $role
             ];
-        } else if ($type === Admin::type()) $data = array_merge($data, []);
+        } else $data = array_merge($data, []);
 
         return response()->json([
             'notification' => $notification,

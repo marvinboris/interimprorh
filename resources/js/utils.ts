@@ -1,4 +1,4 @@
-import { Admin, Applicant, Message, Validation } from "@types";
+import { Admin, Applicant, Company, Message, Validation } from "@types";
 import axios from "axios";
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -53,9 +53,14 @@ export const checkValidity = (value = "", rules: Validation) => {
     return validation;
 };
 
-export const isAdmin = (data: Admin | Applicant | null): data is Admin =>
-    data !== null && "name" in data;
+export const isAdmin = (
+    data: Admin | Company | Applicant | null
+): data is Admin => data !== null && "name" in data;
 
 export const isApplicant = (
-    data: Admin | Applicant | null
+    data: Admin | Company | Applicant | null
 ): data is Applicant => data !== null && "city" in data;
+
+export const isCompany = (
+    data: Admin | Company | Applicant | null
+): data is Company => data !== null && "creation" in data;

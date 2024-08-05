@@ -3,7 +3,7 @@ export type Company = {
     name: string;
     email: string;
     phone: string;
-    createdIn: string;
+    creation: string;
     contactPerson: string;
 };
 

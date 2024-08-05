@@ -3,6 +3,7 @@ import { useAppSelector } from "./hooks";
 import {
     LayoutAdmin,
     LayoutAuthUesr,
+    LayoutEmployer,
     LayoutFrontend,
     LayoutUser,
 } from "./layouts";
@@ -16,12 +17,17 @@ import {
     PageAdminDashboard,
     PageAdminProfiles,
     PageAdminSettings,
-    PageAuthEmployer,
+    PageAuthEmployerLogin,
+    PageAuthEmployerRegister,
     PageAuthLogin,
     PageAuthRegister,
     PageBlog,
     PageBlogDetails,
     PageContact,
+    PageEmployerApplications,
+    PageEmployerApplicationsAdd,
+    PageEmployerDashboard,
+    PageEmployerSettings,
     PageHome,
     PageSearch,
     PageServiceEngineeringTraining,
@@ -42,33 +48,56 @@ export default function AppRoutes() {
     return (
         <Routes>
             {token ? (
-                <Route path="/admin" element={<LayoutAdmin />}>
-                    <Route
-                        path="/admin/settings"
-                        element={<PageAdminSettings />}
-                    />
-                    <Route
-                        path="/admin/companies/add"
-                        element={<PageAdminCompaniesAdd />}
-                    />
-                    <Route
-                        path="/admin/companies"
-                        element={<PageAdminCompanies />}
-                    />
-                    <Route
-                        path="/admin/profiles"
-                        element={<PageAdminProfiles />}
-                    />
-                    <Route
-                        path="/admin/applications/add"
-                        element={<PageAdminApplicationsAdd />}
-                    />
-                    <Route
-                        path="/admin/applications"
-                        element={<PageAdminApplications />}
-                    />
-                    <Route path="/admin" element={<PageAdminDashboard />} />
-                </Route>
+                <>
+                    <Route path="/admin" element={<LayoutAdmin />}>
+                        <Route
+                            path="/admin/settings"
+                            element={<PageAdminSettings />}
+                        />
+                        <Route
+                            path="/admin/companies/add"
+                            element={<PageAdminCompaniesAdd />}
+                        />
+                        <Route
+                            path="/admin/companies"
+                            element={<PageAdminCompanies />}
+                        />
+                        <Route
+                            path="/admin/profiles"
+                            element={<PageAdminProfiles />}
+                        />
+                        <Route
+                            path="/admin/applications/add"
+                            element={<PageAdminApplicationsAdd />}
+                        />
+                        <Route
+                            path="/admin/applications"
+                            element={<PageAdminApplications />}
+                        />
+                        <Route path="/admin" element={<PageAdminDashboard />} />
+                    </Route>
+
+                    <Route path="/employer" element={<LayoutEmployer />}>
+                        <Route
+                            path="/employer/settings"
+                            element={<PageEmployerSettings />}
+                        />
+                        <Route
+                            path="/employer/applications/add"
+                            element={<PageEmployerApplicationsAdd />}
+                        />
+                        <Route
+                            path="/employer/applications"
+                            element={<PageEmployerApplications />}
+                        />
+                        <Route
+                            path="/employer"
+                            element={<PageEmployerDashboard />}
+                        />
+
+                        <Route path="/employer/*" element={<Navigate to="/employer" />} />
+                    </Route>
+                </>
             ) : (
                 <Route path="/admin" element={<PageAdminAuthLogin />} />
             )}
@@ -87,8 +116,6 @@ export default function AppRoutes() {
                         <Route path="/user" element={<PageUserDashboard />} />
                     </Route>
                 ) : null}
-
-                <Route path="/employer" element={<PageAuthEmployer />} />
 
                 <Route path="/contact" element={<PageContact />} />
                 <Route path="/search" element={<PageSearch />} />
@@ -117,9 +144,28 @@ export default function AppRoutes() {
                 <Route path="" element={<PageHome />} />
 
                 <Route path="" element={<LayoutAuthUesr />}>
+                    {token ? null : (
+                        <>
+                            <Route
+                                path="/employer/register"
+                                element={<PageAuthEmployerRegister />}
+                            />
+                            <Route
+                                path="/employer/login"
+                                element={<PageAuthEmployerLogin />}
+                            />
+                        </>
+                    )}
                     <Route path="/register" element={<PageAuthRegister />} />
                     <Route path="/login" element={<PageAuthLogin />} />
                 </Route>
+
+                {token ? null : (
+                    <Route
+                        path="/employer"
+                        element={<Navigate to="/employer/login" />}
+                    />
+                )}
             </Route>
 
             <Route path="*" element={<Navigate to="/" />} />

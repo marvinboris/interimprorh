@@ -3,6 +3,7 @@ import React from "react";
 
 export function useFetch<T extends RequestData>(props: {
     resource: Resource;
+    as?: "employer" | "admin";
     method?: "GET" | "POST" | "PUT" | "DELETE";
     data?: FromData<T>;
     params?: Record<string, string | number | boolean>;

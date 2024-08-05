@@ -17,6 +17,8 @@ use App\Http\Controllers\SkillHRController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\TestimonyController;
+use App\Http\Controllers\Employer\JobController as EmployerJobController;
+use App\Http\Controllers\Employer\DashboardController as EmployerDashboardController;
 use App\Http\Controllers\Admin\CompanyController as AdminCompanyController;
 use App\Http\Controllers\Admin\JobController as AdminJobController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -27,7 +29,6 @@ use App\Models\Request;
 use Illuminate\Support\Facades\Hash;
 
 
-Route::post('/employer', [AuthController::class, 'employer']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
@@ -47,6 +48,18 @@ Route::apiResource('skills-hr', SkillHRController::class);
 Route::apiResource('subscribers', SubscriberController::class);
 Route::apiResource('team-members', TeamMemberController::class);
 Route::apiResource('testimonies', TestimonyController::class);
+
+Route::namespace('Employer')->prefix('employer')->name('employer.')->group(function () {
+    Route::post('/login', [AuthController::class, 'employerLogin'])->name('login');
+    Route::post('/register', [AuthController::class, 'employerRegister'])->name('register');
+
+    Route::middleware('auth:employer')->group(function () {
+        Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('dashboard');
+
+        Route::post('/jobs', [EmployerJobController::class, 'store'])->name('jobs.store');
+        Route::get('/jobs', [EmployerJobController::class, 'index'])->name('jobs.index');
+    });
+});
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::post('/login', [AuthController::class, 'adminLogin'])->name('login');
@@ -78,7 +91,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     });
 });
 
-Route::middleware('auth:admin,api')->group(function () {
+Route::middleware('auth:admin,employer,api')->group(function () {
     Route::get('logout', [UtilController::class, 'logout'])->name('logout');
     Route::get('account', [UtilController::class, 'account'])->name('account');
 

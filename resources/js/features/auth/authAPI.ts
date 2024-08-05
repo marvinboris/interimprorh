@@ -1,4 +1,4 @@
-import { Admin, Applicant, Message } from "@types";
+import { Admin, Applicant, Company, Message } from "@types";
 import axios from "axios";
 
 export const getCheck = async () => {
@@ -19,6 +19,18 @@ export const postUserLogin = async (data: {
         expires_at: number;
         data: Applicant | Message;
     }>("/api/login", data);
+    return res.data;
+};
+
+export const postEmployerLogin = async (data: {
+    email: string;
+    password: string;
+}) => {
+    const res = await axios.post<{
+        token: string;
+        expires_at: number;
+        data: Company | Message;
+    }>("/api/employer/login", data);
     return res.data;
 };
 

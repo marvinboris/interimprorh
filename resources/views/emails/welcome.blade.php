@@ -16,7 +16,7 @@
 
             <p style="font-weight: 300;">
                 We are thrilled to have you on board! Your account has been created successfully. Please find your
-                account token and password below.
+                account password below.
             </p>
 
             <hr>
