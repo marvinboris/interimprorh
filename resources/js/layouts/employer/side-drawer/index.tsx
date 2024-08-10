@@ -22,7 +22,7 @@ export default function SideDrawer() {
                     onClick={() => setOpen(false)}
                 />
 
-                <aside className="w-72 h-screen bg-white px-4 md:px-8 flex flex-col overflow-clip border-r md:border-r-none">
+                <aside className="w-72 h-screen bg-white px-4 md:px-8 flex flex-col overflow-hidden border-r md:border-r-none">
                     <div className="mt-3 md:mt-5 xl:mt-7 mb-5 md:mb-9 xl:mb-14">
                         <Logo />
                     </div>
@@ -40,6 +40,11 @@ export default function SideDrawer() {
                             name={t("Applications")}
                         />
                         <NavItem
+                            href="/employer/requests"
+                            icon={Work}
+                            name={t("Requests")}
+                        />
+                        <NavItem
                             href="/employer/settings"
                             exact
                             icon={Setting}
@@ -47,7 +52,7 @@ export default function SideDrawer() {
                         />
 
                         <div
-                            className="mt-auto"
+                            className="mt-auto cursor-pointer"
                             onClick={() => dispatch(logout())}
                         >
                             <NavItem

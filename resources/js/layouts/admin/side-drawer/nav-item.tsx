@@ -32,9 +32,9 @@ export default function NavItem({
     const content = (
         <>
             <Icon
-                variant={active ? "Bulk" : "Outline"}
+                variant={active && !inactive ? "Bulk" : "Outline"}
                 className={cn("size-5 lg:size-6 flex-none", {
-                    "text-primary": !active,
+                    "text-primary": !active || inactive,
                 })}
             />
 

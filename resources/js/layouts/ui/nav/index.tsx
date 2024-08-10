@@ -1,14 +1,19 @@
+import { useTranslation } from "react-i18next";
 import Item from "./item";
 
 export default function Nav() {
-  return (
-    <nav className="flex flex-col lg:flex-row lg:items-center gap-3.5 font-display">
-      <Item exact href="/">Home</Item>
-      <Item href="/about">About us</Item>
-      <Item href="/careers">Carrières</Item>
-      <Item href="/employer">Espace employeur</Item>
-      <Item href="/trainings">Formations</Item>
-      <Item href="/contact">Contact</Item>
-    </nav>
-  );
+    const { t } = useTranslation();
+
+    return (
+        <nav className="flex flex-col lg:flex-row lg:items-center gap-3.5 font-display">
+            <Item exact href="/">
+                {t("Home")}
+            </Item>
+            <Item href="/about">{t("About us")}</Item>
+            <Item href="/careers">{t("Careers")}</Item>
+            <Item href="/employer">{t("Employer area")}</Item>
+            <Item href="/trainings">{t("Trainings")}</Item>
+            <Item href="/contact">{t("Contact")}</Item>
+        </nav>
+    );
 }

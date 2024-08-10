@@ -16,13 +16,13 @@
 
             <p style="font-weight: 300;">
                 We are thrilled to have you on board! Your account has been created successfully. Please find your
-                account password below.
+                account activation link below.
             </p>
 
             <hr>
 
             <div style="font-size: 1rem; font-weight: 300;">
-                Your password is <strong>{{ $data['password'] }}</strong>
+                
             </div>
         </div>
 

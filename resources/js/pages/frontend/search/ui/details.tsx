@@ -7,15 +7,19 @@ import {
     TickCircle,
 } from "iconsax-react";
 import { usePageSearchContext } from "../context";
-import { Button } from "@/components";
+import { Alert, Button } from "@/components";
 import { Send } from "react-iconly";
 import React from "react";
-import { cn } from "@/utils";
+import { cn, isApplicant } from "@/utils";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import { useAppSelector, useFetch } from "@/hooks";
+import { selectAuth } from "@/features";
+import { Message } from "@types";
 
 export default function Details() {
     const { t } = useTranslation();
+    const { token, data } = useAppSelector(selectAuth);
 
     const { selected, setSelected } = usePageSearchContext();
 
@@ -27,6 +31,35 @@ export default function Details() {
     const [activeTab, setActiveTab] = React.useState<(typeof allTabs)[number]>(
         allTabs[0]
     );
+    const [applied, setApplied] = React.useState<boolean>();
+    const [loading, setLoading] = React.useState(false);
+    const [message, setMessage] = React.useState<Message>();
+
+    React.useEffect(() => {
+        if (!token || !selected?.id) return;
+
+        const handler = async () => {
+            setApplied(undefined);
+            setMessage(undefined);
+            try {
+                const res = await fetch(
+                    "/api/user/requests/" + selected.id,
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                            Accept: "application/json",
+                            Authorization: token,
+                        },
+                    }
+                );
+                setApplied(res.ok);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        handler();
+    }, [selected?.id]);
 
     if (!selected) return null;
     const {
@@ -44,6 +77,41 @@ export default function Details() {
         salary_high,
         salary_low,
     } = selected;
+
+    const handleApply = async () => {
+        if (!token) return;
+        setLoading(true);
+        setMessage(undefined);
+        try {
+            const res = await fetch("/api/user/apply/" + selected.id, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: token,
+                },
+            });
+            if (res.ok) {
+                setMessage({
+                    content: "Successfully applied",
+                    type: "success",
+                });
+                setApplied(true);
+            } else {
+                setMessage({
+                    content: "Error while applying",
+                    type: "danger",
+                });
+            }
+        } catch (error) {
+            setMessage({
+                content: "Error while applying",
+                type: "danger",
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <div className="lg:border border-neutral-200 bg-white lg:rounded-3xl *:p-6 divide-y divide-neutral-200 fixed lg:static inset-0 overflow-auto top-[90px]">
@@ -91,12 +159,26 @@ export default function Details() {
                     </div>
                 </div>
 
-                <div className="mt-6">
-                    <Button>
-                        <span>{t("Apply")}</span>
-                        <Send size={20} />
-                    </Button>
-                </div>
+                {isApplicant(data) && applied !== undefined ? (
+                    <div className="mt-6 flex flex-wrap gap-3">
+                        <Button
+                            disabled={applied || loading}
+                            loading={loading}
+                            onClick={handleApply}
+                        >
+                            {applied ? (
+                                <span>{t("Applied")}</span>
+                            ) : (
+                                <>
+                                    <span>{t("Apply")}</span>
+                                    <Send size={20} />
+                                </>
+                            )}
+                        </Button>
+
+                        <Alert color={message?.type}>{message?.content}</Alert>
+                    </div>
+                ) : null}
             </header>
 
             <main>
@@ -107,6 +189,7 @@ export default function Details() {
                 <div className="pt-8 flex overflow-x-auto gap-3.5 *:h-11 text-sm font-bold *:flex *:items-center *:rounded-md *:gap-2.5 *:px-2.5">
                     {allTabs.map((tab) => (
                         <div
+                            key={"tab-" + selected.id + "-" + tab}
                             className={cn(
                                 "cursor-pointer",
                                 activeTab === tab

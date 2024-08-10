@@ -63,7 +63,7 @@ export default function SideDrawer() {
                         />
 
                         <div
-                            className="mt-auto"
+                            className="mt-auto cursor-pointer"
                             onClick={() => dispatch(logout())}
                         >
                             <NavItem

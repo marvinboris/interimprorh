@@ -18,9 +18,11 @@ export default function Header() {
     const [subtitle, setSubtitle] = React.useState<string>();
 
     React.useEffect(() => {
-        const [title, subtitle] = menus[location.pathname];
-        setTitle(title);
-        setSubtitle(subtitle);
+        if (location.pathname in menus) {
+            const [title, subtitle] = menus[location.pathname];
+            setTitle(title);
+            setSubtitle(subtitle);
+        }
     }, [location.pathname]);
 
     return (
@@ -54,7 +56,7 @@ export default function Header() {
             <div className="hidden md:block">
                 <div className="font-bold text-lg">{t("My account")}</div>
                 <div className="font-semibold text-neutral-500">
-                    {t("Admin")}
+                    {t("Employer")}
                 </div>
             </div>
 

@@ -22,7 +22,7 @@ export const AdminDashboardProvider = ({
     children?: React.ReactNode;
 }) => {
     const { data, isLoading } = useQuery({
-        queryKey: ["admin", "dashboard"],
+        queryKey: ["employer", "dashboard"],
         queryFn: fetchAdminDashboard,
     });
     const total_applicants = data?.total_applicants || 0;

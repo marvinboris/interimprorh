@@ -41,7 +41,7 @@ export function LayoutFrontend() {
 
                             <div className="font-semibold hidden md:block">
                                 {[
-                                    "Hello",
+                                    t("Hello"),
                                     [data.first_name, data.last_name]
                                         .filter(Boolean)
                                         .join(" ") || data.email,

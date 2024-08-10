@@ -9,19 +9,20 @@ import { useAppDispatch, useAppSelector, useGet } from "@/hooks";
 import { cn, isApplicant } from "@/utils";
 import { Edit2, Location } from "iconsax-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export function PageUserDashboard() {
     const { data: user, status } = useAppSelector(selectAuth);
     if (!isApplicant(user)) return null;
 
-    const { data, isLoading } = useGet<UserDashboardData>(
-        "/api/user/dashboard"
-    );
+    const { data, isLoading } = useGet<UserDashboardData>("/user/dashboard");
 
     const dispatch = useAppDispatch();
 
     const [biography, setBiography] = React.useState(user.biography);
     const [editing, setEditing] = React.useState(false);
+
+    const { t } = useTranslation();
 
     React.useEffect(() => {
         setBiography(user.biography);
@@ -34,18 +35,18 @@ export function PageUserDashboard() {
             <div>
                 <div className="grid md:grid-cols-2 gap-2 md:gap-4 xl:gap-6">
                     <Card
-                        title="Mes demandes"
+                        title={t("My requests")}
                         icon={DocumentVerified}
                         value={data?.requests}
                     />
                     <Card
-                        title="Mes entretiens"
+                        title={t("My interviews")}
                         color="like"
                         icon={DocumentVerified}
                         value={data?.interviews}
                     />
                     <Card
-                        title="Status du profil"
+                        title={t("Profile status")}
                         color="dislike"
                         icon={UserInformation}
                         value={data?.status + "%"}
@@ -61,7 +62,7 @@ export function PageUserDashboard() {
 
                             <div>
                                 <div className="font-bold text-xl lg:text-2xl">
-                                    Bonjour ! {user.first_name}
+                                    {t("Hello")} ! {user.first_name}
                                 </div>
                                 <div className="text-neutral-400 text-sm">
                                     {user.job}
@@ -70,7 +71,9 @@ export function PageUserDashboard() {
                         </div>
 
                         <div className="mt-2 lg:mt-3.5 flex flex-wrap gap-2 *:flex *:items-center *:p-2.5 *:gap-2.5 *:bg-stone-100 *:rounded-md *:border *:border-neutral-200 text-xs/none lg:text-sm/none">
-                            <div>Depuis {user.experience} ans</div>
+                            <div>
+                                {t("Since")} {user.experience} {t("years")}
+                            </div>
                             <div>
                                 <Location className="size-3.5" />
                                 <span>
@@ -92,7 +95,7 @@ export function PageUserDashboard() {
                                     )}
                                 />
                                 <span>
-                                    {{ 0: "Disponible" }[user.availability]}
+                                    {{ 0: t("Available") }[user.availability]}
                                 </span>
                             </div>
                             <div>
@@ -103,7 +106,7 @@ export function PageUserDashboard() {
 
                     <div className="mt-5 lg:mt-10 pb-4 lg:pb-7">
                         <div className="flex items-center gap-3">
-                            <div className="font-bold">Biographie</div>
+                            <div className="font-bold">{t("Biography")}</div>
                             <div className="flex-1 flex items-center">
                                 <div className="size-1 bg-neutral-200 rotate-45" />
 
@@ -118,7 +121,9 @@ export function PageUserDashboard() {
                                 onChange={(e) => setBiography(e.target.value)}
                             />
                         ) : (
-                            <div className="mt-4 lg:mt-8 text-sm">{biography}</div>
+                            <div className="mt-4 lg:mt-8 text-sm">
+                                {biography}
+                            </div>
                         )}
                     </div>
                 </div>

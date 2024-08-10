@@ -12,12 +12,15 @@ import { selectAuth, userEdit } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { isApplicant } from "@/utils";
 import { FormEvent } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Body() {
     const { data, message, status } = useAppSelector(selectAuth);
     if (!isApplicant(data)) return null;
 
     const { setMessage } = useMessageContext();
+
+    const { t } = useTranslation();
 
     const dispatch = useAppDispatch();
     const loading = status === Status.LOADING;
@@ -120,7 +123,7 @@ export default function Body() {
                     />
 
                     <Button type="submit" className="mt-7">
-                        Sauvegarder
+                        {t("Save")}
                     </Button>
                 </form>
             </Section>

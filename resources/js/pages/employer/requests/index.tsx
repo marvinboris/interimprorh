@@ -7,8 +7,8 @@ import { Download } from "react-iconly";
 import { Request } from "@types";
 import { useTranslation } from "react-i18next";
 
-export function PageUserRequests() {
-    const { isLoading, data: requests } = useGet<Request[]>("/user/requests");
+export function PageEmployerRequests() {
+    const { isLoading, data: requests } = useGet<Request[]>("/employer/requests");
 
     const [show, setShow] = React.useState("05");
     const [search, setSearch] = React.useState("");
@@ -60,7 +60,8 @@ export function PageUserRequests() {
                 fields={[
                     { key: "sl", label: "SL" },
                     { key: "created_at", label: t("Date") },
-                    { key: "company", label: t("Company") },
+                    { key: "applicant", label: t("Applicant") },
+                    { key: "job", label: t("Job") },
                     { key: "location", label: t("Location") },
                     { key: "contract", label: t("Contract") },
                     { key: "status", label: t("Status") },

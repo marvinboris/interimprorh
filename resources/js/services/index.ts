@@ -39,6 +39,7 @@ export type RequestData = ToData<ResUnit>;
 export type FromData<T extends RequestData> = T extends Array<infer U> ? U : T;
 export type Resource =
     | "applicants"
+    | "applications"
     | "companies"
     | "company_activities"
     | "company_types"
@@ -61,12 +62,14 @@ export async function fetch<T extends RequestData>({
     data: body,
     params,
     as,
+    id,
 }: {
     resource: Resource;
     method?: "GET" | "POST" | "PUT" | "DELETE";
     data?: FromData<T>;
     params?: Record<string, string | number | boolean>;
     as?: "employer" | "admin";
+    id?: string;
 }) {
     try {
         const res = await axios.get<T>(
@@ -74,9 +77,7 @@ export async function fetch<T extends RequestData>({
                 "/api/" +
                 (as ? as + "/" : "") +
                 resource.split("_").join("-") +
-                ((method === "PUT" || method === "DELETE") && body?.id
-                    ? `${body?.id}/`
-                    : "")
+                (method !== "POST" && body?.id ? `${body?.id}` : id || "")
             }${
                 params
                     ? `?${Object.entries(params)

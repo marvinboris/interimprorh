@@ -56,6 +56,20 @@ Route::namespace('Employer')->prefix('employer')->name('employer.')->group(funct
     Route::middleware('auth:employer')->group(function () {
         Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('dashboard');
 
+        Route::get('/requests', function () {
+            $count = request()->count;
+            $data = Request::latest();
+            if ($count) $data = $data->limit($count);
+            return $data->get()->map(function ($datum) {
+                return $datum->toArray() + [
+                    'applicant' => $datum->applicant->first_name,
+                    'job' => $datum->job->name,
+                    'location' => $datum->job->location,
+                    'contract' => $datum->job->contract->name,
+                ];
+            });
+        });
+
         Route::post('/jobs', [EmployerJobController::class, 'store'])->name('jobs.store');
         Route::get('/jobs', [EmployerJobController::class, 'index'])->name('jobs.index');
     });
@@ -80,7 +94,28 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
             $count = request()->count;
             $data = Request::latest();
             if ($count) $data = $data->limit($count);
-            return $data->get();
+            return $data->get()->map(function ($datum) {
+                return $datum->toArray() + [
+                    'company' => $datum->job->company->name,
+                    'location' => $datum->job->location,
+                    'contract' => $datum->job->contract->name,
+                ];
+            });
+        });
+
+        Route::get('/requests/{id}', function ($id) {
+            $applicant = UtilController::get();
+            $res = Request::whereJobId($id)->whereApplicantId($applicant->id)->first();
+            return response()->json([], $res ? 200 : 404);
+        });
+
+        Route::post('/apply/{id}', function ($id) {
+            $applicant = UtilController::get();
+            Request::create([
+                'job_id' => $id,
+                'applicant_id' => $applicant->id,
+                'status' => 0,
+            ]);
         });
 
         Route::patch('', function () {

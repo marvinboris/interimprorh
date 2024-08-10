@@ -27,6 +27,7 @@ import {
     PageEmployerApplications,
     PageEmployerApplicationsAdd,
     PageEmployerDashboard,
+    PageEmployerRequests,
     PageEmployerSettings,
     PageHome,
     PageSearch,
@@ -89,6 +90,10 @@ export default function AppRoutes() {
                         <Route
                             path="/employer/applications"
                             element={<PageEmployerApplications />}
+                        />
+                        <Route
+                            path="/employer/requests"
+                            element={<PageEmployerRequests />}
                         />
                         <Route
                             path="/employer"

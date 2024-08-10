@@ -6,9 +6,11 @@ import { HambergerMenu } from "iconsax-react";
 import { Link } from "react-router-dom";
 import { selectAuth } from "@/features";
 import { isApplicant } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 export default function MobileNav() {
     const { data } = useAppSelector(selectAuth);
+    const { t } = useTranslation();
 
     return (
         <Menu as="div" className="relative lg:hidden ml-4">
@@ -25,8 +27,8 @@ export default function MobileNav() {
                             className="flex items-center text-primary mt-3"
                             to="/login"
                         >
-                            <div className="font-semibold font-display underline text-sm">
-                                SIGN IN
+                            <div className="font-semibold uppercase font-display underline text-sm">
+                                {t("Sign in")}
                             </div>
                         </Link>
                     )}
