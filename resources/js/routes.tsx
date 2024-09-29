@@ -34,6 +34,7 @@ import {
     PageServiceEngineeringTraining,
     PageServiceHR,
     PageServiceInterim,
+    PageServiceService,
     PageServiceTeam,
     PageTrainings,
     PageUserDashboard,
@@ -125,6 +126,10 @@ export default function AppRoutes() {
                 <Route path="/contact" element={<PageContact />} />
                 <Route path="/search" element={<PageSearch />} />
                 <Route path="/careers" element={<Navigate to="/search" />} />
+                <Route
+                    path="/services/prestation-de-services"
+                    element={<PageServiceService />}
+                />
                 <Route
                     path="/services/mise-a-disposition-du-personnel"
                     element={<PageServiceTeam />}

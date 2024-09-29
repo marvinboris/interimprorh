@@ -30,11 +30,47 @@ export default function Who() {
                         </SectionTitle>
 
                         <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
-                            <p>{t("About/Who/1")}</p>
+                            <p>
+                                <Trans i18nKey="About/Who/1">
+                                    <strong>INTERIM PRO RH</strong> is a company
+                                    founded by a group of executives from
+                                    various sectors who have faced human
+                                    resource issues throughout their different
+                                    careers.
+                                </Trans>
+                            </p>
 
-                            <p>{t("About/Who/2")}</p>
+                            <p>
+                                <Trans i18nKey="About/Who/2">
+                                    <strong>INTERIM PRO RH</strong> aims to
+                                    establish itself as a leading provider of
+                                    employees for various organizations
+                                    regardless of their industry. Today at
+                                    INTERIM PRO RH, we focus on providing labor
+                                    to companies located in Cameroon and the
+                                    Central African sub-region.
+                                </Trans>
+                            </p>
 
-                            <p>{t("About/Who/3")}</p>
+                            <p>
+                                <Trans i18nKey="About/Who/3">
+                                    Our company receives hundreds of
+                                    applications every day and offers a unique
+                                    opportunity for employers and job seekers to
+                                    meet for the success of their project. To do
+                                    this, we provide a flexible and efficient
+                                    communication channel for employers and
+                                    future employees through digital means.
+                                    <br />
+                                    <br />
+                                    We rely on a vast database filled with
+                                    diverse and experienced profiles, classified
+                                    by industry. We have a competent team for
+                                    the efficient handling of any recruitment
+                                    project and we strive to provide candidates
+                                    with the most suitable position.
+                                </Trans>
+                            </p>
                         </div>
 
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">

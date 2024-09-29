@@ -22,7 +22,15 @@ export function PageServiceTeam() {
                             </SectionTitle>
 
                             <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
-                                <p>{t("Services/Staff")}</p>
+                                <p>{t("Services/Staff/0")}</p>
+
+                                <ul className="list-disc list-inside">
+                                    <li>{t("Services/Staff/1")}</li>
+                                    <li>{t("Services/Staff/2")}</li>
+                                    <li>{t("Services/Staff/3")}</li>
+                                    <li>{t("Services/Staff/4")}</li>
+                                    <li>{t("Services/Staff/5")}</li>
+                                </ul>
                             </div>
 
                             <div className="mt-8 lg:mt-20 text-center lg:text-left">

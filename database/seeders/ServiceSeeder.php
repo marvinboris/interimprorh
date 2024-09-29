@@ -25,11 +25,11 @@ class ServiceSeeder extends Seeder
                 'slug' => "ingenierie-de-formation",
             ],
             [
-                'name' => "Orientation académique",
+                'name' => "Prestation de services",
                 'description' => "Nous disposons d’une équipe d’experts et des outils sophistiqués pour accompagner les jeunes et les adultes à trouver leur voie, orienter leur parcours et favoriser leur intégration dans le monde professionnel. IP-RH vous propose un accompagnement et une orientation sur mesure.",
                 'body' => "",
-                'link' => "/services/orientation-academique",
-                'slug' => "orientation-academique",
+                'link' => "/services/prestation-de-services",
+                'slug' => "prestation-de-services",
             ],
             [
                 'name' => "Intérim et placement des travailleurs",
