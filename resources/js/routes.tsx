@@ -39,6 +39,7 @@ import {
     PageTrainings,
     PageUserDashboard,
     PageUserProfile,
+    PageUserProfileResume,
     PageUserRequests,
 } from "./pages";
 
@@ -101,7 +102,10 @@ export default function AppRoutes() {
                             element={<PageEmployerDashboard />}
                         />
 
-                        <Route path="/employer/*" element={<Navigate to="/employer" />} />
+                        <Route
+                            path="/employer/*"
+                            element={<Navigate to="/employer" />}
+                        />
                     </Route>
                 </>
             ) : (
@@ -111,6 +115,10 @@ export default function AppRoutes() {
             <Route path="" element={<LayoutFrontend />}>
                 {token ? (
                     <Route path="/user" element={<LayoutUser />}>
+                        <Route
+                            path="/user/profile/resume"
+                            element={<PageUserProfileResume />}
+                        />
                         <Route
                             path="/user/profile"
                             element={<PageUserProfile />}

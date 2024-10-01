@@ -115,6 +115,9 @@ class AuthController extends Controller
             'company_activity_id' => $data['activity'],
             'password' => Hash::make($data['password']),
         ]);
+        Mail::to($data['email'])->send(new Welcome([
+            'password' => $data['password'],
+        ]));
 
         return response()->json([
             'email' => $data['email'],

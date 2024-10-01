@@ -1,6 +1,7 @@
 import {
     getCheck,
     patchUser,
+    postUserResume,
     postAdminLogin,
     postEmployerLogin,
     postUserLogin,
@@ -34,6 +35,10 @@ export const userLogin = createAsyncThunk(
 export const userEdit = createAsyncThunk(
     "auth/user/edit",
     async (data: Applicant) => await patchUser(data)
+);
+export const userResumeEdit = createAsyncThunk(
+    "auth/user/resume/edit",
+    async (data: FormData) => await postUserResume(data)
 );
 export const check = createAsyncThunk("auth/check", async () => {
     const token = localStorage.getItem("token");
@@ -148,6 +153,17 @@ export const authSlice = createSlice({
                 state.status = Status.IDLE;
             })
             .addCase(userEdit.rejected, (state, action) => {
+                if (action.error.message)
+                    state.message = message(action.error.message, "danger");
+                state.status = Status.FAILED;
+            })
+
+            .addCase(userResumeEdit.pending, dataLoading)
+            .addCase(userResumeEdit.fulfilled, (state, action) => {
+                state.data = action.payload;
+                state.status = Status.IDLE;
+            })
+            .addCase(userResumeEdit.rejected, (state, action) => {
                 if (action.error.message)
                     state.message = message(action.error.message, "danger");
                 state.status = Status.FAILED;

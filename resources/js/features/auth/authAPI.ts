@@ -52,3 +52,33 @@ export const patchUser = async (data: Applicant) => {
     delete res.data.password;
     return res.data;
 };
+
+export const postUserResume = async (data: FormData) => {
+    function extractJsonFromResponse(responseText: string): string {
+        // Use a regex to find the JSON part (assuming it starts with a '{' or '[')
+        const jsonStart = responseText.indexOf("{");
+        if (jsonStart === -1) {
+            throw new Error("No valid JSON found in the response");
+        }
+
+        // Extract the part starting from the JSON object
+        const jsonString = responseText.slice(jsonStart);
+
+        // Optionally: handle cases where there might be trailing HTML or non-JSON content
+        const jsonEnd = jsonString.lastIndexOf("}");
+        return jsonString.slice(0, jsonEnd + 1); // Extract the complete JSON string
+    }
+
+    const res = await axios.post("/api/user/resume", data, {
+        responseType: "text",
+    });
+
+    // Assume the HTML part is preceding the JSON part and remove it
+    const cleanJson = extractJsonFromResponse(res.data);
+
+    // Parse the cleaned JSON string to a JavaScript object
+    const resData = JSON.parse(cleanJson) as Applicant;
+
+    delete resData.password;
+    return resData;
+};

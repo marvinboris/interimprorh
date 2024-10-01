@@ -44,9 +44,8 @@ export function PageEmployerApplicationsAdd() {
             data[key.split("[]").join("")] = value as string | string[] | null;
         }
 
-        console.log(data);
-
         setLoading(true);
+        setMessage(undefined);
         try {
             const res = await fetch("/api/employer/jobs", {
                 method: "POST",

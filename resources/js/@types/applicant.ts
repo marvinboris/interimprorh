@@ -11,6 +11,7 @@ export type Applicant = {
     photo?: string;
     password?: string;
     password_confirmation?: string;
+    resume?: string;
     phone: string;
     biography: string;
     availability: number;

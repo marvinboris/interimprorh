@@ -11,7 +11,7 @@ export function PageServiceTeam() {
 
             <div className="overflow-clip relative">
                 <Section>
-                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-24">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 py-24">
                         <div>
                             <SectionTitle>
                                 <Trans i18nKey="Provision<br /><2>of Staff</2>">

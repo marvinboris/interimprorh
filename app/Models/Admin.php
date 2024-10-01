@@ -15,7 +15,12 @@ class Admin extends Authenticatable
     protected $directory = '/images/admins/';
 
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'photo', 'language',
+        'name',
+        'email',
+        'password',
+        'phone',
+        'photo',
+        'language',
     ];
 
     protected $hidden = [
@@ -34,6 +39,6 @@ class Admin extends Authenticatable
 
     public function getPhotoAttribute($value)
     {
-        return $value ? public_path($this->directory . $value) : 'https://dummyimage.com/100.webp/09f/fff';
+        return $value ? ($this->directory . $value) : 'https://dummyimage.com/100.webp/09f/fff';
     }
 }

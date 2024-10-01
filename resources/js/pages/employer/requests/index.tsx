@@ -6,26 +6,59 @@ import { CloseCircle, Edit, Eye, TickCircle } from "iconsax-react";
 import { Download } from "react-iconly";
 import { Request } from "@types";
 import { useTranslation } from "react-i18next";
+import Details from "./ui/details";
+import Editing from "./ui/edit";
+import moment from "moment";
 
 export function PageEmployerRequests() {
-    const { isLoading, data: requests } = useGet<Request[]>("/employer/requests");
+    const { isLoading, data: initialRequests } =
+        useGet<Request[]>("/employer/requests");
+
+    const [requests, setRequests] = React.useState(initialRequests);
+    React.useEffect(() => {
+        setRequests(initialRequests);
+    }, [initialRequests]);
 
     const [show, setShow] = React.useState("05");
     const [search, setSearch] = React.useState("");
+
+    const [request, setRequest] = React.useState<Request>();
+    const [showing, setShowing] = React.useState(false);
+    const [editing, setEditing] = React.useState(false);
 
     const { t } = useTranslation();
 
     if (isLoading) return <Loading />;
     return (
         <Section className="pt-4 lg:pt-8 pb-5 md:mb-9 xl:pb-14">
+            <Details
+                show={showing}
+                request={request}
+                setShow={() => {
+                    setRequest(undefined);
+                    setShowing(false);
+                }}
+            />
+
+            <Editing
+                show={editing}
+                request={request}
+                setRequests={setRequests}
+                setShow={() => {
+                    setRequest(undefined);
+                    setEditing(false);
+                }}
+            />
+
             <Table
                 data={requests?.map((r, i) => ({
                     ...r,
                     sl: i + 1,
+                    created_at: moment(r.created_at).format("LL"),
                     status: (
                         <div
                             className={cn(
-                                "inline-flex items-center h-6 pl-1 pr-3 rounded-md gap-1 text-xs font-semibold",
+                                "inline-flex items-center truncate h-6 pl-1 pr-3 rounded-md gap-1 text-xs font-semibold",
                                 [
                                     "bg-primary/10 text-primary",
                                     "bg-dislike/10 text-dislike",
@@ -45,13 +78,36 @@ export function PageEmployerRequests() {
                     ),
                     action: (
                         <div className="flex gap-2.5 *:size-6 *:rounded-md *:text-white *:flex *:justify-center *:items-center">
-                            <button className="bg-purple">
+                            <button
+                                className="bg-purple"
+                                onClick={() => {
+                                    setRequest(r);
+                                    setShowing(true);
+                                }}
+                            >
                                 <Eye className="size-3" />
                             </button>
-                            <button className="bg-telegram">
+                            <button
+                                className="bg-telegram"
+                                onClick={() => {
+                                    setRequest(r);
+                                    setEditing(true);
+                                }}
+                            >
                                 <Edit className="size-3" />
                             </button>
-                            <button className="bg-like">
+                            <button
+                                className="bg-like"
+                                onClick={() => {
+                                    if (r._applicant?.resume) {
+                                        const a = document.createElement("a");
+                                        a.href = r._applicant?.resume;
+                                        a.download = "";
+                                        a.click();
+                                        a.remove();
+                                    }
+                                }}
+                            >
                                 <Download size={12} />
                             </button>
                         </div>

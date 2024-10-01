@@ -4,8 +4,10 @@ import { useGet, useRequests } from "@/hooks";
 import React from "react";
 import { CloseCircle, Edit, Eye, TickCircle } from "iconsax-react";
 import { Download } from "react-iconly";
-import { Request } from "@types";
+import { Job, Request } from "@types";
 import { useTranslation } from "react-i18next";
+import Details from "./ui/details";
+import moment from "moment";
 
 export function PageUserRequests() {
     const { isLoading, data: requests } = useGet<Request[]>("/user/requests");
@@ -13,15 +15,20 @@ export function PageUserRequests() {
     const [show, setShow] = React.useState("05");
     const [search, setSearch] = React.useState("");
 
+    const [job, setJob] = React.useState<Job>();
+
     const { t } = useTranslation();
 
     if (isLoading) return <Loading />;
     return (
         <Section className="pt-4 lg:pt-8 pb-5 md:mb-9 xl:pb-14">
+            <Details job={job} setShow={() => setJob(undefined)} />
+
             <Table
                 data={requests?.map((r, i) => ({
                     ...r,
                     sl: i + 1,
+                    created_at: moment(r.created_at).format("LL"),
                     status: (
                         <div
                             className={cn(
@@ -45,14 +52,11 @@ export function PageUserRequests() {
                     ),
                     action: (
                         <div className="flex gap-2.5 *:size-6 *:rounded-md *:text-white *:flex *:justify-center *:items-center">
-                            <button className="bg-purple">
+                            <button
+                                className="bg-purple"
+                                onClick={() => setJob(r._job)}
+                            >
                                 <Eye className="size-3" />
-                            </button>
-                            <button className="bg-telegram">
-                                <Edit className="size-3" />
-                            </button>
-                            <button className="bg-like">
-                                <Download size={12} />
                             </button>
                         </div>
                     ),

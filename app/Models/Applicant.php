@@ -11,8 +11,23 @@ class Applicant extends Authenticatable
 {
     use HasFactory, HasApiTokens, Notifiable;
 
+    protected $directory = '/files/applicants/';
+
     protected $fillable = [
-        'email', 'password', 'phone', 'photo', 'first_name', 'last_name', 'job', 'city', 'country', 'diploma_id', 'experience', 'biography', 'availability'
+        'email',
+        'password',
+        'phone',
+        'photo',
+        'first_name',
+        'last_name',
+        'job',
+        'city',
+        'country',
+        'diploma_id',
+        'experience',
+        'biography',
+        'availability',
+        'resume'
     ];
 
     protected $append = [
@@ -61,5 +76,10 @@ class Applicant extends Authenticatable
         if ($this->availability) $status++;
 
         return round($status * 100 / 12);
+    }
+
+    public function getResumeAttribute($value)
+    {
+        return $value ? ($this->directory . $value) : null;
     }
 }

@@ -7,7 +7,7 @@ export function PageServiceService() {
 
     return (
         <div className="bg-stone-100">
-            <Header>{t("Service provision")}</Header>
+            <Header>{t("Service Provision")}</Header>
             <Cards />
         </div>
     );

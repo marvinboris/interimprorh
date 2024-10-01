@@ -56,6 +56,19 @@ Route::namespace('Employer')->prefix('employer')->name('employer.')->group(funct
     Route::middleware('auth:employer')->group(function () {
         Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('dashboard');
 
+        Route::put('/requests/{id}', function ($id) {
+            $datum = Request::find($id);
+            $datum->update(request()->all());
+            return response()->json($datum->toArray() + [
+                'applicant' => $datum->applicant->first_name,
+                '_applicant' => $datum->applicant,
+                'job' => $datum->job->name,
+                '_job' => $datum->job,
+                'location' => $datum->job->location,
+                'contract' => $datum->job->contract->name,
+            ]);
+        });
+
         Route::get('/requests', function () {
             $count = request()->count;
             $data = Request::latest();
@@ -63,7 +76,9 @@ Route::namespace('Employer')->prefix('employer')->name('employer.')->group(funct
             return $data->get()->map(function ($datum) {
                 return $datum->toArray() + [
                     'applicant' => $datum->applicant->first_name,
+                    '_applicant' => $datum->applicant,
                     'job' => $datum->job->name,
+                    '_job' => $datum->job,
                     'location' => $datum->job->location,
                     'contract' => $datum->job->contract->name,
                 ];
@@ -99,6 +114,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
                     'company' => $datum->job->company->name,
                     'location' => $datum->job->location,
                     'contract' => $datum->job->contract->name,
+                    '_job' => $datum->job,
                 ];
             });
         });
@@ -122,6 +138,15 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
             $data = array_merge(request()->except(['password']), request()->has('password') ? ['password' => Hash::make(request()->password)] : []);
             UtilController::get()->update($data);
             return response()->json($data);
+        });
+
+        Route::post('/resume', function () {
+            if ($file = request()->file('resume')) {
+                $fileName = time() . '-' . $file->getClientOriginalName();
+                $file->move(public_path('/files/applicants'), $fileName); // Store the file in the 'public/files/applicants' directory
+                UtilController::get()->update(['resume' => $fileName]);
+            }
+            return response()->json(UtilController::get());
         });
     });
 });
