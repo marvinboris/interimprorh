@@ -11,7 +11,7 @@ export default function Accounting() {
         <Section>
             <div className="grid lg:grid-cols-2 gap-8">
                 <div className="order-2 lg:order-1">
-                    <Frame src="/images/518fe64bd599e9cf9f44f3562c3ca322.webp" />
+                    <img src="/images/518fe64bd599e9cf9f44f3562c3ca322.webp" />
                 </div>
 
                 <div className="order-1 lg:order-2">

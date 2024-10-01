@@ -10,13 +10,13 @@ import {
     Transition,
 } from "@/components";
 import { Status } from "@/enums";
-import { selectAuth, employerLogin } from "@/features";
+import { selectAuth, employerForgot } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import React, { FormEvent } from "react";
-import { Trans, useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
-export function PageAuthEmployerLogin() {
+export function PageAuthEmployerForgot() {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
@@ -36,19 +36,12 @@ export function PageAuthEmployerLogin() {
         const formData = new FormData(form);
 
         const email = formData.get("email") as string | null;
-        const password = formData.get("password") as string | null;
 
-        if (!loading && email && password)
-            dispatch(
-                employerLogin({
-                    email,
-                    password,
-                })
-            );
+        if (!loading && email) dispatch(employerForgot(email));
     };
 
     React.useEffect(() => {
-        if (token) navigate("/employer");
+        if (token) navigate("/employer/dashboard");
     }, [navigate, token]);
 
     return (
@@ -59,10 +52,8 @@ export function PageAuthEmployerLogin() {
 
             <Section className="flex items-center flex-col lg:flex-row gap-12">
                 <SectionTitle className="flex-1">
-                    <Trans i18nKey="Welcome back! <br /> <4>Log in</4>, to access <br /> employer account.">
-                        Welcome back! <br /> <span>Log in</span>, to access{" "}
-                        <br /> employer account.
-                    </Trans>
+                    Forgot password? <br /> <span>Reset it</span> to access{" "}
+                    <br /> your account.
                 </SectionTitle>
 
                 <div className="w-full sm:w-[415px] flex-none relative">
@@ -77,7 +68,9 @@ export function PageAuthEmployerLogin() {
                             <Polygon />
                         </div>
 
-                        <div className="font-bold text-2xl">{t("Sign in")}</div>
+                        <div className="font-bold text-2xl">
+                            {t("Forgot password")}
+                        </div>
                         <form
                             ref={formRef}
                             onSubmit={onSubmit}
@@ -102,21 +95,8 @@ export function PageAuthEmployerLogin() {
                                 name="email"
                                 type="email"
                                 label={t("E-mail address")}
-                                placeholder="company@email.com"
+                                placeholder="johndoe@email.com"
                             />
-                            <Input
-                                required
-                                name="password"
-                                type="password"
-                                label={t("Password")}
-                                className="mt-2.5"
-                                placeholder="*****************"
-                            />
-
-                            <div className="text-right mt-6 text-xs font-medium *:underline *:text-primary *:font-semibold">
-                                {t("Forgot password")} ?{" "}
-                                <Link to="/employer/forgot">{t("Reset here")}</Link>
-                            </div>
 
                             <div className="mt-8">
                                 <Button
@@ -124,15 +104,8 @@ export function PageAuthEmployerLogin() {
                                     size="xl"
                                     className="w-full"
                                 >
-                                    {t("Log in")}
+                                    {t("Reset here")}
                                 </Button>
-                            </div>
-
-                            <div className="mt-5 text-center text-sm font-medium *:underline *:text-primary *:font-semibold">
-                                {t("Don’t have an account")} ?{" "}
-                                <Link to="/employer/register">
-                                    {t("Create one")}
-                                </Link>
                             </div>
                         </form>
                     </div>

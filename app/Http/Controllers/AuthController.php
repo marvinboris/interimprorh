@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ResetLink;
 use App\Mail\Welcome;
 use App\Models\Admin;
 use App\Models\Applicant;
@@ -43,6 +44,52 @@ class AuthController extends Controller
             )->toDateTimeString(),
             'data' => $applicant,
         ]);
+    }
+
+    public function forgot()
+    {
+        $email = request()->email;
+        $applicant = Applicant::whereEmail($email)->first();
+
+        if (!$applicant) return response()->json(
+            UtilController::message('Invalid email', 'danger'),
+            404
+        );
+
+        $time = time() + 15 * 60;
+
+        Mail::to($email)->send(new ResetLink(
+            url('/reset?time=' . $time . '&email=' . $email . '&token=' . Hash::make($time . '-' . $email)),
+        ));
+
+        return response()->json(
+            UtilController::message('Reset link sent to: ' . $email, 'success')
+        );
+    }
+
+    public function reset()
+    {
+        $token = request()->token;
+        $time = request()->time;
+        $email = request()->email;
+        $password = request()->password;
+
+        $verified = Hash::check($time . '-' . $email, $token);
+
+        if (!Carbon::createFromTimestamp($time)->greaterThan(Carbon::createFromTimestamp(time()))) return response()->json(
+            UtilController::message('Token expired', 'danger'),
+        );
+
+        if (!$verified) return response()->json(
+            UtilController::message('Invalid token', 'danger'),
+            404
+        );
+
+        Applicant::whereEmail($email)->first()->update(['password' => Hash::make($password)]);
+
+        return response()->json(
+            UtilController::message('Success', 'success')
+        );
     }
 
     public function register()
@@ -95,6 +142,52 @@ class AuthController extends Controller
             )->toDateTimeString(),
             'data' => $employer,
         ]);
+    }
+
+    public function employerForgot()
+    {
+        $email = request()->email;
+        $applicant = Company::whereEmail($email)->first();
+
+        if (!$applicant) return response()->json(
+            UtilController::message('Invalid email', 'danger'),
+            404
+        );
+
+        $time = time() + 15 * 60;
+
+        Mail::to($email)->send(new ResetLink(
+            url('/employer/reset?time=' . $time . '&email=' . $email . '&token=' . Hash::make($time . '-' . $email)),
+        ));
+
+        return response()->json(
+            UtilController::message('Reset link sent to: ' . $email, 'success')
+        );
+    }
+
+    public function employerReset()
+    {
+        $token = request()->token;
+        $time = request()->time;
+        $email = request()->email;
+        $password = request()->password;
+
+        $verified = Hash::check($time . '-' . $email, $token);
+
+        if (!Carbon::createFromTimestamp($time)->greaterThan(Carbon::createFromTimestamp(time()))) return response()->json(
+            UtilController::message('Token expired', 'danger'),
+        );
+
+        if (!$verified) return response()->json(
+            UtilController::message('Invalid token', 'danger'),
+            404
+        );
+
+        Company::whereEmail($email)->first()->update(['password' => Hash::make($password)]);
+
+        return response()->json(
+            UtilController::message('Success', 'success')
+        );
     }
 
 

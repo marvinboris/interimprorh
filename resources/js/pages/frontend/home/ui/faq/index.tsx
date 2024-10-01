@@ -60,7 +60,7 @@ export default function Faq() {
 
                         <div className="h-px mt-4 lg:mt-9 mb-4 lg:mb-6 bg-neutral-200" />
 
-                        <div className="font-medium lg:text-lg">
+                        <div className="lg:text-lg">
                             {selected?.answer}
                         </div>
                     </div>

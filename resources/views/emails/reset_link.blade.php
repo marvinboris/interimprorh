@@ -1,6 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
 <div
     style="box-sizing: border-box; text-align: center; background-color: white; padding: 65px 1rem; width: 100%; font-size: 1.125rem; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
     <div style="margin: auto; width: 840px; max-width: 100%; background-color: #F4F8FB; padding: 35px 40px;">
@@ -11,13 +12,26 @@
                     fill="#023E8A" />
             </svg>
 
-            <div style="margin: 72px 0 50px 0; font-weight: 700; color: #0050C7; font-size: 30px;">Welcome to Interim
-                Pro RH</div>
+            <div style="margin: 72px 0 50px 0; font-weight: 700; color: #0050C7; font-size: 30px;">Reset link</div>
 
-            <p style="font-weight: 300;">
-                We are thrilled to have you on board! Your account has been created successfully. Please find your
-                account activation link below.
+            <p style="font-weight: 300;">Click on the link below to reset your account password
             </p>
+
+            <hr>
+
+            <div style="font-size: 1rem; font-weight: 300; text-align: center;">
+                <a style="color: #0050C7;" href="{{ $link }}">Reset</a>
+            </div>
+
+            <hr>
+
+            <div style="font-size: 1rem; font-weight: 300; text-align: center;">
+                If that link doesn't work, click on the following one
+
+                <p>
+                    <a style="color: #0050C7;" href="{{ $link }}">{{ $link }}</a>
+                </p>
+            </div>
         </div>
 
         <div

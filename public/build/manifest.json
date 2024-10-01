@@ -10,7 +10,7 @@
     "src": "node_modules/pdfjs-dist/build/pdf.worker.min.mjs"
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-DFWwxGAm.js",
+    "file": "assets/app-C3benOl9.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -21,7 +21,7 @@
       "__vite-browser-external"
     ],
     "css": [
-      "assets/app-CgvLsgtR.css"
+      "assets/app-DUd6IAiQ.css"
     ],
     "assets": [
       "assets/pdf.worker.min-DGf6LXVo.mjs"

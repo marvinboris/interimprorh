@@ -17,10 +17,14 @@ import {
     PageAdminDashboard,
     PageAdminProfiles,
     PageAdminSettings,
+    PageAuthEmployerForgot,
     PageAuthEmployerLogin,
     PageAuthEmployerRegister,
+    PageAuthEmployerReset,
+    PageAuthForgot,
     PageAuthLogin,
     PageAuthRegister,
+    PageAuthReset,
     PageBlog,
     PageBlogDetails,
     PageContact,
@@ -165,6 +169,14 @@ export default function AppRoutes() {
                     {token ? null : (
                         <>
                             <Route
+                                path="/employer/reset"
+                                element={<PageAuthEmployerReset />}
+                            />
+                            <Route
+                                path="/employer/forgot"
+                                element={<PageAuthEmployerForgot />}
+                            />
+                            <Route
                                 path="/employer/register"
                                 element={<PageAuthEmployerRegister />}
                             />
@@ -174,6 +186,8 @@ export default function AppRoutes() {
                             />
                         </>
                     )}
+                    <Route path="/reset" element={<PageAuthReset />} />
+                    <Route path="/forgot" element={<PageAuthForgot />} />
                     <Route path="/register" element={<PageAuthRegister />} />
                     <Route path="/login" element={<PageAuthLogin />} />
                 </Route>

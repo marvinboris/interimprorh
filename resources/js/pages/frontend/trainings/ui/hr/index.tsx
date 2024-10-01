@@ -38,7 +38,7 @@ export default function HR() {
                 </div>
 
                 <div>
-                    <Frame src="/images/c64fd660f757135abb8361f31312d977.webp" />
+                    <img src="/images/c64fd660f757135abb8361f31312d977.webp" />
                 </div>
             </div>
         </Section>

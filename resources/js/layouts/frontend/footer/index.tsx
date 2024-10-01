@@ -14,6 +14,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+    const emailRef = React.useRef<HTMLInputElement>(null);
+
     const [loading, setLoading] = React.useState(false);
     const location = useLocation();
     const { t } = useTranslation();
@@ -29,20 +31,18 @@ export default function Footer() {
         const handle = async () => {
             setLoading(true);
 
-            const subscriber = await fetch<Subscriber>({
-                resource: "subscribers",
-                method: "POST",
-                data: { id: uuidv4(), email },
-            });
+            try {
+                const subscriber = await fetch<Subscriber>({
+                    resource: "subscribers",
+                    method: "POST",
+                    data: { id: uuidv4(), email },
+                });
 
-            if (subscriber) {
-                const email = e.currentTarget.querySelector(
-                    "[name=email]"
-                ) as HTMLInputElement;
-                email.value = "";
+                if (subscriber && emailRef.current) emailRef.current.value = "";
+            } catch (error) {
+            } finally {
+                setLoading(false);
             }
-
-            setLoading(false);
         };
 
         handle();
@@ -112,15 +112,16 @@ export default function Footer() {
                         </FooterTitle>
                         <form
                             onSubmit={onSubmit}
-                            className="flex items-center p-2.5 gap-3.5 rounded-xl bg-white/20 mt-4"
+                            className="flex items-center p-2.5 gap-3.5 rounded-xl bg-white/20 mt-4 max-w-80"
                         >
                             <Message className="size-5 ml-1" />
 
                             <input
                                 name="email"
                                 type="email"
+                                ref={emailRef}
                                 placeholder={t("Your e-mail")}
-                                className="p-0 bg-transparent border-0 outline-none flex-1"
+                                className="p-0 bg-transparent border-0 outline-none flex-1 min-w-0"
                             />
 
                             <Button size="sm" type="submit" disabled={loading}>

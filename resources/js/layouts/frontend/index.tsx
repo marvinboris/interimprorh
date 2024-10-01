@@ -3,15 +3,16 @@ import MobileNav from "../ui/mobile-nav";
 import Nav from "../ui/nav";
 import Footer from "./footer";
 import { ProfileCircle } from "iconsax-react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAppSelector } from "@/hooks";
 import { selectAuth } from "@/features";
-import { isApplicant } from "@/utils";
+import { cn, isApplicant } from "@/utils";
 import ProfilePic from "./profile-pic";
 import { useTranslation } from "react-i18next";
 
 export function LayoutFrontend() {
     const { data } = useAppSelector(selectAuth);
+    const { pathname } = useLocation();
     const { t } = useTranslation();
 
     return (
@@ -70,7 +71,11 @@ export function LayoutFrontend() {
                 </div>
             </header>
 
-            <main className="flex-1 flex flex-col overflow-x-hidden">
+            <main
+                className={cn("flex-1 flex flex-col", {
+                    "overflow-x-hidden": pathname !== "/search",
+                })}
+            >
                 <Outlet />
             </main>
 

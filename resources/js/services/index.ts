@@ -72,8 +72,8 @@ export async function fetch<T extends RequestData>({
     id?: string;
 }) {
     try {
-        const res = await axios.get<T>(
-            `${
+        const res = await axios.request<T>({
+            url: `${
                 "/api/" +
                 (as ? as + "/" : "") +
                 resource.split("_").join("-") +
@@ -85,15 +85,13 @@ export async function fetch<T extends RequestData>({
                           .join("&")}`
                     : ""
             }`,
-            {
-                method,
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                data: body,
-            }
-        );
+            method,
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            data: body,
+        });
         return res.data as T | undefined;
     } catch (error) {
         console.log(error);

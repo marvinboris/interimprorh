@@ -1,4 +1,4 @@
-import { Polygon1, Polygon2 } from "./ui/polygons";
+import { Polygon1, Polygon2 } from "../ui/polygons";
 import Polygon from "./polygon";
 import {
     Alert,
@@ -10,14 +10,15 @@ import {
     Transition,
 } from "@/components";
 import { Status } from "@/enums";
-import { selectAuth, employerLogin } from "@/features";
+import { selectAuth, userReset } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import React, { FormEvent } from "react";
-import { Trans, useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
-export function PageAuthEmployerLogin() {
+export function PageAuthReset() {
     const navigate = useNavigate();
+    const [params, setParams] = useSearchParams();
     const { t } = useTranslation();
 
     const dispatch = useAppDispatch();
@@ -35,20 +36,35 @@ export function PageAuthEmployerLogin() {
 
         const formData = new FormData(form);
 
-        const email = formData.get("email") as string | null;
         const password = formData.get("password") as string | null;
+        const passwordConfirmation = formData.get("password_confirmation") as
+            | string
+            | null;
 
-        if (!loading && email && password)
+        const email = params.get("email");
+        const time = params.get("time");
+        const token = params.get("token");
+
+        if (
+            !loading &&
+            password &&
+            password === passwordConfirmation &&
+            email &&
+            time &&
+            token
+        )
             dispatch(
-                employerLogin({
+                userReset({
                     email,
+                    time,
+                    token,
                     password,
                 })
             );
     };
 
     React.useEffect(() => {
-        if (token) navigate("/employer");
+        if (token) navigate("/user/dashboard");
     }, [navigate, token]);
 
     return (
@@ -59,10 +75,8 @@ export function PageAuthEmployerLogin() {
 
             <Section className="flex items-center flex-col lg:flex-row gap-12">
                 <SectionTitle className="flex-1">
-                    <Trans i18nKey="Welcome back! <br /> <4>Log in</4>, to access <br /> employer account.">
-                        Welcome back! <br /> <span>Log in</span>, to access{" "}
-                        <br /> employer account.
-                    </Trans>
+                    <span>Reset your password</span> to access <br /> your
+                    account.
                 </SectionTitle>
 
                 <div className="w-full sm:w-[415px] flex-none relative">
@@ -77,7 +91,9 @@ export function PageAuthEmployerLogin() {
                             <Polygon />
                         </div>
 
-                        <div className="font-bold text-2xl">{t("Sign in")}</div>
+                        <div className="font-bold text-2xl">
+                            {t("Reset here")}
+                        </div>
                         <form
                             ref={formRef}
                             onSubmit={onSubmit}
@@ -99,24 +115,19 @@ export function PageAuthEmployerLogin() {
 
                             <Input
                                 required
-                                name="email"
-                                type="email"
-                                label={t("E-mail address")}
-                                placeholder="company@email.com"
-                            />
-                            <Input
-                                required
                                 name="password"
                                 type="password"
                                 label={t("Password")}
-                                className="mt-2.5"
-                                placeholder="*****************"
+                                placeholder="***************"
                             />
 
-                            <div className="text-right mt-6 text-xs font-medium *:underline *:text-primary *:font-semibold">
-                                {t("Forgot password")} ?{" "}
-                                <Link to="/employer/forgot">{t("Reset here")}</Link>
-                            </div>
+                            <Input
+                                required
+                                name="password_confirmation"
+                                type="password"
+                                label={t("Confirm password")}
+                                placeholder="***************"
+                            />
 
                             <div className="mt-8">
                                 <Button
@@ -124,15 +135,8 @@ export function PageAuthEmployerLogin() {
                                     size="xl"
                                     className="w-full"
                                 >
-                                    {t("Log in")}
+                                    {t("Reset here")}
                                 </Button>
-                            </div>
-
-                            <div className="mt-5 text-center text-sm font-medium *:underline *:text-primary *:font-semibold">
-                                {t("Don’t have an account")} ?{" "}
-                                <Link to="/employer/register">
-                                    {t("Create one")}
-                                </Link>
                             </div>
                         </form>
                     </div>

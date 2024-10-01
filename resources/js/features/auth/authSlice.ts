@@ -5,6 +5,10 @@ import {
     postAdminLogin,
     postEmployerLogin,
     postUserLogin,
+    postUserForgot,
+    postUserReset,
+    postEmployerForgot,
+    postEmployerReset,
 } from "./authAPI";
 import { Status } from "@/enums";
 import { AppState } from "@/store";
@@ -32,6 +36,19 @@ export const userLogin = createAsyncThunk(
     async (data: { email: string; password: string }) =>
         await postUserLogin(data)
 );
+export const userForgot = createAsyncThunk(
+    "auth/user/forgot",
+    async (email: string) => await postUserForgot(email)
+);
+export const userReset = createAsyncThunk(
+    "auth/user/reset",
+    async (data: {
+        email: string;
+        time: string;
+        token: string;
+        password: string;
+    }) => await postUserReset(data)
+);
 export const userEdit = createAsyncThunk(
     "auth/user/edit",
     async (data: Applicant) => await patchUser(data)
@@ -58,6 +75,19 @@ export const employerLogin = createAsyncThunk(
     "auth/employer/login",
     async (data: { email: string; password: string }) =>
         await postEmployerLogin(data)
+);
+export const employerForgot = createAsyncThunk(
+    "auth/employer/forgot",
+    async (email: string) => await postEmployerForgot(email)
+);
+export const employerReset = createAsyncThunk(
+    "auth/employer/reset",
+    async (data: {
+        email: string;
+        time: string;
+        token: string;
+        password: string;
+    }) => await postEmployerReset(data)
 );
 export const adminLogin = createAsyncThunk(
     "auth/admin/login",
@@ -118,6 +148,32 @@ export const authSlice = createSlice({
                 state.status = Status.FAILED;
             })
 
+            .addCase(userForgot.pending, dataLoading)
+            .addCase(userForgot.fulfilled, (state, action) => {
+                state.message = action.payload;
+                state.status = Status.IDLE;
+            })
+            .addCase(userForgot.rejected, (state, action) => {
+                state.token = null;
+                state.data = null;
+                if (action.error.message)
+                    state.message = message(action.error.message, "danger");
+                state.status = Status.FAILED;
+            })
+
+            .addCase(userReset.pending, dataLoading)
+            .addCase(userReset.fulfilled, (state, action) => {
+                state.message = action.payload;
+                state.status = Status.IDLE;
+            })
+            .addCase(userReset.rejected, (state, action) => {
+                state.token = null;
+                state.data = null;
+                if (action.error.message)
+                    state.message = message(action.error.message, "danger");
+                state.status = Status.FAILED;
+            })
+
             .addCase(employerLogin.pending, dataLoading)
             .addCase(employerLogin.fulfilled, (state, action) => {
                 if ("content" in action.payload.data)
@@ -140,6 +196,32 @@ export const authSlice = createSlice({
                 }
             })
             .addCase(employerLogin.rejected, (state, action) => {
+                state.token = null;
+                state.data = null;
+                if (action.error.message)
+                    state.message = message(action.error.message, "danger");
+                state.status = Status.FAILED;
+            })
+
+            .addCase(employerForgot.pending, dataLoading)
+            .addCase(employerForgot.fulfilled, (state, action) => {
+                state.message = action.payload;
+                state.status = Status.IDLE;
+            })
+            .addCase(employerForgot.rejected, (state, action) => {
+                state.token = null;
+                state.data = null;
+                if (action.error.message)
+                    state.message = message(action.error.message, "danger");
+                state.status = Status.FAILED;
+            })
+
+            .addCase(employerReset.pending, dataLoading)
+            .addCase(employerReset.fulfilled, (state, action) => {
+                state.message = action.payload;
+                state.status = Status.IDLE;
+            })
+            .addCase(employerReset.rejected, (state, action) => {
                 state.token = null;
                 state.data = null;
                 if (action.error.message)

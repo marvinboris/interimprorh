@@ -11,7 +11,7 @@ export default function Quality() {
         <Section>
             <div className="grid lg:grid-cols-2 gap-8">
                 <div className="order-2 lg:order-1">
-                    <Frame src="/images/7692093c7321875bfd1d4708872c72bd.webp" />
+                    <img src="/images/7692093c7321875bfd1d4708872c72bd.webp" />
                 </div>
 
                 <div className="order-1 lg:order-2">

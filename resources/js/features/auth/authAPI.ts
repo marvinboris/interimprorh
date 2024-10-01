@@ -22,6 +22,21 @@ export const postUserLogin = async (data: {
     return res.data;
 };
 
+export const postUserForgot = async (email: string) => {
+    const res = await axios.post<Message>("/api/forgot", { email });
+    return res.data;
+};
+
+export const postUserReset = async (data: {
+    email: string;
+    time: string;
+    token: string;
+    password: string;
+}) => {
+    const res = await axios.post<Message>("/api/reset", data);
+    return res.data;
+};
+
 export const postEmployerLogin = async (data: {
     email: string;
     password: string;
@@ -31,6 +46,21 @@ export const postEmployerLogin = async (data: {
         expires_at: number;
         data: Company | Message;
     }>("/api/employer/login", data);
+    return res.data;
+};
+
+export const postEmployerForgot = async (email: string) => {
+    const res = await axios.post<Message>("/api/employer/forgot", { email });
+    return res.data;
+};
+
+export const postEmployerReset = async (data: {
+    email: string;
+    time: string;
+    token: string;
+    password: string;
+}) => {
+    const res = await axios.post<Message>("/api/employer/reset", data);
     return res.data;
 };
 

@@ -42,7 +42,7 @@ export default function Card({
 
             <Transition show={selected}>
                 <div>
-                    <div className="font-medium p-4 lg:text-lg">{answer}</div>
+                    <div className="p-4 lg:text-lg">{answer}</div>
                 </div>
             </Transition>
         </div>

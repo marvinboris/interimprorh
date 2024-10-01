@@ -30,7 +30,9 @@ use Illuminate\Support\Facades\Hash;
 
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/forgot', [AuthController::class, 'forgot']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/reset', [AuthController::class, 'reset']);
 
 Route::apiResource('applicants', ApplicantController::class);
 Route::apiResource('companies', CompanyController::class);
@@ -51,7 +53,9 @@ Route::apiResource('testimonies', TestimonyController::class);
 
 Route::namespace('Employer')->prefix('employer')->name('employer.')->group(function () {
     Route::post('/login', [AuthController::class, 'employerLogin'])->name('login');
+    Route::post('/forgot', [AuthController::class, 'employerForgot'])->name('forgot');
     Route::post('/register', [AuthController::class, 'employerRegister'])->name('register');
+    Route::post('/reset', [AuthController::class, 'employerReset'])->name('reset');
 
     Route::middleware('auth:employer')->group(function () {
         Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('dashboard');
@@ -161,8 +165,8 @@ Route::middleware('auth:admin,employer,api')->group(function () {
     });
 
     Route::name('export.')->prefix('export')->group(function () {
-        Route::name('xlsx')->post('xlsx', 'ExportController@xlsx');
-        Route::name('csv')->post('csv', 'ExportController@csv');
-        Route::name('pdf')->post('pdf', 'ExportController@pdf');
+        // Route::name('xlsx')->post('xlsx', 'ExportController@xlsx');
+        // Route::name('csv')->post('csv', 'ExportController@csv');
+        // Route::name('pdf')->post('pdf', 'ExportController@pdf');
     });
 });

@@ -8,6 +8,7 @@ import React from "react";
 import { useCompanyActivities } from "@/hooks";
 import { useCountriesContext } from "@/contexts";
 import { useTranslation } from "react-i18next";
+import { DEFAULT_COUNTRY } from "@/config";
 
 export default function Header() {
     const { data, setData } = usePageSearchContext();
@@ -15,7 +16,7 @@ export default function Header() {
     const { options: countryOptions } = useCountriesContext();
     const { t } = useTranslation();
 
-    const [country, setCountry] = React.useState("");
+    const [country, setCountry] = React.useState(DEFAULT_COUNTRY.toUpperCase());
     const [loading, setLoading] = React.useState(false);
     const [region, setRegion] = React.useState("");
     const [specialty, setSpecialty] = React.useState("");
@@ -89,7 +90,18 @@ export default function Header() {
 
                         <div>
                             <CustomSelect
-                                options={[]}
+                                options={[
+                                    { value: "1", label: "Adamaoua" },
+                                    { value: "2", label: "Centre" },
+                                    { value: "3", label: "Est" },
+                                    { value: "4", label: "Extrême-Nord" },
+                                    { value: "5", label: "Littoral" },
+                                    { value: "6", label: "Nord" },
+                                    { value: "7", label: "Nord-Ouest" },
+                                    { value: "8", label: "Ouest" },
+                                    { value: "9", label: "Sud" },
+                                    { value: "10", label: "Sud-Ouest" },
+                                ]}
                                 name="region"
                                 value={region}
                                 onChange={setRegion}
@@ -108,7 +120,9 @@ export default function Header() {
                             className="!text-danger font-bold"
                         >
                             <CloseCircle className="size-4" />
-                            <span className="underline">{t("Clear filter")}</span>
+                            <span className="underline">
+                                {t("Clear filter")}
+                            </span>
                         </Button>
 
                         <Button onClick={onSearch}>{t("Search")}</Button>

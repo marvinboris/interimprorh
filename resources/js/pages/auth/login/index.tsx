@@ -114,7 +114,7 @@ export function PageAuthLogin() {
 
                             <div className="text-right mt-6 text-xs font-medium *:underline *:text-primary *:font-semibold">
                                 {t("Forgot password")} ?{" "}
-                                <Link to="/reset">{t("Reset here")}</Link>
+                                <Link to="/forgot">{t("Reset here")}</Link>
                             </div>
 
                             <div className="mt-8">

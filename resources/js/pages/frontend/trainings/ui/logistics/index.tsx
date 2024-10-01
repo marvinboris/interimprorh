@@ -35,7 +35,7 @@ export default function Logistics() {
                 </div>
 
                 <div>
-                    <Frame src="/images/270ed0ec762588b1345bd394dff4516f.webp" />
+                    <img src="/images/270ed0ec762588b1345bd394dff4516f.webp" />
                 </div>
             </div>
         </Section>
