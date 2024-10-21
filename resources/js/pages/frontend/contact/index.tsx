@@ -100,8 +100,8 @@ export function PageContact() {
                                     <div>
                                         <div className="flex items-center gap-2.5">
                                             <Message className="size-5" />
-                                            <a href="mailto:contact@interimprorh.net">
-                                                contact@interimprorh.net
+                                            <a href="mailto:contact@interimprorh.com">
+                                                contact@interimprorh.com
                                             </a>
                                         </div>
                                         <div className="flex gap-2.5 mt-3.5">

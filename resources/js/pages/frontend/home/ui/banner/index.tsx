@@ -10,7 +10,7 @@ export default function Banner() {
     const { t } = useTranslation();
 
     return (
-        <div className="pt-8 lg:pt-32 pb-24 lg:pb-4 container-auto flex flex-col lg:flex-row relative overflow-clip lg:overflow-visible">
+        <div className="pt-8 lg:pt-32 pb-24 lg:pb-32 container-auto flex flex-col lg:flex-row relative overflow-clip lg:overflow-visible">
             <div className="order-2 lg:order-1">
                 <h1 className="font-bold text-3xl/tight lg:text-6xl/tight text-center lg:text-left *:text-primary">
                     <Trans i18nKey="Unlock your next <1>career opportunity</1> today">
@@ -69,8 +69,7 @@ export default function Banner() {
 
                     <p className="text-body flex-1 sm:flex-none lg:flex-1 lg:pl-3">
                         <Trans i18nKey="More than <2>12000</2> users<br />trust our website">
-                            More than{" "}
-                            <span className="font-bold">12000</span>{" "}
+                            More than <span className="font-bold">12000</span>{" "}
                             users
                             <br />
                             trust our website
@@ -81,7 +80,7 @@ export default function Banner() {
 
             <Right />
 
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+            {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
                 <a
                     href="#about"
                     aria-label="Scroll to next section"
@@ -89,7 +88,7 @@ export default function Banner() {
                 >
                     <ArrowDown2 className="size-3.5" />
                 </a>
-            </div>
+            </div> */}
         </div>
     );
 }

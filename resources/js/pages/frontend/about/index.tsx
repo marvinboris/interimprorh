@@ -4,6 +4,12 @@ import Vision from "./ui/vision";
 import Mission from "./ui/mission";
 import Team from "./ui/team";
 import { Trans, useTranslation } from "react-i18next";
+import Accompaniement from "./ui/accompaniement";
+import Career from "./ui/career";
+import ContactUs from "./ui/contact-us";
+import Faq from "./ui/faq";
+import News from "./ui/news";
+import Testimonies from "./ui/testimonies";
 
 export function PageAbout() {
     const { t } = useTranslation();
@@ -18,7 +24,15 @@ export function PageAbout() {
             <Who />
             <Mission />
             <Vision />
+            {/* <Career /> */}
+            {/* <Accompaniement /> */}
+            {/* <Testimonies /> */}
+            {/* <Faq /> */}
+            {/* <ContactUs /> */}
+            {/* <News /> */}
             <Team />
         </>
     );
 }
+
+export * from "./services";

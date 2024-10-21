@@ -35,7 +35,7 @@
         <div style="font-size: 15px;">
             <div>Copyright 2024 Interim Pro RH. All rights reserved by <span
                     style="font-weight: 700; color: #0050C7;">Interim Pro RH</span>.</div>
-            <div style="font-weight: 700; margin: 10px 0 53px 0;">contact@interimprorh.net | +237 657 87 87 87 |
+            <div style="font-weight: 700; margin: 10px 0 53px 0;">contact@interimprorh.com | +237 657 87 87 87 |
                 Unsubscribe</div>
         </div>
     </div>

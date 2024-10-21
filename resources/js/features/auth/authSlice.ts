@@ -231,7 +231,8 @@ export const authSlice = createSlice({
 
             .addCase(userEdit.pending, dataLoading)
             .addCase(userEdit.fulfilled, (state, action) => {
-                state.data = action.payload;
+                delete action.payload.resume;
+                state.data = { ...state.data, ...action.payload };
                 state.status = Status.IDLE;
             })
             .addCase(userEdit.rejected, (state, action) => {

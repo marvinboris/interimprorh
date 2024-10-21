@@ -72,13 +72,13 @@ export default function Footer() {
                     <FooterTitle>{t("Important links")}</FooterTitle>
                     <div className="mt-7 *:flex *:items-center *:gap-2 *:before:h-px *:before:w-2 *:before:bg-white *:before:rounded-full">
                         <Link to="/">{t("Home")}</Link>
-                        <Link to="/about">{t("About us")}</Link>
-                        <Link to="/services">{t("Services")}</Link>
+                        <Link to="/about">{t("Who are we")}</Link>
+                        <Link to="/about/services">{t("Services")}</Link>
                         <Link to="/jobs">{t("Jobs")}</Link>
-                        <Link to="/terms-conditions">
-                            {t("Terms & Conditions")}
-                        </Link>
-                        <Link to="/privacy-policy">{t("Privacy policy")}</Link>
+                        <Link to="/careers">{t("Careers")}</Link>
+                        <Link to="/employer">{t("Employer area")}</Link>
+                        <Link to="/welcome">{t("WelcomeWord/Header")}</Link>
+                        <Link to="/conatact">{t("Contact")}</Link>
                     </div>
                 </div>
                 <div className="flex-1">
@@ -87,8 +87,8 @@ export default function Footer() {
                         <div className="mt-7">
                             <div className="flex items-center gap-2.5">
                                 <Message className="size-5" />
-                                <a href="mailto:contact@interimprorh.net">
-                                    contact@interimprorh.net
+                                <a href="mailto:contact@interimprorh.com">
+                                    contact@interimprorh.com
                                 </a>
                             </div>
                             <div className="flex gap-2.5 mt-3.5">

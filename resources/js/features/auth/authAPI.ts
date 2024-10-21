@@ -78,6 +78,7 @@ export const postAdminLogin = async (data: {
 
 // Edit user
 export const patchUser = async (data: Applicant) => {
+    delete data.resume;
     const res = await axios.patch<Applicant>("/api/user", data);
     delete res.data.password;
     return res.data;

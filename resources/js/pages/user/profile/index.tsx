@@ -138,3 +138,4 @@ export function PageUserProfile() {
 }
 
 export * from "./resume";
+export * from "./questionnaire";

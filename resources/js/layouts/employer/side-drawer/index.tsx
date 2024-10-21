@@ -29,12 +29,6 @@ export default function SideDrawer() {
 
                     <nav className="flex-1 flex-col overflow-auto">
                         <NavItem
-                            href="/employer"
-                            exact
-                            icon={Home}
-                            name={t("Dashboard")}
-                        />
-                        <NavItem
                             href="/employer/applications"
                             icon={Work}
                             name={t("Applications")}

@@ -1,3 +1,4 @@
+import { useWindowSize } from "@/hooks";
 import { Job } from "@types";
 import React, { createContext, useContext } from "react";
 
@@ -23,9 +24,12 @@ export const PageSearchContextProvider = ({
     const [data, setData] = React.useState<Job[]>([]);
     const [selected, setSelected] = React.useState<Job>();
 
+    const { width } = useWindowSize();
+
     React.useEffect(() => {
-        if (!selected && data.length) setSelected(data?.at(0));
-    }, [data, selected]);
+        if (!selected && data.length && width && width > 1024)
+            setSelected(data?.at(0));
+    }, [data, selected, width]);
 
     return (
         <PageSearchContext.Provider

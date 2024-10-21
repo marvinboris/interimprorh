@@ -114,7 +114,7 @@ export default function Details() {
     };
 
     return (
-        <div className="lg:border border-neutral-200 bg-white lg:rounded-3xl *:p-6 divide-y divide-neutral-200 fixed lg:sticky inset-0 overflow-auto top-[90px] lg:top-28">
+        <div className="lg:border border-neutral-200 bg-white lg:rounded-3xl *:p-6 divide-y divide-neutral-200 fixed lg:max-h-[calc(100vh-130px)] lg:sticky inset-0 overflow-auto top-[90px] lg:top-28">
             <header>
                 <div className="flex items-start gap-4">
                     <div className="size-16 rounded-lg bg-stone-100"></div>

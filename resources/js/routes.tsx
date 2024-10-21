@@ -30,7 +30,6 @@ import {
     PageContact,
     PageEmployerApplications,
     PageEmployerApplicationsAdd,
-    PageEmployerDashboard,
     PageEmployerRequests,
     PageEmployerSettings,
     PageHome,
@@ -38,13 +37,15 @@ import {
     PageServiceEngineeringTraining,
     PageServiceHR,
     PageServiceInterim,
+    PageServices,
     PageServiceService,
     PageServiceTeam,
-    PageTrainings,
     PageUserDashboard,
     PageUserProfile,
+    PageUserProfileQuestionnaire,
     PageUserProfileResume,
     PageUserRequests,
+    PageWelcome,
 } from "./pages";
 
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -101,14 +102,15 @@ export default function AppRoutes() {
                             path="/employer/requests"
                             element={<PageEmployerRequests />}
                         />
-                        <Route
-                            path="/employer"
-                            element={<PageEmployerDashboard />}
-                        />
 
                         <Route
                             path="/employer/*"
-                            element={<Navigate to="/employer" />}
+                            element={<Navigate to="/employer/applications" />}
+                        />
+
+                        <Route
+                            path="/employer"
+                            element={<Navigate to="/employer/applications" />}
                         />
                     </Route>
                 </>
@@ -119,6 +121,10 @@ export default function AppRoutes() {
             <Route path="" element={<LayoutFrontend />}>
                 {token ? (
                     <Route path="/user" element={<LayoutUser />}>
+                        <Route
+                            path="/user/profile/questionnaire"
+                            element={<PageUserProfileQuestionnaire />}
+                        />
                         <Route
                             path="/user/profile/resume"
                             element={<PageUserProfileResume />}
@@ -158,9 +164,10 @@ export default function AppRoutes() {
                     path="/services/ingenierie-de-formation"
                     element={<PageServiceEngineeringTraining />}
                 />
-                <Route path="/trainings" element={<PageTrainings />} />
+                <Route path="/welcome" element={<PageWelcome />} />
                 <Route path="/blog/:slug" element={<PageBlogDetails />} />
                 <Route path="/blog" element={<PageBlog />} />
+                <Route path="/about/services" element={<PageServices />} />
                 <Route path="/about" element={<PageAbout />} />
 
                 <Route path="" element={<PageHome />} />
