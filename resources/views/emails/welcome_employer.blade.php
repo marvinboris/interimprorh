@@ -1,6 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
 <div
     style="box-sizing: border-box; text-align: center; background-color: white; padding: 65px 1rem; width: 100%; font-size: 1.125rem; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
     <div style="margin: auto; width: 840px; max-width: 100%; background-color: #F4F8FB; padding: 35px 40px;">
@@ -11,27 +12,45 @@
                     fill="#023E8A" />
             </svg>
 
-            <div style="margin: 72px 0 50px 0; font-weight: 700; color: #0050C7; font-size: 30px;">Welcome to Interim
-                Pro RH</div>
+            <div style="margin: 72px 0 50px 0; font-weight: 700; color: #0050C7; font-size: 30px;">Bonjour,</div>
 
-            <p style="font-weight: 300;">
-                We are thrilled to have you on board! Your account has been created successfully. Please find your
-                account activation link below.
-            </p>
-        </div>
+            <div style="font-weight: 300;">
+                <p>
+                    Votre compte employeur a été créé avec succès. Vous pouvez maintenant :
+                </p>
 
-        <div
-            style="display: flex; margin: 3rem 0 2.625rem 0; justify-content: center; gap: 12px; color: #0050C7; font-weight: 700;">
-            <div>HELP CENTER</div>
-            <div>SUPPORT 24/7</div>
-            <div>ACCOUNT</div>
+                <ul>
+                    <li>
+                        Publier des offres d'emploi
+                    </li>
+                    <li>
+                        Gérer vos candidatures
+                    </li>
+                    <li>
+                        Accéder à notre base de données de CV
+                    </li>
+                </ul>
+
+                <p>
+                    Nous vous remercions d'avoir rejoint notre communauté d'employeurs. Nous sommes ravis de vous aider
+                    à trouver les meilleurs talents.
+                </p>
+
+                <p>
+                    N'hésitez pas à nous contacter si vous avez des questions.
+                </p>
+
+                <p>
+                    Cordialement,<br />
+                    INTERIM PRO RH<br />
+                    657878787
+                </p>
+            </div>
         </div>
 
         <div style="font-size: 15px;">
             <div>Copyright 2024 Interim Pro RH. All rights reserved by <span
-                    style="font-weight: 700; color: #0050C7;">Interim Pro RH</span>.</div>
-            <div style="font-weight: 700; margin: 10px 0 53px 0;">contact@interimprorh.com | +237 657 87 87 87 |
-                Unsubscribe</div>
+                    style="font-weight: 700; color: #0050C7;">Interim Pro RH</span>.
+            </div>
         </div>
     </div>
-</div>

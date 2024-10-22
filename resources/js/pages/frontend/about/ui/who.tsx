@@ -88,7 +88,7 @@ export default function Who() {
                     </div>
 
                     <div className="relative lg:static h-[320px] lg:h-auto order-2 lg:order-1">
-                        <Polygon1 />
+                        <Polygon1 mainSrc="/images/about-1.png" subSrc="/images/about-2.png" />
                     </div>
                 </div>
             </Section>

@@ -36,7 +36,7 @@ export default function Vision() {
                     </div>
 
                     <div className="relative lg:static h-[320px] lg:h-auto">
-                        <Polygon1 />
+                        <Polygon1 mainSrc="/images/vision-1.png" subSrc="/images/vision-2.png" />
                     </div>
                 </div>
             </Section>

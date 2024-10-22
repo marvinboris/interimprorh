@@ -18,9 +18,7 @@ class Welcome extends Mailable
      *
      * @return void
      */
-    public function __construct(public $data)
-    {
-    }
+    public function __construct(public $data) {}
 
     /**
      * Get the message envelope.
@@ -38,7 +36,7 @@ class Welcome extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.welcome',
+            view: $this->data ? 'emails.welcome_employer' : 'emails.welcome_employee',
         );
     }
 

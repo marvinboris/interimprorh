@@ -6,6 +6,8 @@ export function Polygon1({
     mainSrc?: string;
     subSrc?: string;
 }) {
+    const id = mainSrc.split("/").pop()?.split(".").at(0);
+
     return (
         <div className="flex justify-center items-center h-[320px] lg:h-auto lg:max-h-[480px]">
             <svg
@@ -30,14 +32,14 @@ export function Polygon1({
                 <g filter="url(#filter1_d_245_3)">
                     <path
                         d="M421.5 52.4545C439.136 42.2724 460.864 42.2724 478.5 52.4545L606.829 126.546C624.465 136.728 635.329 155.545 635.329 175.909V324.091C635.329 344.455 624.465 363.272 606.829 373.454L478.5 447.546C460.864 457.728 439.136 457.728 421.5 447.546L293.171 373.454C275.535 363.272 264.671 344.455 264.671 324.091V175.909C264.671 155.545 275.535 136.728 293.171 126.546L421.5 52.4545Z"
-                        fill="url(#pattern0_245_3)"
+                        fill={"url(#pattern0_245_3" + id + ")"}
                         shapeRendering="crispEdges"
                     />
                 </g>
                 <g filter="url(#filter2_d_245_3)">
                     <path
                         d="M249.48 244.494C259.703 238.592 272.297 238.592 282.52 244.494L356.906 287.44C367.128 293.342 373.425 304.249 373.425 316.053V401.947C373.425 413.751 367.128 424.658 356.906 430.56L282.52 473.507C272.297 479.409 259.703 479.409 249.48 473.507L175.094 430.56C164.872 424.658 158.575 413.751 158.575 401.947V316.053C158.575 304.249 164.872 293.342 175.094 287.44L249.48 244.494Z"
-                        fill="url(#pattern1_245_3)"
+                        fill={"url(#pattern1_245_3" + id + ")"}
                         shapeRendering="crispEdges"
                     />
                 </g>
@@ -74,10 +76,7 @@ export function Polygon1({
                         filterUnits="userSpaceOnUse"
                         colorInterpolationFilters="sRGB"
                     >
-                        <feFlood
-                            floodOpacity="0"
-                            result="BackgroundImageFix"
-                        />
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feColorMatrix
                             in="SourceAlpha"
                             type="matrix"
@@ -112,10 +111,7 @@ export function Polygon1({
                         filterUnits="userSpaceOnUse"
                         colorInterpolationFilters="sRGB"
                     >
-                        <feFlood
-                            floodOpacity="0"
-                            result="BackgroundImageFix"
-                        />
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feColorMatrix
                             in="SourceAlpha"
                             type="matrix"
@@ -142,13 +138,13 @@ export function Polygon1({
                         />
                     </filter>
                     <pattern
-                        id="pattern0_245_3"
+                        id={"pattern0_245_3" + id}
                         patternContentUnits="objectBoundingBox"
                         width="1"
                         height="1"
                     >
                         <use
-                            xlinkHref="#image0_245_3"
+                            xlinkHref={"#image0_245_3" + id}
                             transform="translate(-0.388889) scale(0.000694444)"
                         />
                     </pattern>
@@ -161,10 +157,7 @@ export function Polygon1({
                         filterUnits="userSpaceOnUse"
                         colorInterpolationFilters="sRGB"
                     >
-                        <feFlood
-                            floodOpacity="0"
-                            result="BackgroundImageFix"
-                        />
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feColorMatrix
                             in="SourceAlpha"
                             type="matrix"
@@ -191,13 +184,13 @@ export function Polygon1({
                         />
                     </filter>
                     <pattern
-                        id="pattern1_245_3"
+                        id={"pattern1_245_3" + id}
                         patternContentUnits="objectBoundingBox"
                         width="1"
                         height="1"
                     >
                         <use
-                            xlinkHref="#image1_245_3"
+                            xlinkHref={"#image1_245_3" + id}
                             transform="translate(-0.388889) scale(0.00111111)"
                         />
                     </pattern>
@@ -210,10 +203,7 @@ export function Polygon1({
                         filterUnits="userSpaceOnUse"
                         colorInterpolationFilters="sRGB"
                     >
-                        <feFlood
-                            floodOpacity="0"
-                            result="BackgroundImageFix"
-                        />
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feColorMatrix
                             in="SourceAlpha"
                             type="matrix"
@@ -248,10 +238,7 @@ export function Polygon1({
                         filterUnits="userSpaceOnUse"
                         colorInterpolationFilters="sRGB"
                     >
-                        <feFlood
-                            floodOpacity="0"
-                            result="BackgroundImageFix"
-                        />
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feBlend
                             mode="normal"
                             in="SourceGraphic"
@@ -272,20 +259,16 @@ export function Polygon1({
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#0050C7" />
-                        <stop
-                            offset="1"
-                            stopColor="#0050C7"
-                            stopOpacity="0"
-                        />
+                        <stop offset="1" stopColor="#0050C7" stopOpacity="0" />
                     </linearGradient>
                     <image
-                        id="image0_245_3"
+                        id={"image0_245_3" + id}
                         width="2560"
                         height="1440"
                         xlinkHref={mainSrc}
                     />
                     <image
-                        id="image1_245_3"
+                        id={"image1_245_3" + id}
                         width="1600"
                         height="900"
                         xlinkHref={subSrc}

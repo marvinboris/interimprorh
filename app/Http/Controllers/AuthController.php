@@ -99,9 +99,7 @@ class AuthController extends Controller
             'password' => 'required|confirmed'
         ]);
 
-        Mail::to($data['email'])->send(new Welcome([
-            'password' => $data['password'],
-        ]));
+        Mail::to($data['email'])->send(new Welcome(false));
         Applicant::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -208,9 +206,7 @@ class AuthController extends Controller
             'company_activity_id' => $data['activity'],
             'password' => Hash::make($data['password']),
         ]);
-        Mail::to($data['email'])->send(new Welcome([
-            'password' => $data['password'],
-        ]));
+        Mail::to($data['email'])->send(new Welcome(true));
 
         return response()->json([
             'email' => $data['email'],

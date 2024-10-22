@@ -11,7 +11,7 @@ export default function Mission() {
             <Section>
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-24">
                     <div className="relative lg:static h-[320px] lg:h-auto order-2 lg:order-1">
-                        <Polygon1 />
+                        <Polygon1 mainSrc="/images/mission-1.png" subSrc="/images/mission-2.png" />
                     </div>
 
                     <div className="order-1 lg:order-2">
