@@ -1,9 +1,11 @@
+import { DEFAULT_COUNTRY } from "@/config";
 import Facebook from "./icons/facebook";
 import Instagram from "./icons/instagram";
 import WhatsApp from "./icons/whatsapp";
 import {
     Alert,
     Button,
+    CountrySelect,
     CustomSelect,
     Header,
     Input,
@@ -20,9 +22,12 @@ import React, { FormEvent } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { Send } from "react-iconly";
 import { v4 as uuidv4 } from "uuid";
+import { useCountriesContext } from "@/contexts";
 
 export function PageContact() {
     const ref = React.useRef<HTMLFormElement>(null);
+    const { defaultCode } = useCountriesContext();
+    const [code, setCode] = React.useState(defaultCode);
     const [loading, setLoading] = React.useState(false);
     const [message, setMessage] = React.useState<MessageType>();
     const { t } = useTranslation();
@@ -32,10 +37,13 @@ export function PageContact() {
 
         const form = new FormData(e.currentTarget);
 
+        const code = form.get("code") as string;
         const name = form.get("name") as string;
         const email = form.get("email") as string;
         const object = form.get("object") as string;
-        const phone = form.get("phone") as string;
+        const phone = [code, form.get("phone") as string]
+            .filter(Boolean)
+            .join(" ");
         const message = form.get("message") as string;
 
         const handle = async () => {
@@ -190,6 +198,13 @@ export function PageContact() {
                                     type="tel"
                                     name="phone"
                                     placeholder="54 100 0003"
+                                    addon={
+                                        <CountrySelect
+                                            name="code"
+                                            value={code}
+                                            onChange={setCode}
+                                        />
+                                    }
                                 />
                                 <TextArea
                                     label={t("Your message")}

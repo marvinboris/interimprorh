@@ -297,5 +297,12 @@
     "Enter your training school": "Enter your training school",
     "Training year": "Training year",
     "Training specialty": "Training specialty",
-    "Enter your training specialty": "Enter your training specialty"
+    "Enter your training specialty": "Enter your training specialty",
+    "Male": "Male",
+    "Female": "Female",
+    "Single": "Single",
+    "Married": "Married",
+    "Divorced": "Divorced",
+    "Widow": "Widow",
+    "Other": "Other"
 }

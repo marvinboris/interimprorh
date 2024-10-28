@@ -296,5 +296,12 @@
     "Enter your training school": "Entrez votre école de formation",
     "Training year": "Année de formation",
     "Training specialty": "Spécialité de formation",
-    "Enter your training specialty": "Entrez votre spécialité de formation"
+    "Enter your training specialty": "Entrez votre spécialité de formation",
+    "Male": "Masculin",
+    "Female": "Féminin",
+    "Single": "Célibataire",
+    "Married": "Marié(e)",
+    "Divorced": "Divorcé(e)",
+    "Widow": "Veuf/Veuve",
+    "Other": "Autre"
 }

@@ -40,6 +40,7 @@ import {
     PageServices,
     PageServiceService,
     PageServiceTeam,
+    PageTrainings,
     PageUserDashboard,
     PageUserProfile,
     PageUserProfileQuestionnaire,
@@ -165,6 +166,7 @@ export default function AppRoutes() {
                     element={<PageServiceEngineeringTraining />}
                 />
                 <Route path="/welcome" element={<PageWelcome />} />
+                <Route path="/trainings" element={<PageTrainings />} />
                 <Route path="/blog/:slug" element={<PageBlogDetails />} />
                 <Route path="/blog" element={<PageBlog />} />
                 <Route path="/about/services" element={<PageServices />} />

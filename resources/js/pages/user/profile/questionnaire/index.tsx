@@ -8,12 +8,13 @@ import {
     SectionTitle,
     Transition,
 } from "@/components";
+import { useCountriesContext } from "@/contexts";
+import { Status } from "@/enums";
+import { selectAuth, userEdit } from "@/features";
+import { useAppDispatch, useAppSelector, useState } from "@/hooks";
+import { isApplicant } from "@/utils";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Status } from "@/enums";
-import { useAppDispatch, useAppSelector, useState } from "@/hooks";
-import { selectAuth, userEdit } from "@/features";
-import { isApplicant } from "@/utils";
 
 import Certificate from "./ui/certificate";
 import Header from "../ui/header";
@@ -23,6 +24,7 @@ import Skill from "./ui/skill";
 import Training from "./ui/training";
 
 export function PageUserProfileQuestionnaire() {
+    const { countries } = useCountriesContext();
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
@@ -159,6 +161,10 @@ export function PageUserProfileQuestionnaire() {
                             value={gender}
                             label={t("Gender")}
                             onChange={setGender}
+                            options={[
+                                { value: "male", label: t("Male") },
+                                { value: "female", label: t("Female") },
+                            ]}
                         />
 
                         <CustomSelect
@@ -166,6 +172,10 @@ export function PageUserProfileQuestionnaire() {
                             value={nationality}
                             label={t("Nationality")}
                             onChange={setNationality}
+                            options={countries.map(({ country, name }) => ({
+                                value: country,
+                                label: name,
+                            }))}
                         />
 
                         <Input
@@ -189,6 +199,13 @@ export function PageUserProfileQuestionnaire() {
                             value={maritalStatus}
                             label={t("Marital status")}
                             onChange={setMaritalStatus}
+                            options={[
+                                { value: "single", label: t("Single") },
+                                { value: "married", label: t("Married") },
+                                { value: "divorced", label: t("Divorced") },
+                                { value: "widow", label: t("Widow") },
+                                { value: "other", label: t("Other") },
+                            ]}
                         />
 
                         <Input

@@ -22,7 +22,7 @@ export default function MobileNav() {
                 <Menu.Items className="absolute top-full right-0 bg-white rounded-lg p-3 shadow-sm border border-stone-200">
                     <Nav />
 
-                    {isApplicant(data) ? null : (
+                    {!isApplicant(data) && (
                         <Link
                             className="flex items-center text-primary mt-3"
                             to="/login"

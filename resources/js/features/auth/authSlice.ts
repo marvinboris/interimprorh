@@ -97,6 +97,7 @@ export const adminLogin = createAsyncThunk(
 
 const dataLoading = (state: AuthState) => {
     state.status = Status.LOADING;
+    state.message = null;
 };
 
 export const authSlice = createSlice({

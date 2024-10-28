@@ -55,13 +55,7 @@ export function LayoutApp({ children }: { children?: React.ReactNode }) {
 
     React.useEffect(() => {
         getCountries().then((countries) => {
-            setCountries(
-                countries.filter(
-                    (c) =>
-                        c.country.toUpperCase() ===
-                        DEFAULT_COUNTRY.toUpperCase()
-                )
-            );
+            setCountries(countries);
             const defaultCode =
                 countries.find(
                     (c) => c.country === DEFAULT_COUNTRY.toUpperCase()

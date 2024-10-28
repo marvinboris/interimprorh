@@ -10,7 +10,7 @@ export default function Banner() {
     const { t } = useTranslation();
 
     return (
-        <div className="pt-8 lg:pt-32 pb-24 lg:pb-32 container-auto flex flex-col lg:flex-row relative overflow-clip lg:overflow-visible">
+        <div className="pt-8 lg:pt-32 pb-24 lg:pb-32 container-auto flex flex-col lg:flex-row relative overflow-clip lg:overflow-x-visible">
             <div className="order-2 lg:order-1">
                 <h1 className="font-bold text-3xl/tight lg:text-6xl/tight text-center lg:text-left *:text-primary">
                     <Trans i18nKey="Unlock your next <1>career opportunity</1> today">
