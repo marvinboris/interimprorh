@@ -13,7 +13,7 @@ export default function Nav() {
     const { t } = useTranslation();
 
     return (
-        <nav className="flex flex-col lg:flex-row lg:items-center gap-3.5 font-display">
+        <nav className="flex flex-col xl:flex-row lg:items-center gap-3.5 font-display">
             <Item exact href="/">
                 {t("Home")}
             </Item>

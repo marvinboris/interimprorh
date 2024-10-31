@@ -107,7 +107,7 @@ export function PageUserProfile() {
                         <Input
                             type="password"
                             name="password"
-                            placeholder="***********************"
+                            placeholder={t("New password")}
                         />
                         <Input
                             type="email"
@@ -124,7 +124,7 @@ export function PageUserProfile() {
                         <Input
                             type="password"
                             name="password_confirmation"
-                            placeholder="***********************"
+                            placeholder={t("Confirm password")}
                         />
 
                         <Button type="submit" className="mt-7">

@@ -57,7 +57,7 @@ export function PageAuthEmployerLogin() {
                 <Polygon1 />
             </div>
 
-            <Section className="flex items-center flex-col lg:flex-row gap-12">
+            <Section className="flex items-center flex-col lg:flex-row gap-12 lg:px-16">
                 <SectionTitle className="flex-1">
                     <Trans i18nKey="Welcome back! <br /> <4>Log in</4>, to access <br /> employer account.">
                         Welcome back! <br /> <span>Log in</span>, to access{" "}

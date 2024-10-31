@@ -6,6 +6,7 @@ import { useAppDispatch, useWindowSize } from "@/hooks";
 import { Building, Home, Logout, PathTool, Setting } from "iconsax-react";
 import { useTranslation } from "react-i18next";
 import { Work } from "react-iconly";
+import { Link } from "react-router-dom";
 
 export default function SideDrawer() {
     const dispatch = useAppDispatch();
@@ -23,9 +24,12 @@ export default function SideDrawer() {
                 />
 
                 <aside className="w-72 h-screen bg-white px-4 md:px-8 flex flex-col overflow-hidden border-r md:border-r-none">
-                    <div className="mt-3 md:mt-5 xl:mt-7 mb-5 md:mb-9 xl:mb-14">
+                    <Link
+                        to="/"
+                        className="block mt-3 md:mt-5 xl:mt-7 mb-5 md:mb-9 xl:mb-14"
+                    >
                         <Logo />
-                    </div>
+                    </Link>
 
                     <nav className="flex-1 flex-col overflow-auto">
                         <NavItem

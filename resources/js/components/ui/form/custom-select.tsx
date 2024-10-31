@@ -104,7 +104,7 @@ export function CustomSelect({
                 ? (props.value as string[])
                 : options.find((o) => o.value === props.value) || defaultOption
         );
-    }, [props.value]);
+    }, [props.value, defaultOption]);
 
     const optionsBlock = (
         <Transition>

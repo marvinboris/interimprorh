@@ -5,8 +5,12 @@ import Avatar from "./avatar";
 import { Link } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
 import React from "react";
+import { isApplicant } from "@/utils";
+import { useAppSelector } from "@/hooks";
+import { selectAuth } from "@/features";
 
 export default function Banner() {
+    const { data } = useAppSelector(selectAuth);
     const { t } = useTranslation();
 
     return (
@@ -32,12 +36,14 @@ export default function Banner() {
                         </Button>
                     </Link>
 
-                    <Link to="/employer">
-                        <Button color="white" size="xl" div>
-                            <Briefcase className="size-6" />
-                            <span>{t("Am an employer")}</span>
-                        </Button>
-                    </Link>
+                    {!isApplicant(data) && (
+                        <Link to="/employer">
+                            <Button color="white" size="xl" div>
+                                <Briefcase className="size-6" />
+                                <span>{t("Am an employer")}</span>
+                            </Button>
+                        </Link>
+                    )}
                 </div>
 
                 <div className="mt-10 lg:mt-14 flex items-center justify-center lg:justify-start gap-4 lg:gap-0">

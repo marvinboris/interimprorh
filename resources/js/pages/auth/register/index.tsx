@@ -85,7 +85,7 @@ export function PageAuthRegister() {
                 <Polygon1 />
             </div>
 
-            <Section className="flex items-center flex-col lg:flex-row gap-12">
+            <Section className="flex items-center flex-col lg:flex-row gap-12 lg:px-16">
                 <SectionTitle className="flex-1">
                     <Trans i18nKey="Welcome !<br /><3>Create your account,</3><br />in few steps">
                         Welcome !<br />

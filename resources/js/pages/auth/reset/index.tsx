@@ -13,7 +13,7 @@ import { Status } from "@/enums";
 import { selectAuth, userReset } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import React, { FormEvent } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 export function PageAuthReset() {
@@ -73,10 +73,12 @@ export function PageAuthReset() {
                 <Polygon1 />
             </div>
 
-            <Section className="flex items-center flex-col lg:flex-row gap-12">
+            <Section className="flex items-center flex-col lg:flex-row gap-12 lg:px-16">
                 <SectionTitle className="flex-1">
-                    <span>Reset your password</span> to access <br /> your
-                    account.
+                    <Trans i18nKey="Reset your password">
+                        <span>Reset your password</span> to access <br /> your
+                        account.
+                    </Trans>
                 </SectionTitle>
 
                 <div className="w-full sm:w-[415px] flex-none relative">

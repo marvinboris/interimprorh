@@ -13,7 +13,7 @@ import { Status } from "@/enums";
 import { selectAuth, employerForgot } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import React, { FormEvent } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 export function PageAuthEmployerForgot() {
@@ -50,10 +50,15 @@ export function PageAuthEmployerForgot() {
                 <Polygon1 />
             </div>
 
-            <Section className="flex items-center flex-col lg:flex-row gap-12">
+            <Section className="flex items-center flex-col lg:flex-row gap-12 lg:px-16">
                 <SectionTitle className="flex-1">
-                    Forgot password? <br /> <span>Reset it</span> to access{" "}
-                    <br /> your account.
+                    <Trans i18nKey="Forgot password?">
+                        Forgot password?
+                        <br />
+                        <span>Reset it</span> to access
+                        <br />
+                        your account.
+                    </Trans>
                 </SectionTitle>
 
                 <div className="w-full sm:w-[415px] flex-none relative">

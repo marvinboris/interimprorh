@@ -1,5 +1,5 @@
 import { Admin, Applicant, Company, Message } from "@types";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export const getCheck = async () => {
     const res = await axios.get<{
@@ -14,12 +14,16 @@ export const postUserLogin = async (data: {
     email: string;
     password: string;
 }) => {
-    const res = await axios.post<{
-        token: string;
-        expires_at: number;
-        data: Applicant | Message;
-    }>("/api/login", data);
-    return res.data;
+    try {
+        const res = await axios.post<{
+            token: string;
+            expires_at: number;
+            data: Applicant | Message;
+        }>("/api/login", data);
+        return res.data;
+    } catch (error) {
+        return (error as AxiosError).response?.data as Message;
+    }
 };
 
 export const postUserForgot = async (email: string) => {

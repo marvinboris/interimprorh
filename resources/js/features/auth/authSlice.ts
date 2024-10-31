@@ -121,9 +121,14 @@ export const authSlice = createSlice({
         builder
             .addCase(userLogin.pending, dataLoading)
             .addCase(userLogin.fulfilled, (state, action) => {
-                if ("content" in action.payload.data)
+                if (!action.payload) return;
+                if ("content" in action.payload) {
+                    state.message = action.payload;
+                    state.status = Status.FAILED;
+                } else if ("content" in action.payload.data) {
                     state.message = action.payload.data;
-                else {
+                    state.status = Status.FAILED;
+                } else {
                     localStorage.setItem("token", action.payload.token);
                     localStorage.setItem(
                         "expirationDate",

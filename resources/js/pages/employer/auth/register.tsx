@@ -84,7 +84,7 @@ export function PageAuthEmployerRegister() {
                 <Polygon1 />
             </div>
 
-            <Section className="flex items-center flex-col lg:flex-row gap-12">
+            <Section className="flex items-center flex-col lg:flex-row gap-12 lg:px-16">
                 <SectionTitle className="flex-1">
                     <Trans i18nKey="Employer <br /> <3>Sign up.</3> Create <br /> your account">
                         Employer <br /> <span>Sign up.</span> Create <br /> your

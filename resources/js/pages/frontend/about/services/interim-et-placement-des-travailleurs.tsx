@@ -1,6 +1,7 @@
 import { Button, Header, Polygon1, Section, SectionTitle } from "@/components";
 import { ArrowRight } from "iconsax-react";
 import { Trans, useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export function PageServiceInterim() {
     const { t } = useTranslation();
@@ -29,10 +30,10 @@ export function PageServiceInterim() {
                                         Contact us and entrust us with your
                                         activity: <br />
                                         <br />
-                                        <strong>INTERIM PRO RH</strong> mobilizes
-                                        the workforce to ensure your production
-                                        without you being engaged with the
-                                        employees through an employment
+                                        <strong>INTERIM PRO RH</strong>{" "}
+                                        mobilizes the workforce to ensure your
+                                        production without you being engaged
+                                        with the employees through an employment
                                         contract. Furthermore, our expertise and
                                         experience in subcontracting allow you
                                         to refocus on your core business and
@@ -48,10 +49,12 @@ export function PageServiceInterim() {
                             </div>
 
                             <div className="mt-8 lg:mt-20 text-center lg:text-left">
-                                <Button size="xl">
-                                    <span>{t("Contact us")}</span>
-                                    <ArrowRight className="size-6" />
-                                </Button>
+                                <Link to="/contact">
+                                    <Button size="xl">
+                                        <span>{t("Contact us")}</span>
+                                        <ArrowRight className="size-6" />
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
 

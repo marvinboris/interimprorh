@@ -13,7 +13,7 @@ export default function MobileNav() {
     const { t } = useTranslation();
 
     return (
-        <Menu as="div" className="relative lg:hidden ml-4">
+        <Menu as="div" className="relative xl:hidden ml-4">
             <Menu.Button>
                 <HambergerMenu className="size-10 text-primary" />
             </Menu.Button>
