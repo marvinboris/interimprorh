@@ -1,5 +1,5 @@
 import { Button, Polygon1, Section, SectionTitle } from "@/components";
-import { ArrowRight } from "iconsax-react";
+import { ArrowRight, TickCircle } from "iconsax-react";
 import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -10,20 +10,19 @@ export default function Mission() {
         <div className="overflow-x-clip relative">
             <Section>
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-24">
-                    <div className="relative lg:static h-[320px] lg:h-auto order-2 lg:order-1">
-                        <Polygon1 mainSrc="/images/mission-1.png" subSrc="/images/mission-2.png" />
-                    </div>
-
-                    <div className="order-1 lg:order-2">
+                    <div>
                         <SectionTitle>
                             <Trans i18nKey="Our <1>mission</1>">
                                 Our <span>mission</span>
                             </Trans>
                         </SectionTitle>
 
-                        <div className="lg:text-lg text-justify text-body space-y-4 mt-4">
-                            <p>{t("About/Mission")}</p>
-                        </div>
+                        <ul className="mt-4 lg:mt-9 lg:space-y-2.5">
+                            <Li>{t("About/Mission/1")}</Li>
+                            <Li>{t("About/Mission/2")}</Li>
+                            <Li>{t("About/Mission/3")}</Li>
+                            <Li>{t("About/Mission/4")}</Li>
+                        </ul>
 
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">
                             <Link to="/contact">
@@ -38,8 +37,24 @@ export default function Mission() {
                             </Link>
                         </div>
                     </div>
+
+                    <div className="relative lg:static h-[320px] lg:h-auto">
+                        <Polygon1
+                            mainSrc="/images/mission-1.png"
+                            subSrc="/images/mission-2.png"
+                        />
+                    </div>
                 </div>
             </Section>
         </div>
+    );
+}
+
+function Li({ children }: { children: React.ReactNode }) {
+    return (
+        <li className="flex items-center gap-3">
+            <TickCircle className="size-5 text-primary" />
+            <div>{children}</div>
+        </li>
     );
 }

@@ -73,10 +73,6 @@ export function PageAuthEmployerLogin() {
                     <div className="relative z-0 bg-white shadow-xl rounded-[38px] px-6 lg:px-11 pt-14 pb-9">
                         <div className="size-9 bg-primary rounded-full absolute top-5 right-5" />
 
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                            <Polygon />
-                        </div>
-
                         <div className="font-bold text-2xl">{t("Sign in")}</div>
                         <form
                             ref={formRef}
@@ -115,7 +111,9 @@ export function PageAuthEmployerLogin() {
 
                             <div className="text-right mt-6 text-xs font-medium *:underline *:text-primary *:font-semibold">
                                 {t("Forgot password")} ?{" "}
-                                <Link to="/employer/forgot">{t("Reset here")}</Link>
+                                <Link to="/employer/forgot">
+                                    {t("Reset here")}
+                                </Link>
                             </div>
 
                             <div className="mt-8">

@@ -222,7 +222,7 @@ export default function Right() {
                         id="image0_0_1"
                         width="4096"
                         height="2731"
-                        xlinkHref="/images/32bb2015ba7e26cf240e2d39e161a98e.webp"
+                        xlinkHref="/images/home.png"
                     />
                 </defs>
             </svg>

@@ -10,6 +10,7 @@ import ContactUs from "./ui/contact-us";
 import Faq from "./ui/faq";
 import News from "./ui/news";
 import Testimonies from "./ui/testimonies";
+import Values from "./ui/values";
 
 export function PageAbout() {
     const { t } = useTranslation();
@@ -22,17 +23,16 @@ export function PageAbout() {
                 </Trans>
             </Header>
             <Who />
-            <Mission />
             <Vision />
+            <Mission />
+            <Values />
             {/* <Career /> */}
             {/* <Accompaniement /> */}
             {/* <Testimonies /> */}
             {/* <Faq /> */}
             {/* <ContactUs /> */}
             {/* <News /> */}
-            <Team />
+            {/* <Team /> */}
         </>
     );
 }
-
-export * from "./services";

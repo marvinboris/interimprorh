@@ -46,7 +46,6 @@ import {
     PageUserProfileQuestionnaire,
     PageUserProfileResume,
     PageUserRequests,
-    PageWelcome,
 } from "./pages";
 
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -165,11 +164,10 @@ export default function AppRoutes() {
                     path="/services/ingenierie-de-formation"
                     element={<PageServiceEngineeringTraining />}
                 />
-                <Route path="/welcome" element={<PageWelcome />} />
                 <Route path="/trainings" element={<PageTrainings />} />
                 <Route path="/blog/:slug" element={<PageBlogDetails />} />
                 <Route path="/blog" element={<PageBlog />} />
-                <Route path="/about/services" element={<PageServices />} />
+                <Route path="/services" element={<PageServices />} />
                 <Route path="/about" element={<PageAbout />} />
 
                 <Route path="" element={<PageHome />} />

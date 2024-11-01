@@ -25,11 +25,11 @@ export function LayoutFrontend() {
                         </Link>
                     </div>
 
-                    <div className="hidden xl:block">
+                    <div className="hidden lg:block">
                         <Nav />
                     </div>
 
-                    <div className="ml-auto xl:ml-10">
+                    <div className="ml-auto lg:ml-10">
                         <LanguageSelector />
                     </div>
 
@@ -54,7 +54,7 @@ export function LayoutFrontend() {
                         </Link>
                     ) : (
                         <Link
-                            className="hidden xl:flex items-center text-primary gap-6 ml-auto"
+                            className="hidden lg:flex items-center text-primary gap-6 ml-auto"
                             to="/login"
                         >
                             <div className="font-semibold font-display underline uppercase text-sm">

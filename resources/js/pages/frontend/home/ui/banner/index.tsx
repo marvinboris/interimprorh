@@ -18,7 +18,7 @@ export default function Banner() {
             <div className="order-2 lg:order-1">
                 <h1 className="font-bold text-3xl/tight lg:text-6xl/tight text-center lg:text-left *:text-primary">
                     <Trans i18nKey="Unlock your next <1>career opportunity</1> today">
-                        Unlock your next <span>career opportunity</span> today
+                        Unlock your next <br /><span>career opportunity</span> today
                     </Trans>
                 </h1>
 

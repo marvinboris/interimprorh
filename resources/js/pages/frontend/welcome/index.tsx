@@ -1,4 +1,5 @@
-import { Header, Section, SectionTitle } from "@/components";
+import { Button, Header, Section, SectionTitle } from "@/components";
+import { ArrowRight } from "iconsax-react";
 import { Trans, useTranslation } from "react-i18next";
 
 export function PageWelcome() {
@@ -6,7 +7,7 @@ export function PageWelcome() {
 
     return (
         <>
-            <Header>{t("WelcomeWord/Header")}</Header>
+            <Header>{t("Our trainings")}</Header>
 
             <Section className="py-12 overflow-hidden">
                 <SectionTitle>
@@ -78,6 +79,15 @@ export function PageWelcome() {
                             <p>Thank you for your trust,</p>
                             <p>Sincerely</p>
                         </Trans>
+
+                        <div className="mt-8 lg:mt-20">
+                            <a download href={"/catalogue.pdf"}>
+                                <Button size="xl" div>
+                                    <span>{t("Download our catalog")}</span>
+                                    <ArrowRight size={20} />
+                                </Button>
+                            </a>
+                        </div>
                     </div>
 
                     <div className="relative lg:static h-[320px] lg:h-auto order-2 lg:order-1">
