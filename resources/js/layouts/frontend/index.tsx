@@ -73,7 +73,7 @@ export function LayoutFrontend() {
 
             <main
                 className={cn("flex-1 flex flex-col", {
-                    "overflow-x-hidden": pathname !== "/search",
+                    "overflow-hidden": pathname !== "/search",
                 })}
             >
                 <Outlet />

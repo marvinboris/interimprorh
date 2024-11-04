@@ -8,7 +8,7 @@ export function PageServices() {
     return (
         <>
             <Header>{t("Our services")}</Header>
-            <div className="pt-12 *:pb-24">
+            <div className="lg:pt-12 *:pb-12 lg:*:pb-24">
                 <Services />
             </div>
         </>

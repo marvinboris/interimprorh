@@ -80,7 +80,7 @@ export function PageWelcome() {
                             <p>Sincerely</p>
                         </Trans>
 
-                        <div className="mt-8 lg:mt-20">
+                        <div className="mt-8 lg:mt-20 text-center lg:text-left">
                             <a download href={"/catalogue.pdf"}>
                                 <Button size="xl" div>
                                     <span>{t("Download our catalog")}</span>

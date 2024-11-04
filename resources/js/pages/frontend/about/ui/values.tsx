@@ -9,7 +9,7 @@ export default function Values() {
     return (
         <div className="overflow-x-clip relative">
             <Section>
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 pt-24">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 py-24">
                     <div className="relative lg:static h-[320px] lg:h-auto order-2 lg:order-1">
                         <Polygon1 />
                     </div>
