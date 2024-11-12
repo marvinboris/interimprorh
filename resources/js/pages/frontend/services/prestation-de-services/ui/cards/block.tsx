@@ -19,7 +19,7 @@ export default function Block({ description, name }: SkillHR) {
             )}
 
             <div className="pt-8 mt-auto">
-                <Link to="/contact">
+                <Link to={"/contact?object=" + t("Service Provision")}>
                     <Button>
                         <span>{t("Contact us")}</span>
                         <ArrowRight className="size-4" />

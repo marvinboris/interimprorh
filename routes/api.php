@@ -111,7 +111,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 
         Route::get('/requests', function () {
             $count = request()->count;
-            $data = Request::latest();
+            $data = UtilController::get()->requests()->latest();
             if ($count) $data = $data->limit($count);
             return $data->get()->map(function ($datum) {
                 return $datum->toArray() + [

@@ -12,9 +12,14 @@ import { Send } from "react-iconly";
 import React, { FormEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useTranslation } from "react-i18next";
+import { isApplicant } from "@/utils";
+import { useAppSelector } from "@/hooks";
+import { selectAuth } from "@/features";
 
 export default function Footer() {
     const emailRef = React.useRef<HTMLInputElement>(null);
+
+    const { data } = useAppSelector(selectAuth);
 
     const [loading, setLoading] = React.useState(false);
     const location = useLocation();
@@ -73,10 +78,13 @@ export default function Footer() {
                     <div className="mt-7 *:flex *:items-center *:gap-2 *:before:h-px *:before:w-2 *:before:bg-white *:before:rounded-full">
                         <Link to="/">{t("Home")}</Link>
                         <Link to="/about">{t("Who are we")}</Link>
-                        <Link to="/about/services">{t("Services")}</Link>
-                        <Link to="/jobs">{t("Jobs")}</Link>
-                        <Link to="/careers">{t("Careers")}</Link>
-                        <Link to="/employer">{t("Employer area")}</Link>
+                        <Link to="/services">{t("Services")}</Link>
+                        {(!data || isApplicant(data)) && (
+                            <Link to="/careers">{t("Careers")}</Link>
+                        )}
+                        {!data && (
+                            <Link to="/employer">{t("Employer area")}</Link>
+                        )}
                         <Link to="/welcome">{t("WelcomeWord/Header")}</Link>
                         <Link to="/conatact">{t("Contact")}</Link>
                     </div>

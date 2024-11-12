@@ -44,10 +44,13 @@ export function CustomSelect({
     className,
     ...props
 }: CustomSelectProps) {
-    const defaultOption: Option = {
-        value: "",
-        label: placeholder || label || "",
-    };
+    const defaultOption: Option = React.useMemo(
+        () => ({
+            value: "",
+            label: placeholder || label || "",
+        }),
+        [placeholder, label]
+    );
 
     if (!options) options = [];
 
@@ -105,10 +108,10 @@ export function CustomSelect({
             multiple
                 ? (props.value as string[])
                 : options.find(
-                      (o) => o.value === props.value || props.defaultValue
+                      (o) => o.value === (props.value || props.defaultValue)
                   ) || defaultOption
         );
-    }, [props.value, props.defaultValue, options]);
+    }, [props.value, defaultOption, props.defaultValue, options]);
 
     const optionsBlock = (
         <Transition>
