@@ -14,17 +14,19 @@ import {
     TextArea,
     Transition,
 } from "@/components";
+import { useCountriesContext } from "@/contexts";
+import { useQuery } from "@/hooks";
 import { fetch } from "@/services";
-import { Contact, Message as MessageType } from "@types";
+import { Contact, i18nKey, Message as MessageType } from "@types";
 
 import { Call, Message } from "iconsax-react";
 import React, { FormEvent } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { Send } from "react-iconly";
 import { v4 as uuidv4 } from "uuid";
-import { useCountriesContext } from "@/contexts";
 
 export function PageContact() {
+    const query = useQuery();
     const ref = React.useRef<HTMLFormElement>(null);
     const { defaultCode } = useCountriesContext();
     const [code, setCode] = React.useState(defaultCode);
@@ -64,13 +66,13 @@ export function PageContact() {
 
             if (contact) {
                 setMessage({
-                    content: "Message sent",
+                    content: t("Message sent"),
                     type: "success",
                 });
                 ref.current?.reset();
             } else
                 setMessage({
-                    content: "Error, try again",
+                    content: t("Error, try again"),
                     type: "danger",
                 });
 
@@ -173,7 +175,8 @@ export function PageContact() {
                             <Loading show={loading} />
 
                             <Alert className="mb-3" color={message?.type}>
-                                {message?.content}
+                                {message?.content &&
+                                    t(message.content as i18nKey)}
                             </Alert>
 
                             <div className="p-4 bg-white border border-neutral-200 grid sm:grid-cols-2 gap-4 rounded-2xl">
@@ -186,10 +189,31 @@ export function PageContact() {
                                 <CustomSelect
                                     label={t("Your object")}
                                     name="object"
+                                    defaultValue={query.get("object") || ""}
                                     options={[
                                         {
-                                            value: "job",
-                                            label: "Recherche d'emploi",
+                                            value: t("Provision of Staff"),
+                                            label: t("Provision of Staff"),
+                                        },
+                                        {
+                                            value: t(
+                                                "Temporary employment and placement of workers"
+                                            ),
+                                            label: t(
+                                                "Temporary employment and placement of workers"
+                                            ),
+                                        },
+                                        {
+                                            value: t("HR Advice"),
+                                            label: t("HR Advice"),
+                                        },
+                                        {
+                                            value: t("Training engineering"),
+                                            label: t("Training engineering"),
+                                        },
+                                        {
+                                            value: t("Service Provision"),
+                                            label: t("Service Provision"),
                                         },
                                     ]}
                                 />

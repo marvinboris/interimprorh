@@ -45,11 +45,11 @@ export default function Header() {
                 <LanguageSelector />
             </div>
 
-            <div className="ml-auto md:ml-8 xl:ml-12 flex items-center gap-5">
+            {/* <div className="ml-auto md:ml-8 xl:ml-12 flex items-center gap-5">
                 <Messages />
 
                 <Notifications />
-            </div>
+            </div> */}
 
             <div className="hidden md:block md:mr-4 xl:mr-5 md:ml-7 xl:ml-8 w-1 h-12 rounded-full bg-neutral-200" />
 

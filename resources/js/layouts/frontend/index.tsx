@@ -6,7 +6,7 @@ import { ProfileCircle } from "iconsax-react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAppSelector } from "@/hooks";
 import { selectAuth } from "@/features";
-import { cn, isApplicant } from "@/utils";
+import { cn, isApplicant, isCompany } from "@/utils";
 import ProfilePic from "./profile-pic";
 import { useTranslation } from "react-i18next";
 
@@ -47,6 +47,20 @@ export function LayoutFrontend() {
                                         .filter(Boolean)
                                         .join(" ") || data.email,
                                 ]
+                                    .filter(Boolean)
+                                    .join(", ")}{" "}
+                                !
+                            </div>
+                        </Link>
+                    ) : isCompany(data) ? (
+                        <Link
+                            to="/employer"
+                            className="ml-auto flex items-center gap-3.5"
+                        >
+                            <ProfilePic />
+
+                            <div className="font-semibold hidden md:block">
+                                {[t("Hello"), data.name]
                                     .filter(Boolean)
                                     .join(", ")}{" "}
                                 !

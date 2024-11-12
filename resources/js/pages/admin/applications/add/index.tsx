@@ -5,7 +5,7 @@ import { ArrowRight } from "react-iconly";
 import { useTranslation } from "react-i18next";
 import { useAppSelector } from "@/hooks";
 import { selectAuth } from "@/features";
-import { Message } from "@types";
+import { i18nKey, Message } from "@types";
 
 export function PageAdminApplicationsAdd() {
     const { t } = useTranslation();
@@ -62,11 +62,11 @@ export function PageAdminApplicationsAdd() {
             setMessage(
                 res.ok
                     ? {
-                          content: "Job created",
+                          content: t("Job created"),
                           type: "success",
                       }
                     : {
-                          content: "Job creation failed",
+                          content: t("Job creation failed"),
                           type: "danger",
                       }
             );
@@ -88,7 +88,7 @@ export function PageAdminApplicationsAdd() {
                 className="md:col-span-2 xl:col-span-3"
                 color={message?.type}
             >
-                {message?.content}
+                {message?.content && t(message.content as i18nKey)}
             </Alert>
 
             <FormSteps active={step} options={steps} />

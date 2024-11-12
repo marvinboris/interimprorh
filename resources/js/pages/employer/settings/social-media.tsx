@@ -7,7 +7,7 @@ export default function SocialMedia() {
         <EditButton />
       </div>
 
-      <header>
+      <header className="pr-6">
         <div className="text-2xl font-bold">Social media</div>
         <div className="text-sm text-neutral-500">Edit links</div>
       </header>

@@ -15,13 +15,18 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import React, { FormEvent } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
+import { i18nKey, Message } from "@types";
 
 export function PageAuthEmployerLogin() {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
     const dispatch = useAppDispatch();
-    const { token, status, message } = useAppSelector(selectAuth);
+    const { token, status, message: authMessage } = useAppSelector(selectAuth);
+    const [message, setMessage] = React.useState<Message | null>();
+    React.useEffect(() => {
+        setMessage(authMessage);
+    }, [authMessage]);
 
     const loading = status === Status.LOADING;
 
@@ -90,7 +95,7 @@ export function PageAuthEmployerLogin() {
                                 closable={false}
                                 className="lg:col-span-2 mb-3"
                             >
-                                {message?.content}
+                                {message?.content && t(message.content as i18nKey)}
                             </Alert>
 
                             <Input

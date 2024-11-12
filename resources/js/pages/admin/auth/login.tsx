@@ -5,15 +5,20 @@ import React, { ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Alert, Button, Input } from "@/components";
+import { i18nKey, Message } from "@types";
 
 export function PageAdminAuthLogin() {
     const [value, setValue] = React.useState({
         email: "",
         password: "",
     });
-
+    
     const dispatch = useAppDispatch();
-    const { token, status, message } = useAppSelector(selectAuth);
+    const { token, status, message: authMessage } = useAppSelector(selectAuth);
+    const [message, setMessage] = React.useState<Message | null>();
+    React.useEffect(() => {
+        setMessage(authMessage);
+    }, [authMessage]);
 
     const navigate = useNavigate();
 
@@ -46,7 +51,9 @@ export function PageAdminAuthLogin() {
 
                 <div className="px-3 md:px-0 mb-6 md:mb-[33px]">
                     <div className="grid gap-x-[17.34px] gap-y-[13.63px] mb-[22.8px]">
-                        <Alert color={message?.type}>{message?.content}</Alert>
+                        <Alert color={message?.type}>
+                            {message?.content && t(message.content as i18nKey)}
+                        </Alert>
                         <Input
                             type="email"
                             name="email"

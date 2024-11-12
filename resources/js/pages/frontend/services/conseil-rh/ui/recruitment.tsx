@@ -7,6 +7,7 @@ import {
 } from "@/components";
 import { ArrowRight } from "iconsax-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function Recruitment() {
     const { t } = useTranslation();
@@ -27,10 +28,12 @@ export default function Recruitment() {
                         </div>
 
                         <div className="mt-8 lg:mt-20 text-center lg:text-left">
-                            <Button size="xl">
-                                <span>{t("Contact us")}</span>
-                                <ArrowRight className="size-6" />
-                            </Button>
+                            <Link to={"/contact?object=" + t("HR Advice")}>
+                                <Button div size="xl">
+                                    <span>{t("Contact us")}</span>
+                                    <ArrowRight className="size-6" />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
 

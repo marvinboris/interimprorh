@@ -1,3 +1,4 @@
+import React from "react";
 import { selectAuth } from "./features/auth/authSlice";
 import { useAppSelector } from "./hooks";
 import {
@@ -48,10 +49,17 @@ import {
     PageUserRequests,
 } from "./pages";
 
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { useMessageContext } from "./contexts";
 
 export default function AppRoutes() {
+    const { pathname } = useLocation();
     const { token } = useAppSelector(selectAuth);
+    const { setMessage } = useMessageContext();
+
+    React.useEffect(() => {
+        setMessage(undefined);
+    }, [pathname]);
 
     return (
         <Routes>

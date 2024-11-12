@@ -11,6 +11,7 @@ import { Status } from "@/enums";
 import { selectAuth, userEdit } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { isApplicant } from "@/utils";
+import { i18nKey } from "@types";
 import { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -48,7 +49,7 @@ export default function Body() {
         )
             return setMessage({
                 type: "danger",
-                content: "Missing information",
+                content: t("Missing information"),
             });
         if (password && password === password_confirmation)
             dispatch(
@@ -86,7 +87,7 @@ export default function Body() {
                         color={message?.type}
                         className="md:col-span-2 xl:col-span-3"
                     >
-                        {message?.content}
+                        {message?.content && t(message.content as i18nKey)}
                     </Alert>
 
                     <Input

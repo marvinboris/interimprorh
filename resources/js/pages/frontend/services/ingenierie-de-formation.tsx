@@ -50,7 +50,12 @@ export function PageServiceEngineeringTraining() {
                             </div>
 
                             <div className="mt-8 lg:mt-20 text-center lg:text-left">
-                                <Link to="/contact">
+                                <Link
+                                    to={
+                                        "/contact?object=" +
+                                        t("Training engineering")
+                                    }
+                                >
                                     <Button size="xl">
                                         <span>{t("Contact us")}</span>
                                         <ArrowRight className="size-6" />

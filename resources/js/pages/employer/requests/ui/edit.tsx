@@ -2,7 +2,7 @@ import { Dislike, Like } from "iconsax-react";
 import React from "react";
 import { cn } from "@/utils";
 import { useTranslation } from "react-i18next";
-import { Message, Request } from "@types";
+import { i18nKey, Message, Request } from "@types";
 import { Alert, Loading, Transition } from "@/components";
 import { useAppSelector } from "@/hooks";
 import { selectAuth } from "@/features";
@@ -52,11 +52,11 @@ export default function Edit({
             setMessage(
                 res.ok
                     ? {
-                          content: "Request answered successfully",
+                          content: t("Request answered successfully"),
                           type: "success",
                       }
                     : {
-                          content: "Request answering failed",
+                          content: t("Request answering failed"),
                           type: "danger",
                       }
             );
@@ -89,7 +89,7 @@ export default function Edit({
                         className="md:col-span-2 xl:col-span-3"
                         color={message?.type}
                     >
-                        {message?.content}
+                        {message?.content && t(message.content as i18nKey)}
                     </Alert>
 
                     <div className="grid grid-cols-2 divide-x *:divide-y *:divide-neutral-200 *:*:p-4 *:*:text-white *:text-center *:p-6 *:*:rounded-md *:*:inline-flex *:*:items-center *:*:gap-2">

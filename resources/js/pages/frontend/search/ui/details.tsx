@@ -15,7 +15,7 @@ import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { useAppSelector, useFetch } from "@/hooks";
 import { selectAuth } from "@/features";
-import { Message } from "@types";
+import { i18nKey, Message } from "@types";
 
 export default function Details() {
     const { t } = useTranslation();
@@ -93,19 +93,19 @@ export default function Details() {
             });
             if (res.ok) {
                 setMessage({
-                    content: "Successfully applied",
+                    content: t("Successfully applied"),
                     type: "success",
                 });
                 setApplied(true);
             } else {
                 setMessage({
-                    content: "Error while applying",
+                    content: t("Error while applying"),
                     type: "danger",
                 });
             }
         } catch (error) {
             setMessage({
-                content: "Error while applying",
+                content: t("Error while applying"),
                 type: "danger",
             });
         } finally {
@@ -176,7 +176,7 @@ export default function Details() {
                             )}
                         </Button>
 
-                        <Alert color={message?.type}>{message?.content}</Alert>
+                        <Alert color={message?.type}>{message?.content && t(message.content as i18nKey)}</Alert>
                     </div>
                 ) : null}
             </header>

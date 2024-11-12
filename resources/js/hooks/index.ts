@@ -10,5 +10,6 @@ export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
 export * from "./data";
 export * from "./use-fetch";
 export * from "./use-get";
+export * from "./use-query";
 export * from './use-state'
 export * from "./use-window-size";

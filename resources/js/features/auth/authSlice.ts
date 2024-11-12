@@ -182,9 +182,14 @@ export const authSlice = createSlice({
 
             .addCase(employerLogin.pending, dataLoading)
             .addCase(employerLogin.fulfilled, (state, action) => {
-                if ("content" in action.payload.data)
+                if (!action.payload) return;
+                if ("content" in action.payload) {
+                    state.message = action.payload;
+                    state.status = Status.FAILED;
+                } else if ("content" in action.payload.data) {
                     state.message = action.payload.data;
-                else {
+                    state.status = Status.FAILED;
+                } else {
                     localStorage.setItem("token", action.payload.token);
                     localStorage.setItem(
                         "expirationDate",
@@ -237,9 +242,15 @@ export const authSlice = createSlice({
 
             .addCase(userEdit.pending, dataLoading)
             .addCase(userEdit.fulfilled, (state, action) => {
-                delete action.payload.resume;
-                state.data = { ...state.data, ...action.payload };
-                state.status = Status.IDLE;
+                if (!action.payload) return;
+                if ("content" in action.payload) {
+                    state.message = action.payload;
+                    state.status = Status.FAILED;
+                } else {
+                    delete action.payload.resume;
+                    state.data = { ...state.data, ...action.payload };
+                    state.status = Status.IDLE;
+                }
             })
             .addCase(userEdit.rejected, (state, action) => {
                 if (action.error.message)
@@ -249,8 +260,14 @@ export const authSlice = createSlice({
 
             .addCase(userResumeEdit.pending, dataLoading)
             .addCase(userResumeEdit.fulfilled, (state, action) => {
-                state.data = action.payload;
-                state.status = Status.IDLE;
+                if (!action.payload) return;
+                if ("content" in action.payload) {
+                    state.message = action.payload;
+                    state.status = Status.FAILED;
+                } else {
+                    state.data = action.payload;
+                    state.status = Status.IDLE;
+                }
             })
             .addCase(userResumeEdit.rejected, (state, action) => {
                 if (action.error.message)
@@ -260,29 +277,38 @@ export const authSlice = createSlice({
 
             .addCase(check.pending, dataLoading)
             .addCase(check.fulfilled, (state, action) => {
-                if (action.payload && action.payload.data) {
-                    if (!("content" in action.payload.data)) {
-                        const token = localStorage.getItem("token");
-
-                        setAuthToken(token);
-                        state.token = token;
-                        delete action.payload.data.password;
-                        state.data = action.payload.data;
-                        state.role = action.payload.role;
-                        state.status = Status.IDLE;
-
-                        checkAuthTimeout(
-                            new Date(
-                                localStorage.getItem("expirationDate")!
-                            ).getTime() - new Date().getTime()
-                        );
-                    }
-                } else {
-                    setAuthToken();
-                    state.token = null;
-                    state.data = null;
-                    state.role = undefined;
+                if (!action.payload) return;
+                if ("content" in action.payload) {
+                    state.message = action.payload;
                     state.status = Status.FAILED;
+                } else if ("content" in action.payload.data) {
+                    state.message = action.payload.data;
+                    state.status = Status.FAILED;
+                } else {
+                    if (action.payload && action.payload.data) {
+                        if (!("content" in action.payload.data)) {
+                            const token = localStorage.getItem("token");
+
+                            setAuthToken(token);
+                            state.token = token;
+                            delete action.payload.data.password;
+                            state.data = action.payload.data;
+                            state.role = action.payload.role;
+                            state.status = Status.IDLE;
+
+                            checkAuthTimeout(
+                                new Date(
+                                    localStorage.getItem("expirationDate")!
+                                ).getTime() - new Date().getTime()
+                            );
+                        }
+                    } else {
+                        setAuthToken();
+                        state.token = null;
+                        state.data = null;
+                        state.role = undefined;
+                        state.status = Status.FAILED;
+                    }
                 }
             })
             .addCase(check.rejected, (state, action) => {
@@ -302,9 +328,14 @@ export const authSlice = createSlice({
 
             .addCase(adminLogin.pending, dataLoading)
             .addCase(adminLogin.fulfilled, (state, action) => {
-                if ("content" in action.payload.data)
+                if (!action.payload) return;
+                if ("content" in action.payload) {
+                    state.message = action.payload;
+                    state.status = Status.FAILED;
+                } else if ("content" in action.payload.data) {
                     state.message = action.payload.data;
-                else {
+                    state.status = Status.FAILED;
+                } else {
                     localStorage.setItem("token", action.payload.token);
                     localStorage.setItem(
                         "expirationDate",

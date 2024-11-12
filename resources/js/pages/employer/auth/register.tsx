@@ -10,7 +10,7 @@ import {
     SectionTitle,
     Transition,
 } from "@/components";
-import { Message } from "@types";
+import { i18nKey, Message } from "@types";
 import { ArrowRight } from "iconsax-react";
 import React, { FormEvent } from "react";
 import { Trans, useTranslation } from "react-i18next";
@@ -44,7 +44,7 @@ export function PageAuthEmployerRegister() {
 
         if (password !== password_confirmation)
             return setMessage({
-                content: "Incorrect password confirmation",
+                content: t("Incorrect password confirmation"),
                 type: "danger",
             });
 
@@ -67,7 +67,10 @@ export function PageAuthEmployerRegister() {
             });
             const data = (await res.json()) as { email: string };
             setMessage({
-                content: `Company successfully created. E-mail sent to : ${data.email}`,
+                content: t(
+                    "Company successfully created. E-mail sent to: {{email}}",
+                    { email: data.email }
+                ),
                 type: "success",
             });
             form.reset();
@@ -108,7 +111,7 @@ export function PageAuthEmployerRegister() {
                         closable={false}
                         className="lg:col-span-2"
                     >
-                        {message?.content}
+                        {message?.content && t(message.content as i18nKey)}
                     </Alert>
 
                     <Input

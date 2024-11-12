@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import Body from "./ui/body";
 import Header from "./ui/header";
 import { Status } from "@/enums";
+import { i18nKey } from "@types";
 
 export function PageUserProfile() {
     const { data, message, status } = useAppSelector(selectAuth);
@@ -50,7 +51,7 @@ export function PageUserProfile() {
         )
             return setMessage({
                 type: "danger",
-                content: "Missing information",
+                content: t("Missing information"),
             });
         if (password && password === password_confirmation)
             dispatch(
@@ -91,7 +92,7 @@ export function PageUserProfile() {
                             color={message?.type}
                             className="md:col-span-2 xl:col-span-3"
                         >
-                            {message?.content}
+                            {message?.content && t(message.content as i18nKey)}
                         </Alert>
 
                         <Input

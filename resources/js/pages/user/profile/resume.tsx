@@ -11,6 +11,7 @@ import { Section, Loading, Alert, Input, Button } from "@/components";
 import { Transition } from "@headlessui/react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import { i18nKey } from "@types";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -56,7 +57,7 @@ export function PageUserProfileResume() {
         if (!file)
             return setMessage({
                 type: "danger",
-                content: "Missing information",
+                content: t("Missing information"),
             });
         else {
             form.append("resume", file);
@@ -66,7 +67,7 @@ export function PageUserProfileResume() {
 
     React.useEffect(() => {
         setMessage({
-            content: "Resume successfully updated",
+            content: t("Resume successfully updated"),
             type: "success",
         });
     }, [data.resume]);
@@ -92,7 +93,7 @@ export function PageUserProfileResume() {
                             color={message?.type}
                             className="md:col-span-2 xl:col-span-3"
                         >
-                            {message?.content}
+                            {message?.content && t(message.content as i18nKey)}
                         </Alert>
 
                         <div>

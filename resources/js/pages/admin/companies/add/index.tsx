@@ -4,7 +4,7 @@ import React, { FormEvent } from "react";
 import { ArrowRight } from "react-iconly";
 import { selectAuth } from "@/features";
 import { useAppSelector } from "@/hooks";
-import { Message } from "@types";
+import { i18nKey, Message } from "@types";
 import { useTranslation } from "react-i18next";
 
 export function PageAdminCompaniesAdd() {
@@ -56,11 +56,11 @@ export function PageAdminCompaniesAdd() {
             setMessage(
                 res.ok
                     ? {
-                          content: "Company created",
+                          content: t("Company created"),
                           type: "success",
                       }
                     : {
-                          content: "Company creation failed",
+                          content: t("Company creation failed"),
                           type: "danger",
                       }
             );
@@ -82,7 +82,7 @@ export function PageAdminCompaniesAdd() {
                 className="md:col-span-2 xl:col-span-3"
                 color={message?.type}
             >
-                {message?.content}
+                {message?.content && t(message.content as i18nKey)}
             </Alert>
 
             <FormSteps active={step} options={steps} />

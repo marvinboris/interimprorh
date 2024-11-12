@@ -60,7 +60,9 @@ export function CustomSelect({
     const [selected, setSelected] = React.useState(
         multiple
             ? ((props.value || []) as string[])
-            : options.find((o) => o.value === props.value) || defaultOption
+            : options.find(
+                  (o) => o.value === (props.value || props.defaultValue)
+              ) || defaultOption
     );
     const [touched, setTouched] = React.useState(false);
 
@@ -102,9 +104,11 @@ export function CustomSelect({
         setSelected(
             multiple
                 ? (props.value as string[])
-                : options.find((o) => o.value === props.value) || defaultOption
+                : options.find(
+                      (o) => o.value === props.value || props.defaultValue
+                  ) || defaultOption
         );
-    }, [props.value, defaultOption]);
+    }, [props.value, props.defaultValue, options]);
 
     const optionsBlock = (
         <Transition>

@@ -9,7 +9,7 @@ import {
     SectionTitle,
     Transition,
 } from "@/components";
-import { Message } from "@types";
+import { i18nKey, Message } from "@types";
 import React, { FormEvent } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -37,7 +37,7 @@ export function PageAuthRegister() {
 
         if (password !== password_confirmation)
             return setMessage({
-                content: "Incorrect password confirmation",
+                content: t("Incorrect password confirmation"),
                 type: "danger",
             });
 
@@ -61,7 +61,10 @@ export function PageAuthRegister() {
             setMessage(
                 "email" in data
                     ? {
-                          content: `Account successfully created. E-mail sent to : ${data.email}`,
+                          content: t(
+                              "Account successfully created. E-mail sent to: {{email}}",
+                              { email: data.email }
+                          ),
                           type: "success",
                       }
                     : {
@@ -126,7 +129,8 @@ export function PageAuthRegister() {
                                 closable={false}
                                 className="lg:col-span-2 mb-3"
                             >
-                                {message?.content}
+                                {message?.content &&
+                                    t(message.content as i18nKey)}
                             </Alert>
 
                             <Input
