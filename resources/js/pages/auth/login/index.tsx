@@ -10,7 +10,7 @@ import {
     Transition,
 } from "@/components";
 import { Status } from "@/enums";
-import { selectAuth, userLogin } from "@/features";
+import { clearMessage, selectAuth, userLogin } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { i18nKey, Message } from "@types";
 import React, { FormEvent } from "react";
@@ -27,6 +27,11 @@ export function PageAuthLogin() {
     React.useEffect(() => {
         setMessage(authMessage);
     }, [authMessage]);
+    React.useEffect(() => {
+        return () => {
+            dispatch(clearMessage());
+        };
+    }, []);
 
     const loading = status === Status.LOADING;
 

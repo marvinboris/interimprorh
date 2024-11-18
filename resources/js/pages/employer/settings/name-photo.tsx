@@ -1,24 +1,52 @@
-import { useAppSelector } from "@/hooks";
+import { useAppSelector, useState } from "@/hooks";
 import EditButton from "./ui/edit-button";
 import { selectAuth } from "@/features";
 import { isCompany } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 export default function NamePhoto() {
+    const { t } = useTranslation();
     const { data } = useAppSelector(selectAuth);
     if (!isCompany(data)) return null;
+
+    const [logo, setLogo] = useState(data.logo);
 
     return (
         <div className="rounded-3xl border border-neutral-200 bg-white flex flex-col items-center pt-7 pb-14 gap-4 relative">
             <div className="absolute top-6 right-6">
-                <EditButton />
+                <input
+                    type="file"
+                    id="logo"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => {
+                        const file = e.currentTarget.files?.item(0);
+                        if (!file) return;
+
+                        const reader = new FileReader();
+                        reader.readAsDataURL(file);
+
+                        reader.onload = (event: ProgressEvent<FileReader>) => {
+                            const base64Image = event.target?.result as string;
+                            setLogo(base64Image);
+                        };
+                    }}
+                />
+                <EditButton
+                    onClick={() => document.getElementById("logo")?.click()}
+                />
             </div>
 
-            <div className="size-32 rounded-full border-8 border-neutral-200">
-                <Svg className="size-full" />
+            <div className="size-32 rounded-full border-8 border-neutral-200 overflow-hidden">
+                {logo ? (
+                    <img src={logo} alt={data.name} className="size-full object-cover" />
+                ) : (
+                    <Svg className="size-full" />
+                )}
             </div>
 
             <div className="text-center">
-                <div className="text-neutral-500">Employer account</div>
+                <div className="text-neutral-500">{t("Employer account")}</div>
                 <div className="text-2xl font-bold">{data.name}</div>
             </div>
         </div>

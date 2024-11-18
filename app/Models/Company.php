@@ -17,7 +17,17 @@ class Company extends Authenticatable
     protected $directory = '/images/companies/';
 
     protected $fillable = [
-        'company_activity_id', 'company_type_id', 'name', 'email', 'phone', 'password', 'creation', 'contact_person'
+        'company_activity_id',
+        'company_type_id',
+        'name',
+        'email',
+        'phone',
+        'password',
+        'creation',
+        'contact_person',
+        'logo',
+        'location',
+        'maintenance',
     ];
 
     protected $hidden = [
@@ -32,6 +42,11 @@ class Company extends Authenticatable
     public static function type()
     {
         return 'employer';
+    }
+
+    public function getLogoAttribute($value)
+    {
+        return $value ? ($this->directory . $value) : null;
     }
 
     public function jobs()

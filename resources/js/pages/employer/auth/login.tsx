@@ -10,7 +10,7 @@ import {
     Transition,
 } from "@/components";
 import { Status } from "@/enums";
-import { selectAuth, employerLogin } from "@/features";
+import { selectAuth, employerLogin, clearMessage } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import React, { FormEvent } from "react";
 import { Trans, useTranslation } from "react-i18next";
@@ -27,6 +27,11 @@ export function PageAuthEmployerLogin() {
     React.useEffect(() => {
         setMessage(authMessage);
     }, [authMessage]);
+    React.useEffect(() => {
+        return () => {
+            dispatch(clearMessage());
+        };
+    }, []);
 
     const loading = status === Status.LOADING;
 

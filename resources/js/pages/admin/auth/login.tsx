@@ -1,5 +1,5 @@
 import { Status } from "@/enums";
-import { adminLogin, selectAuth } from "@/features";
+import { adminLogin, clearMessage, selectAuth } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import React, { ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +19,11 @@ export function PageAdminAuthLogin() {
     React.useEffect(() => {
         setMessage(authMessage);
     }, [authMessage]);
+    React.useEffect(() => {
+        return () => {
+            dispatch(clearMessage());
+        };
+    }, []);
 
     const navigate = useNavigate();
 

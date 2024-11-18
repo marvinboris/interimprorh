@@ -1,5 +1,5 @@
 import { cn } from "@/utils";
-import { ExportCurve, Icon, SearchNormal1 } from "iconsax-react";
+import { ExportCurve, Icon, Js, SearchNormal1 } from "iconsax-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
@@ -131,38 +131,54 @@ export function Table({
                     </thead>
 
                     <tbody>
-                        {data?.map((item, index) => (
-                            <tr key={index}>
-                                {fields.map((field) => (
-                                    <td
-                                        key={index + "-" + field.key}
-                                        className={cn(
-                                            field.centered
-                                                ? "text-center"
-                                                : "text-left",
-                                            "px-4 md:px-6 xl:px-8 py-2"
-                                        )}
-                                        style={
-                                            field.maxWidth
-                                                ? { maxWidth: field.maxWidth }
-                                                : {}
-                                        }
-                                    >
-                                        <div className="">
-                                            {
-                                                (
-                                                    item as {
-                                                        [
-                                                            key: string
-                                                        ]: React.ReactNode;
-                                                    }
-                                                )[field.key]
+                        {data
+                            ?.filter((datum) =>
+                                Object.values(datum as object)
+                                    .filter(
+                                        (value) =>
+                                            typeof value !== "symbol" &&
+                                            typeof value !== "function"
+                                    )
+                                    .some((value) =>
+                                        value.toString().toLowerCase()
+                                            .includes(search.toLowerCase())
+                                    )
+                            )
+                            .map((item, index) => (
+                                <tr key={index}>
+                                    {fields.map((field) => (
+                                        <td
+                                            key={index + "-" + field.key}
+                                            className={cn(
+                                                field.centered
+                                                    ? "text-center"
+                                                    : "text-left",
+                                                "px-4 md:px-6 xl:px-8 py-2"
+                                            )}
+                                            style={
+                                                field.maxWidth
+                                                    ? {
+                                                          maxWidth:
+                                                              field.maxWidth,
+                                                      }
+                                                    : {}
                                             }
-                                        </div>
-                                    </td>
-                                ))}
-                            </tr>
-                        ))}
+                                        >
+                                            <div className="">
+                                                {
+                                                    (
+                                                        item as {
+                                                            [
+                                                                key: string
+                                                            ]: React.ReactNode;
+                                                        }
+                                                    )[field.key]
+                                                }
+                                            </div>
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
                     </tbody>
                 </table>
             </div>

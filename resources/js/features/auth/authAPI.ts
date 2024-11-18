@@ -133,3 +133,10 @@ export const postUserResume = async (data: FormData) =>
         delete resData.password;
         return resData;
     });
+
+    export const patchEmployer = async (data: Company) =>
+        handlePromise(async () => {
+            const res = await axios.patch<Company>("/api/employer", data);
+            delete res.data.password;
+            return res.data;
+        });

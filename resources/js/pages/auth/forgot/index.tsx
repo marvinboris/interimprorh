@@ -10,7 +10,7 @@ import {
     Transition,
 } from "@/components";
 import { Status } from "@/enums";
-import { selectAuth, userForgot } from "@/features";
+import { clearMessage, selectAuth, userForgot } from "@/features";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { i18nKey, Message } from "@types";
 import React, { FormEvent } from "react";
@@ -27,6 +27,11 @@ export function PageAuthForgot() {
     React.useEffect(() => {
         setMessage(authMessage);
     }, [authMessage]);
+    React.useEffect(() => {
+        return () => {
+            dispatch(clearMessage());
+        };
+    }, []);
 
     const loading = status === Status.LOADING;
 
@@ -58,8 +63,8 @@ export function PageAuthForgot() {
             <Section className="flex items-center flex-col lg:flex-row gap-12 lg:px-16">
                 <SectionTitle className="flex-1">
                     <Trans i18nKey="Forgot password?">
-                        Forgot password? <br /><span>Reset it</span> to access{" "}
-                        <br /> your account.
+                        Forgot password? <br />
+                        <span>Reset it</span> to access <br /> your account.
                     </Trans>
                 </SectionTitle>
 
@@ -94,7 +99,8 @@ export function PageAuthForgot() {
                                 closable={false}
                                 className="lg:col-span-2 mb-3"
                             >
-                                {message?.content && t(message.content as i18nKey)}
+                                {message?.content &&
+                                    t(message.content as i18nKey)}
                             </Alert>
 
                             <Input

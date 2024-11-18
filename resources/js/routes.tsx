@@ -31,6 +31,7 @@ import {
     PageContact,
     PageEmployerApplications,
     PageEmployerApplicationsAdd,
+    PageEmployerApplicationsEdit,
     PageEmployerRequests,
     PageEmployerSettings,
     PageHome,
@@ -97,6 +98,10 @@ export default function AppRoutes() {
                         <Route
                             path="/employer/settings"
                             element={<PageEmployerSettings />}
+                        />
+                        <Route
+                            path="/employer/applications/:id"
+                            element={<PageEmployerApplicationsEdit />}
                         />
                         <Route
                             path="/employer/applications/add"

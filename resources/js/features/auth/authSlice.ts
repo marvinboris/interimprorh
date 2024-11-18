@@ -9,6 +9,7 @@ import {
     postUserReset,
     postEmployerForgot,
     postEmployerReset,
+    patchEmployer,
 } from "./authAPI";
 import { Status } from "@/enums";
 import { AppState } from "@/store";
@@ -89,6 +90,10 @@ export const employerReset = createAsyncThunk(
         password: string;
     }) => await postEmployerReset(data)
 );
+export const employerEdit = createAsyncThunk(
+    "auth/employer/edit",
+    async (data: Company) => await patchEmployer(data)
+);
 export const adminLogin = createAsyncThunk(
     "auth/admin/login",
     async (data: { email: string; password: string }) =>
@@ -105,6 +110,9 @@ export const authSlice = createSlice({
     initialState,
     // The `reducers` field lets us define reducers and generate associated actions
     reducers: {
+        clearMessage: (state) => {
+            state.message = null;
+        },
         logout: (state) => {
             setAuthToken();
             localStorage.removeItem("token");
@@ -275,6 +283,23 @@ export const authSlice = createSlice({
                 state.status = Status.FAILED;
             })
 
+            .addCase(employerEdit.pending, dataLoading)
+            .addCase(employerEdit.fulfilled, (state, action) => {
+                if (!action.payload) return;
+                if ("content" in action.payload) {
+                    state.message = action.payload;
+                    state.status = Status.FAILED;
+                } else {
+                    state.data = { ...state.data, ...action.payload };
+                    state.status = Status.IDLE;
+                }
+            })
+            .addCase(employerEdit.rejected, (state, action) => {
+                if (action.error.message)
+                    state.message = message(action.error.message, "danger");
+                state.status = Status.FAILED;
+            })
+
             .addCase(check.pending, dataLoading)
             .addCase(check.fulfilled, (state, action) => {
                 if (!action.payload) return;
@@ -363,7 +388,7 @@ export const authSlice = createSlice({
     },
 });
 
-export const { logout } = authSlice.actions;
+export const { clearMessage, logout } = authSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

@@ -1,4 +1,4 @@
-import { useWindowSize } from "@/hooks";
+import { useQuery, useWindowSize } from "@/hooks";
 import { Job } from "@types";
 import React, { createContext, useContext } from "react";
 
@@ -21,6 +21,8 @@ export const PageSearchContextProvider = ({
 }: {
     children?: React.ReactNode;
 }) => {
+    const query = useQuery();
+
     const [data, setData] = React.useState<Job[]>([]);
     const [selected, setSelected] = React.useState<Job>();
 
@@ -28,7 +30,10 @@ export const PageSearchContextProvider = ({
 
     React.useEffect(() => {
         if (!selected && data.length && width && width > 1024)
-            setSelected(data?.at(0));
+            setSelected(
+                data?.find((datum) => datum.id == query.get("id")) ||
+                    data?.at(0)
+            );
     }, [data, selected, width]);
 
     return (

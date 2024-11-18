@@ -1,6 +1,9 @@
 export type Job = {
   id: string;
   name: string;
+  join: string;
+  contract_id: string;
+  diploma_id: string;
   description: string;
   company: string;
   salary_low: number;

@@ -3,8 +3,13 @@ export type Company = {
     name: string;
     email: string;
     phone: string;
+    password?: string;
+    oldPassword?: string;
     creation: string;
-    contactPerson: string;
+    contact_person: string;
+    logo?: string;
+    location: string;
+    maintenance?: boolean;
 };
 
 export type CompanyType = {

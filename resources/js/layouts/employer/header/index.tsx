@@ -5,9 +5,11 @@ import Messages from "./messages";
 import Notifications from "./notifications";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useLanguageContext } from "@/contexts";
 
 export default function Header() {
+    const { language } = useLanguageContext();
     const { menus, setOpen } = useLayoutAdminContext();
 
     const { t } = useTranslation();
@@ -23,7 +25,7 @@ export default function Header() {
             setTitle(title);
             setSubtitle(subtitle);
         }
-    }, [location.pathname]);
+    }, [location.pathname, language]);
 
     return (
         <header className="bg-white border-b border-neutral-200 h-20 md:h-24 xl:h-28 px-4 md:px-8 xl:px-12 flex items-center">
@@ -61,7 +63,9 @@ export default function Header() {
             </div>
 
             <button className="ml-6 md:ml-4 size-10 md:size-14 rounded-xl bg-primary text-white flex justify-center items-center">
-                <Setting className="size-5 md:size-6" />
+                <Link to="/employer/settings">
+                    <Setting className="size-5 md:size-6" />
+                </Link>
             </button>
         </header>
     );

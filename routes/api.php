@@ -89,6 +89,23 @@ Route::namespace('Employer')->prefix('employer')->name('employer.')->group(funct
             });
         });
 
+
+        Route::patch('', function () {
+            $data = array_merge(request()->except(['password']), request()->has('password') ? ['password' => Hash::make(request()->password)] : []);
+            if ($file = request()->file('logo')) {
+                $fileName = time() . '-' . $file->getClientOriginalName();
+                $file->move(public_path('/images/companies'), $fileName);
+                $data['logo'] = $fileName;
+            }
+            UtilController::get()->update($data);
+            return response()->json($data);
+        });
+
+        Route::get('/jobs/{id}', function ($id) {
+            $datum = UtilController::get()->jobs()->find($id);
+            return response()->json($datum);
+        });
+
         Route::post('/jobs', [EmployerJobController::class, 'store'])->name('jobs.store');
         Route::get('/jobs', [EmployerJobController::class, 'index'])->name('jobs.index');
     });

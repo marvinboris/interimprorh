@@ -36,15 +36,19 @@ export function PageEmployerApplications() {
                 ),
                 action: (
                     <div className="flex gap-2.5 *:size-6 *:rounded-md *:text-white *:flex *:justify-center *:items-center">
-                        <button className="bg-purple">
+                        <Link
+                            target="_blank"
+                            to={"/search?id=" + job.id}
+                            className="bg-purple"
+                        >
                             <Eye className="size-3" />
-                        </button>
-                        <button className="bg-telegram">
+                        </Link>
+                        <Link
+                            to={"/employer/applications/" + job.id}
+                            className="bg-telegram"
+                        >
                             <Edit className="size-3" />
-                        </button>
-                        <button className="bg-like">
-                            <Download size={12} />
-                        </button>
+                        </Link>
                     </div>
                 ),
             }))}
@@ -67,3 +71,4 @@ export function PageEmployerApplications() {
 }
 
 export * from "./add";
+export * from "./edit";
