@@ -35,4 +35,10 @@ class Job extends Model
     {
         return $this->belongsTo(Diploma::class);
     }
+
+    // Define the relationship between Job and Request
+    public function requests()
+    {
+        return $this->hasMany(Request::class);
+    }
 }

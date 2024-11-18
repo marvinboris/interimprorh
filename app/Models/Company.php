@@ -34,6 +34,10 @@ class Company extends Authenticatable
         'password',
     ];
 
+    protected $append = [
+        'requests',
+    ];
+
     public static function personalAccessToken()
     {
         return 'Employer Personal Access Token';
@@ -52,6 +56,11 @@ class Company extends Authenticatable
     public function jobs()
     {
         return $this->hasMany(Job::class);
+    }
+
+    public function requests()
+    {
+        return $this->hasManyThrough(Request::class, Job::class);
     }
 
     public function company_activity()

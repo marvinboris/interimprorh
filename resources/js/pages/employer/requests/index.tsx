@@ -30,7 +30,7 @@ export function PageEmployerRequests() {
 
     if (isLoading) return <Loading />;
     return (
-        <Section className="pt-4 lg:pt-8 pb-5 md:mb-9 xl:pb-14">
+        <>
             <Details
                 show={showing}
                 request={request}
@@ -130,7 +130,7 @@ export function PageEmployerRequests() {
                 title={t("Request list")}
                 icon={DocumentVerified}
             />
-        </Section>
+        </>
     );
 }
 

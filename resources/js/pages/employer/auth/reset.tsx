@@ -122,7 +122,8 @@ export function PageAuthEmployerReset() {
                                 closable={false}
                                 className="lg:col-span-2 mb-3"
                             >
-                                {message?.content && t(message.content as i18nKey)}
+                                {message?.content &&
+                                    t(message.content as i18nKey)}
                             </Alert>
 
                             <Input
