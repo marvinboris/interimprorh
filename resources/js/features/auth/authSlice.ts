@@ -92,7 +92,7 @@ export const employerReset = createAsyncThunk(
 );
 export const employerEdit = createAsyncThunk(
     "auth/employer/edit",
-    async (data: Company) => await patchEmployer(data)
+    async (data: Company | FormData) => await patchEmployer(data)
 );
 export const adminLogin = createAsyncThunk(
     "auth/admin/login",

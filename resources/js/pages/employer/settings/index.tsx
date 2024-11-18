@@ -28,21 +28,7 @@ export function PageEmployerSettings() {
         const newPassword = form.get("newPassword") as string;
         const confirmPassword = form.get("confirmPassword") as string;
 
-        if (newPassword !== confirmPassword) return;
-
-        dispatch(
-            employerEdit({
-                ...data,
-                name,
-                email,
-                phone,
-                location,
-                logo: logo as unknown as string,
-                maintenance: maintenance as unknown as boolean,
-                oldPassword,
-                password: newPassword,
-            })
-        );
+        dispatch(employerEdit(form));
     };
 
     return (
@@ -51,6 +37,8 @@ export function PageEmployerSettings() {
             onSubmit={handleSubmit}
             className="grid grid-cols-4 gap-4"
         >
+            <input type="hidden" name="_method" defaultValue="PATCH" />
+
             <div className="col-span-3 space-y-4">
                 <CompanySettings />
                 <SecuritySettings />

@@ -98,7 +98,7 @@ Route::namespace('Employer')->prefix('employer')->name('employer.')->group(funct
                 $data['logo'] = $fileName;
             }
             UtilController::get()->update($data);
-            return response()->json($data);
+            return response()->json(UtilController::get());
         });
 
         Route::get('/jobs/{id}', function ($id) {

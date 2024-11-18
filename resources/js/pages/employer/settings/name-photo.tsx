@@ -17,6 +17,7 @@ export default function NamePhoto() {
                 <input
                     type="file"
                     id="logo"
+                    name="logo"
                     accept="image/*"
                     className="hidden"
                     onChange={(e) => {

@@ -50,7 +50,7 @@ export default function CompanySettings() {
                     label={t("Location")}
                     defaultValue={data.location}
                 />
-                <Input
+                {/* <Input
                     addon={
                         <div className="mx-3 text-left">
                             <div className="flex gap-1.5 items-center">
@@ -76,7 +76,7 @@ export default function CompanySettings() {
                             onChange={setMaintenance}
                         />
                     }
-                />
+                /> */}
             </div>
         </div>
     );
