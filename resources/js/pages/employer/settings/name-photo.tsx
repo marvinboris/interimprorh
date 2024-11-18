@@ -42,7 +42,7 @@ export default function NamePhoto() {
                 {logo ? (
                     <img src={logo} alt={data.name} className="size-full object-cover" />
                 ) : (
-                    <Svg className="size-full" />
+                    <div className="size-full bg-white" />
                 )}
             </div>
 
