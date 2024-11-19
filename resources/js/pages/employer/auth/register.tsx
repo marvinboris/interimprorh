@@ -65,7 +65,19 @@ export function PageAuthEmployerRegister() {
                     password_confirmation,
                 }),
             });
-            const data = (await res.json()) as { email: string };
+            const data = (await res.json()) as
+                | { email: string }
+                | { errors: Record<string, string[]> };
+            setLoading(false);
+
+            if ("errors" in data)
+                return setMessage({
+                    content: Object.values(data.errors)
+                        .map((value) => value.map((v) => t(v as i18nKey)))
+                        .join("\n"),
+                    type: "danger",
+                });
+
             setMessage({
                 content: t(
                     "Company successfully created. E-mail sent to: {{email}}",
@@ -74,7 +86,6 @@ export function PageAuthEmployerRegister() {
                 type: "success",
             });
             form.reset();
-            setLoading(false);
         } catch (error) {
             console.log(error);
             setLoading(false);
